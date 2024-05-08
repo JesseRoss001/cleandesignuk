@@ -43,7 +43,7 @@ footer .list-unstyled {
 
 footer .list-unstyled li a {
     color: white; /* Keeps icons white */
-    font-size: 1.3rem; /* Sets a larger size for visibility */
+    font-size: 1.1rem !important; /* Sets a larger size for visibility */
     transition: color 0.3s; /* Smooth transition for hover effect */
     text-decoration: none;
 }
@@ -58,5 +58,8 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
     footer .list-unstyled {
         justify-content: space-evenly; /* Ensures even spacing on smaller screens */
     }
+
+    footer .list-unstyled li a {font-size: 1rem !important;}
 }
+
 
