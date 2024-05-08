@@ -1,3 +1,9 @@
-from django.shortcuts import render
+# contact/urls.py
 
-# Create your views here.
+from django.urls import path
+from . import views
+
+app_name = 'contact'
+urlpatterns = [
+    path('', views.index, name='index'),
+]
