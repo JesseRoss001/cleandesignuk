@@ -1,9 +1,7 @@
 # contact/urls.py
+from django.shortcuts import render
 
-from django.urls import path
-from . import views
-
-app_name = 'contact'
-urlpatterns = [
-    path('', views.index, name='index'),
-]
+def index(request):
+    return render(request, 'contact/index.html', {
+        'title': 'Contact'
+    })

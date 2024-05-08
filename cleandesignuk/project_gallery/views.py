@@ -1,9 +1,6 @@
-# project_gallery/urls.py
+from django.shortcuts import render
 
-from django.urls import path
-from . import views
-
-app_name = 'gallery'
-urlpatterns = [
-    path('', views.index, name='index'),
-]
+def index(request):
+    return render(request, 'project_gallery/index.html', {
+        'title': 'Project Gallery'
+    })

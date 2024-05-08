@@ -1,9 +1,6 @@
-# about/urls.py
+from django.shortcuts import render
 
-from django.urls import path
-from . import views
-
-app_name = 'about'
-urlpatterns = [
-    path('', views.index, name='index'),
-]
+def index(request):
+    return render(request, 'about/index.html', {
+        'title': 'About Us'
+    })
