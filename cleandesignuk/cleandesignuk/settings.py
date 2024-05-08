@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+import cloudinary
+          
+cloudinary.config( 
+  cloud_name = "dz18uvfpa", 
+  api_key = "926846188353119", 
+  api_secret = "K3z1zVsbWDqrHNgZ1S3YoV3Me84" 
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,7 +67,7 @@ ROOT_URLCONF = 'cleandesignuk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Add this if your base.html is in a global templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +129,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',  # Adjust this path if your static files are located differently
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

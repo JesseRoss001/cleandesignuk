@@ -1,0 +1,62 @@
+main {min-height:100vh;}
+
+
+/*                 --------------------NAVBAR ----------------------------          */
+
+/* Custom styles for the navbar */
+.navbar {
+    font-size: 1.4rem; /* Base font size */
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        font-size: 1.2rem; /* Smaller text on smaller devices */
+    }
+}
+
+
+/* Ensure the logo fits well in the navbar */
+.navbar-brand img {
+    height: auto;
+    max-height: 40px; /* Adjust based on your preference */
+    width: auto;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 1.2rem; /* Even smaller text on mobile devices */
+    }
+}
+
+
+/* --------------------------------FOOTER--------------------------------*/ 
+
+/* Social icons styling */
+footer .list-unstyled {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex; /* Aligns the icons horizontally */
+    justify-content: space-around; /* Spreads the icons evenly */
+}
+
+footer .list-unstyled li a {
+    color: white; /* Keeps icons white */
+    font-size: 1.3rem; /* Sets a larger size for visibility */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none;
+}
+
+footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
+    color: #ccc; /* Changes color on hover for better interaction feedback */
+    text-decoration: none; /* Removes underline on hover */
+}
+.policy-footer-size {font-size: 1rem !important;}
+/* Ensure responsiveness of the footer icons */
+@media (max-width: 768px) {
+    footer .list-unstyled {
+        justify-content: space-evenly; /* Ensures even spacing on smaller screens */
+    }
+}
+
