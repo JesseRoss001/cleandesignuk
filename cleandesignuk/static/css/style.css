@@ -1,5 +1,5 @@
 main {min-height:100vh;}
-
+body {color:black;}
 
 /*                 --------------------NAVBAR ----------------------------          */
 
@@ -12,20 +12,33 @@ main {min-height:100vh;}
     font-size: 1.4rem; /* Base font size */
     
 }
+.nav-link {color:black;}
 
 
+.text-size-brand {font-size: 1.6rem;
+color:black;}
+.icon-sizing {font-size: 1.4rem;}
 
 @media (max-width: 1024px) {
     .navbar {
         font-size: 1.2rem; /* Smaller text on smaller devices */
     }
+    .icon-sizing {font-size: 1.2rem;}
+    .text-size-brand {font-size: 1.4rem;}
 }
 
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
 
 /* Ensure the logo fits well in the navbar */
 .navbar-brand img {
     height: auto;
-    max-height: 40px; /* Adjust based on your preference */
+    max-height: 60px; /* Adjust based on your preference */
     width: auto;
     margin-right: 10px;
 }
@@ -34,6 +47,9 @@ main {min-height:100vh;}
     .navbar {
         font-size: 1.2rem; /* Even smaller text on mobile devices */
     }
+    .icon-sizing {font-size: 1.2rem;}
+
+    .text-size-brand {font-size: 1.3rem;}
 }
 
 
@@ -56,14 +72,14 @@ footer .list-unstyled {
 }
 
 footer .list-unstyled li a {
-    color: blue; /* Keeps icons white */
+    color: rgb(0, 0, 3); /* Keeps icons white */
     font-size: 1.1rem !important; /* Sets a larger size for visibility */
     transition: color 0.3s; /* Smooth transition for hover effect */
     text-decoration: none;
 }
 
 footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
-    color: blue; /* Changes color on hover for better interaction feedback */
+    color: rgb(136, 14, 14); /* Changes color on hover for better interaction feedback */
     text-decoration: none; /* Removes underline on hover */
 }
 .policy-footer-size {font-size: 1rem !important;}
