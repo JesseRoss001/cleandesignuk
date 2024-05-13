@@ -13,6 +13,8 @@ main {min-height:100vh;}
     
 }
 
+
+
 @media (max-width: 1024px) {
     .navbar {
         font-size: 1.2rem; /* Smaller text on smaller devices */
@@ -38,7 +40,12 @@ main {min-height:100vh;}
 
 
 /* --------------------------------FOOTER--------------------------------*/ 
-
+footer {    backdrop-filter: blur(10px); /* Blurs any content behind the footer */
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    border-top: 1px solid rgba(255, 255, 255, 0.25); /* Subtle white border at the top */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth, inverted to cast upwards */
+    color: #000; /* Adjust text color for visibility against light background */
+    padding: 20px 0; /* Padding for aesthetic spacing */}
 /* Social icons styling */
 footer .list-unstyled {
     padding: 0;
@@ -49,14 +56,14 @@ footer .list-unstyled {
 }
 
 footer .list-unstyled li a {
-    color: white; /* Keeps icons white */
+    color: blue; /* Keeps icons white */
     font-size: 1.1rem !important; /* Sets a larger size for visibility */
     transition: color 0.3s; /* Smooth transition for hover effect */
     text-decoration: none;
 }
 
 footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
-    color: #ccc; /* Changes color on hover for better interaction feedback */
+    color: blue; /* Changes color on hover for better interaction feedback */
     text-decoration: none; /* Removes underline on hover */
 }
 .policy-footer-size {font-size: 1rem !important;}
