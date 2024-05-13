@@ -49,6 +49,65 @@
     </div>
 </nav>
 <main class="mt-5  pt-5 pt-3 flex-shrink-0">
+    <div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyPolicyModalLabel">Privacy Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Data Collection and Use</h6>
+                    <p>We collect the following data: first name, surname, and email address when you fill out our contact form. This information is held for up to 3 days to respond to your query.</p>
+                    <h6>Cookies and Third Party Services</h6>
+                    <p>We use third-party cookies from Cloudinary to enhance image load times on return visits to our website. These cookies are used solely for performance improvements.</p>
+                    <h6>Your Rights</h6>
+                    <p>Under the GDPR, you have the right to access, correct, transfer, and delete your personal data. You also have the right to object to certain processing and restrict certain processing activities.</p>
+                    <p>If you wish to exercise any of these rights, please contact us at our provided contact details.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Modal -->
+<div class="modal fade" id="cookieConsentModal" tabindex="-1" aria-labelledby="cookieConsentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cookieConsentModalLabel">Cookie Policy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>We use cookies, including third-party cookies from Cloudinary for faster image load times on repeat visits. By continuing to browse our site, you agree to our use of cookies.</p>
+                <p>To learn more about how we use cookies and how you can manage them, read our <a href="#" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal" data-bs-dismiss="modal">Privacy Policy</a>.</p>
+                <p>You can disable cookies by adjusting your browser settings.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Accept Cookies</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cookiePolicyModal" tabindex="-1" aria-labelledby="cookiePolicyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cookiePolicyModalLabel">Cookie Policy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>We use third-party cookies from Cloudinary to enhance image load times on return visits to our website. These cookies are used solely for performance improvements.</p>
+                <p>By continuing to use our site, you accept our use of cookies. You can disable cookies by adjusting the settings in your browser.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
     {% block content %}
     {% endblock %}
 </main>
@@ -88,20 +147,38 @@
                 <h5 class="text-uppercase">Policies</h5>
                 <ul class="list-unstyled row ">
                     <li class="col-6 col-md-12">
-                        <a href="#!" class=" policy-footer-size">Privacy Policy</a>
+                        <a href="#" class="policy-footer-size" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal">Privacy Policy</a>
                     </li>
                     <li class="col-6 col-md-12 ">
-                        <a href="#!" class=" policy-footer-size ">Cookie Policy</a>
+                        <a href="#!" class="policy-footer-size" data-bs-toggle="modal" data-bs-target="#cookiePolicyModal">Cookie Policy</a>
+
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const cookieConsent = localStorage.getItem('cookieConsent');
+        
+            if (!cookieConsent) {
+                var cookieModal = new bootstrap.Modal(document.getElementById('cookieConsentModal'));
+                cookieModal.show();
+            }
+        
+            document.querySelector('#cookieConsentModal .btn-primary').addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+            });
+        });
+        </script>
 </body>
 </html>

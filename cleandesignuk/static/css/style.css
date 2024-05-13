@@ -51,7 +51,17 @@ color:black;}
 
     .text-size-brand {font-size: 1.3rem;}
 }
-
+/* -----------------------COOKIE POLICY -------------------------*/
+#cookieConsentModal .modal-content {
+    background-color: #f8f9fa; /* Light background for the modal */
+    color: #333; /* Dark text for readability */
+}
+#cookieConsentModal .modal-header {
+    border-bottom: 1px solid #dee2e6; /* Subtle border for the header */
+}
+#cookieConsentModal .modal-footer {
+    border-top: 1px solid #dee2e6; /* Subtle border for the footer */
+}
 
 
 
