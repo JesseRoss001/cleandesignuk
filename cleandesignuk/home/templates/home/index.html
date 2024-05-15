@@ -30,11 +30,12 @@
         color: rgb(136, 14, 14); /* Bright red for emphasis */
     }
   /* Card styling for the service sections */
-  .service-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 8px;
+ /* Card styling for the service sections */
+ .service-card {
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+        backdrop-filter: blur(10px); /* Blur effect for the frosted look */
+        border: 1px solid rgb(136, 14, 14); /* Thin red border */
+        border-radius: 8px; /* Rounded corners */
         padding: 20px;
         margin-bottom: 20px; /* Spacing between cards */
     }
@@ -43,6 +44,11 @@
     }
     .service-card p {
         color: #000; /* Black for readability */
+    }
+    
+    .btn-danger {
+        background-color: rgb(136, 14, 14); /* Button color adjusted to match the border */
+        border-color: rgb(136, 14, 14); /* Button border color */
     }
     /* Responsive design adjustments */
     @media (max-width: 1024px) {
