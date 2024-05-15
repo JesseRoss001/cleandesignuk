@@ -1,10 +1,9 @@
-# blog/urls.py
-
 from django.urls import path
-from . import views
+from .views import index, blog_detail
 
-app_name = 'blog'
+app_name = 'blog'  # Add this line
+
 urlpatterns = [
-    path('', views.index, name='index'),
-    # Additional blog-specific paths can be added here
+    path('', index, name='blog_list'),
+    path('<int:pk>/', blog_detail, name='blog_detail'),
 ]

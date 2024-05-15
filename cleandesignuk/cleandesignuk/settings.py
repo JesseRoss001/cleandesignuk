@@ -44,13 +44,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
     'home',  # add this
+    'tinymce',
     'blog',  # add this
     'about',  # add this
     'project_gallery',  # add this
     'packages_services',  # add this
     'contact',  # add this
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your-cloud-name',
+    'API_KEY': 'your-api-key',
+    'API_SECRET': 'your-api-secret',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,6 +71,38 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': '100%',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+}
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ROOT_URLCONF = 'cleandesignuk.urls'
 
 TEMPLATES = [
@@ -81,7 +122,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cleandesignuk.wsgi.application'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
