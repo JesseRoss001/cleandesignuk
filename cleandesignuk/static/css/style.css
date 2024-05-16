@@ -12,9 +12,13 @@ body {color:black;}
     font-size: 1.4rem; /* Base font size */
     
 }
-.nav-link {color:black;}
+.nav-link {color:black !important;}
 
-
+.active {
+    color: #c41d1d !important; /* White text */
+     /* Bootstrap primary color */
+    font-weight: bold;
+}
 .text-size-brand {font-size: 1.6rem;
 color:black;}
 .icon-sizing {font-size: 1.4rem;}

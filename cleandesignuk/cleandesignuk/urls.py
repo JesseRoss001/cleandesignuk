@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tinymce/', include('tinymce.urls')),  # If using tinymce
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('', include('home.urls', namespace='home')),
     path('about/', include('about.urls', namespace='about')),

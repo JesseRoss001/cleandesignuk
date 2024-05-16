@@ -44,22 +44,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'cloudinary',
     'cloudinary_storage',
     'home',  # add this
-    'tinymce',
     'blog',  # add this
     'about',  # add this
     'project_gallery',  # add this
     'packages_services',  # add this
     'contact',  # add this
 ]
-
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'your-cloud-name',
-    'API_KEY': 'your-api-key',
-    'API_SECRET': 'your-api-secret',
+    'CLOUD_NAME': 'dz18uvfpa',
+    'API_KEY': '926846188353119',
+    'API_SECRET': 'K3z1zVsbWDqrHNgZ1S3YoV3Me84',
 }
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jesseross00-cleandesign-to38evacpje.ws-eu111.gitpod.io',
+    # Add other trusted origins if needed
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,35 +75,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-TINYMCE_DEFAULT_CONFIG = {
-    'height': 360,
-    'width': '100%',
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 20,
-    'selector': 'textarea',
-    'theme': 'modern',
-    'plugins': '''
-            textcolor save link image media preview codesample contextmenu
-            table code lists fullscreen  insertdatetime  nonbreaking
-            contextmenu directionality searchreplace wordcount visualblocks
-            visualchars code fullscreen autolink lists  charmap print  hr
-            anchor pagebreak
-            ''',
-    'toolbar1': '''
-            fullscreen preview bold italic underline | fontselect,
-            fontsizeselect  | forecolor backcolor | alignleft alignright |
-            aligncenter alignjustify | indent outdent bullist numlist table |
-            | link image media | codesample |
-            ''',
-    'toolbar2': '''
-            visualblocks visualchars |
-            charmap hr pagebreak nonbreaking anchor |  code |
-            ''',
-    'contextmenu': 'formats | link image',
-    'menubar': True,
-    'statusbar': True,
-}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -120,6 +95,20 @@ TEMPLATES = [
         },
     },
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 360,
+        'width': '100%',
+        'extraPlugins': ','.join([
+            'codesnippet',
+            'image2',
+        ]),
+    },
+}
 
 WSGI_APPLICATION = 'cleandesignuk.wsgi.application'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -172,10 +161,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Adjust this path if your static files are located differently
+    BASE_DIR / 'static',
 ]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

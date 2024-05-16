@@ -24,25 +24,25 @@
                 <i class="fas fa-bars icon-sizing" ></i>
             </span>
         </button>
-        <div class="collapse navbar-collapse w-100 d-lg-flex  justify-content-around align-items-center m-2" id="navbarNav" style="max-width: 1400px;">
-            <ul class="navbar-nav  d-lg-flex  justify-content-around align-items-center" >
+        <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2" id="navbarNav" style="max-width: 1400px;">
+            <ul class="navbar-nav d-lg-flex justify-content-around align-items-center">
                 <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5" href="{% url 'home:index' %}">Home</a>
+                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'home:index' or request.path == '/' %}active{% endif %}" href="{% url 'home:index' %}">Home</a>
                 </li>
-                <li class="nav-item mx-auto ">
-                    <a class="nav-link px-lg-3 px-xl-5 " href="{% url 'blog:index' %}">Blog</a>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'blog_list' %}active{% endif %}" href="{% url 'blog:blog_list' %}">Blog</a>
                 </li>
-                <li class="nav-item mx-auto ">
-                    <a class="nav-link px-lg-3 px-xl-5  " href="{% url 'about:index' %}">About Us</a>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about:index' %}">About Us</a>
                 </li>
-                <li class="nav-item mx-auto ">
-                    <a class="nav-link px-lg-3 px-xl-5  " href="{% url 'gallery:index' %}">Project Gallery</a>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery:index' %}">Project Gallery</a>
                 </li>
-                <li class="nav-item mx-auto ">
-                    <a class="nav-link px-lg-3 px-xl-5  " href="{% url 'services:index' %}">Packages/Services</a>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services:index' %}">Packages/Services</a>
                 </li>
-                <li class="nav-item mx-auto ">
-                    <a class="nav-link px-lg-3 " href="{% url 'contact:index' %}">Contact</a>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link px-lg-3 {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact:index' %}">Contact</a>
                 </li>
             </ul>
         </div>
@@ -108,8 +108,8 @@
         </div>
     </div>
 </div>
-    {% block content %}
-    {% endblock %}
+{% block content %}
+{% endblock %}
 </main>
 
 <footer class="">
