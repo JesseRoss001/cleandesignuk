@@ -278,6 +278,65 @@ section {
     .fade-in {
         animation: fadeIn 1s ease-in-out;
     }
+    
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ac2209;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#backToTop:hover {
+    background-color: #cb4611;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-bg h1 {
+        font-size: 2rem;
+    }
+
+    .header-bg p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-text,
+    .card h6 {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .header-bg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-bg button {
+        width: 45%;
+        margin: 0.5rem 2.5%;
+    }
+}
 </style>
 </head>
 
@@ -692,7 +751,7 @@ section {
             </div>
         </div>
     </section>
-
+    <button id="backToTop" onclick="scrollToTop()">Top</button>
     <footer class="py-4 bg-dark text-white text-center">
         <div class="container">
             <p class="mb-0">© 2024 CleanDesignUK. All Rights Reserved.</p>
@@ -709,5 +768,15 @@ section {
             // Show the selected section
             document.querySelector('.' + sectionClass).style.display = 'block';
         }
+    
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    
+        // Show the first section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('bespoke');
+        });
     </script>
     {% endblock %}
