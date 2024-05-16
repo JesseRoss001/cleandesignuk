@@ -2,166 +2,422 @@
 
 {% block content %}
 <style>
+    /* Global Styles */
     body {
         font-family: 'Arial', sans-serif;
         background-color: #f5f5f5;
         color: #333;
+        margin: 0;
+        padding: 0;
     }
+
+    /* Header Styles */
     .header-bg {
         background: linear-gradient(135deg, #cb4611, #ac2209);
+        color: #fff;
+        padding: 3rem 0;
+        text-align: center;
     }
-    .card-title {
-        color: #ac2209;
+
+    .header-bg h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
     }
-    .card-text {
-        color: #666;
+
+    .header-bg p {
+        font-size: 1.25rem;
     }
+
+    /* Section Styles */
+    section {
+        padding: 4rem 0;
+    }
+
     .section-title {
         color: #cb4611;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        text-align: center;
     }
+
     .bg-custom-light {
         background-color: #fcfafa;
     }
+
     .bg-custom-dark {
-        background-color: #fcfafa;
+        background-color: #2c2c2c;
+        color: #fff;
+    }
+
+    /* Card Styles */
+    .card {
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .card-title {
+        color: #ac2209;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+    .card ul {
+        padding-left: 1.25rem;
+    }
+
+    .card ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .card h6 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    /* Footer Styles */
+
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Utility Classes */
+    .text-center {
+        text-align: center;
+    }
+
+    .text-white {
+        color: #fff;
+    }
+
+    .mb-0 {
+        margin-bottom: 0;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -0.5rem;
+    }
+
+    .col-lg-4,
+    .col-lg-6 {
+        padding: 0.5rem;
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        .col-lg-4 {
+            width: 33.3333%;
+        }
+
+        .col-lg-6 {
+            width: 50%;
+        }
+    }
+
+    .gy-4 {
+        row-gap: 1.5rem;
+    }
+
+    .btn-primary {
+        background-color: #ac2209;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #cb4611;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
     }
 </style>
 </head>
-<body>
-<header class="header-bg text-white text-center py-5">
-    <div class="container">
-        <h1 class="display-4">Our Packages</h1>
-        <p class="lead">At Clean Design UK, we pride ourselves on creating meaningful connections with our clients. We provide regular post-launch meetings to ensure your ongoing success. Choose the perfect package to elevate your online presence and benefit from our commitment to long-term customer care and discourse.</p>
-    </div>
-</header>
 
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title text-center mb-4">Exquisite Handcrafted Website Packages Tailored to Perfection</h2>
-        <p class="text-center">Unlock the Potential: These figures are merely a starting point. Following our initial consultation, we tailor quotes to match your specific budget, offering flexible aftercare options and opportunities for enhancements or adjustments to suit your needs.</p>
-        <div class="row gy-4">
-            <!-- Basic Portfolio Package -->
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Basic Portfolio Website Package</h5>
-                        <p class="card-text"><strong>Cost:</strong> £210</p>
-                        <p class="card-text"><strong>Maintenance:</strong> £17/month (Static website)</p>
-                        <p class="card-text"><strong>Timeline:</strong> 8 days</p>
-                        <p class="card-text"><strong>Total Investment:</strong> Approx. £240</p>
-                        <p class="card-text"><strong>Number of Pages:</strong> 1</p>
-                        <p class="card-text">Up to 3 Google Meetings and regular progress updates and feedback sessions.</p>
-                        <h6>Key Features:</h6>
-                        <ul>
-                            <li>Tailored custom design emphasising aesthetic appeal and brand identity.</li>
-                            <li>Advanced SEO strategies to boost online visibility.</li>
-                            <li>Responsive design ensuring compatibility across all devices.</li>
-                            <li>High-quality stock photo usage and custom image hosting.</li>
-                            <li>Hosting setup included, along with an SSL certificate for enhanced security.</li>
-                            <li>Three revision rounds to ensure complete satisfaction.</li>
-                        </ul>
-                        <p class="card-text"><strong>Monthly:</strong> £25, including regular maintenance and up to four free consultations per year.</p>
+<body>
+    <header class="header-bg text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Our Packages</h1>
+            <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive
+                aftercare to ensure your satisfaction. Explore our packages designed to elevate your online presence
+                with warmth and dedication.</p>
+        </div>
+    </header>
+    <section class="py-5 bespoke">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Bespoke Websites crafted to your needs </h2>
+            <p class="text-center">We understand your unique requirements and tailor our packages to address them
+                effectively. Our commitment to your success extends beyond launch, with regular post-launch meetings and
+                attentive care.</p>
+            <div class="row gy-4">
+                <!-- Basic Portfolio Package -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Basic Portfolio Website Package</h5>
+                            <p class="card-text"><strong>Total Price:</strong> £240</p>
+                            <p class="card-text"><strong>Monthly Price:</strong> £25</p>
+                            <p class="card-text"><strong>Pain Point:</strong> Limited budget, need for professional
+                                online presence.</p>
+                            <p class="card-text"><strong>How it Fixes It:</strong> Offers a budget-friendly solution
+                                with a tailored design and essential features.</p>
+                            <p class="card-text"><strong>Number of Pages:</strong> 1</p>
+                            <p class="card-text">Enjoy up to 3 Google Meetings, regular progress updates, and feedback
+                                sessions.</p>
+                            <h6>Key Features:</h6>
+                            <ul>
+                                <li>Tailored custom design emphasising aesthetic appeal and brand identity.</li>
+                                <li>Advanced SEO strategies to boost online visibility.</li>
+                                <li>Responsive design ensuring compatibility across all devices.</li>
+                                <li>High-quality stock photo usage and custom image hosting.</li>
+                                <li>Hosting setup included, along with an SSL certificate for enhanced security.</li>
+                                <li>Three revision rounds to ensure complete satisfaction.</li>
+                            </ul>
+                            <p class="card-text"><strong>Monthly:</strong> £25, including regular maintenance and up to
+                                four free consultations per year.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Dynamic Service Business Package -->
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Dynamic Service Business Website Package</h5>
-                        <p class="card-text"><strong>Cost:</strong> £900</p>
-                        <p class="card-text"><strong>Timeline:</strong> 45 days</p>
-                        <p class="card-text"><strong>Total Investment:</strong> Approx. £1,020</p>
-                        <p class="card-text">Up to 7 Google Meetings and regular progress updates and feedback sessions.</p>
-                        <h6>Key Features:</h6>
-                        <ul>
-                            <li>Fully custom design tailored to business needs, enabling a unique customer experience.</li>
-                            <li>Bespoke booking system and dynamic content capabilities, including a gallery and blog.</li>
-                            <li>SEO optimised to attract and engage more visitors.</li>
-                            <li>Hosting on a high-performance server with speed optimisation to ensure fast loading times.</li>
-                            <li>Four revisions included, ensuring the final product meets all expectations.</li>
-                            <li>Comprehensive SSL security to protect site and user data.</li>
-                        </ul>
-                        <p class="card-text"><strong>Monthly:</strong> £40, including ongoing maintenance and up to four free consultations annually.</p>
+                <!-- Dynamic Service Business Package -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Dynamic Service Business Website Package</h5>
+                            <p class="card-text"><strong>Total Price:</strong> £1,020</p>
+                            <p class="card-text"><strong>Monthly Price:</strong> £40</p>
+                            <p class="card-text"><strong>Pain Point:</strong> Need for a dynamic online presence with
+                                booking capabilities.</p>
+                            <p class="card-text"><strong>How it Fixes It:</strong> Provides a comprehensive solution
+                                tailored for service-based businesses, including dynamic content and booking features.
+                            </p>
+                            <p class="card-text">Benefit from up to 7 Google Meetings, regular progress updates, and
+                                feedback sessions.</p>
+                            <h6>Key Features:</h6>
+                            <ul>
+                                <li>Fully custom design tailored to business needs, enabling a unique customer
+                                    experience.</li>
+                                <li>Bespoke booking system and dynamic content capabilities, including a gallery and
+                                    blog.</li>
+                                <li>SEO optimised to attract and engage more visitors.</li>
+                                <li>Hosting on a high-performance server with speed optimisation to ensure fast loading
+                                    times.</li>
+                                <li>Four revisions included, ensuring the final product meets all expectations.</li>
+                                <li>Comprehensive SSL security to protect site and user data.</li>
+                            </ul>
+                            <p class="card-text"><strong>Monthly:</strong> £40, including ongoing maintenance and up to
+                                four free consultations annually.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Comprehensive E-Commerce Package -->
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Comprehensive E-Commerce Website Package</h5>
-                        <p class="card-text"><strong>Cost:</strong> £1,425</p>
-                        <p class="card-text"><strong>Timeline:</strong> 45 days</p>
-                        <p class="card-text"><strong>Total Investment:</strong> Approx. £1,505</p>
-                        <p class="card-text">Up to 8 Google Meetings and regular progress updates and feedback sessions.</p>
-                        <h6>Key Features:</h6>
-                        <ul>
-                            <li>Robust e-commerce platform supporting up to 50 products, with scalability for business growth.</li>
-                            <li>Custom content management system designed for unique business needs.</li>
-                            <li>Advanced SEO implementation to maximise reach and market penetration.</li>
-                            <li>Integration of user login and portfolio creation features to enhance user engagement.</li>
-                            <li>Secure payment gateways, opt-in forms, and autoresponder integration for effective marketing.</li>
-                            <li>Social media integration to leverage online presence and customer interaction.</li>
-                            <li>Full setup including custom contact page, six pages of content upload, and 6 plugins/extensions.</li>
-                        </ul>
-                        <p class="card-text"><strong>Monthly:</strong> £50, including premium maintenance services and up to four free consultations per year.</p>
+                <!-- Comprehensive E-Commerce Package -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Comprehensive E-Commerce Website Package</h5>
+                            <p class="card-text"><strong>Total Price:</strong> £1,505</p>
+                            <p class="card-text"><strong>Monthly Price:</strong> £50</p>
+                            <p class="card-text"><strong>Pain Point:</strong> Need for a robust e-commerce platform with
+                                scalability.</p>
+                            <p class="card-text"><strong>How it Fixes It:</strong> Delivers a comprehensive e-commerce
+                                solution supporting growth and expansion.</p>
+                            <p class="card-text">Benefit from up to 8 Google Meetings, regular progress updates, and
+                                feedback sessions.</p>
+                            <h6>Key Features:</h6>
+                            <ul>
+                                <li>Robust e-commerce platform supporting up to 50 products, with scalability for
+                                    business growth.</li>
+                                <li>Custom content management system designed for unique business needs.</li>
+                                <li>Advanced SEO implementation to maximise reach and market penetration.</li>
+                                <li>Integration of user login and portfolio creation features to enhance user
+                                    engagement.</li>
+                                <li>Secure payment gateways, opt-in forms, and autoresponder integration for effective
+                                    marketing.</li>
+                                <li>Full setup including custom contact page, six pages of content upload, and 6
+                                    plugins/extensions.</li>
+                            </ul>
+                            <p class="card-text"><strong>Monthly:</strong> £50, including premium maintenance services
+                                and up to four free consultations per year.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="py-5 bg-custom-light">
-    <div class="container">
-        <h2 class="section-title text-center mb-4">Unlock Your E-Commerce Potential</h2>
-        <p class="text-center">Our E-commerce packages leverage the capabilities of Wix, Squarespace, or Shopify to empower your online venture. Designed to suit varying needs and budgets, these solutions offer reliability and ease of use, ensuring your online store thrives in today's digital landscape.</p>
-        <div class="row gy-4">
-            <!-- Shopify Full-Service Package -->
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Shopify Full-Service E-Commerce Setup</h5>
-                        <p class="card-text"><strong>Cost:</strong> £556 (Setup fee + First month fee + Domain Purchase)</p>
-                        <p class="card-text"><strong>Monthly Fee:</strong> £19 (Basic Plan), £49 (Shopify Plan), with a maintenance fee of £10 to £25/month depending on services chosen.</p>
-                        <p class="card-text"><strong>Timeline:</strong> Custom based on client needs.</p>
-                        <h6>Key Features:</h6>
-                        <ul>
-                            <li>Up to 50 products with options to scale as needed.</li>
-                            <li>High-quality imagery tailored for product engagement.</li>
-                            <li>Comprehensive SEO setup for increased visibility.</li>
-                            <li>Integrated client management tools for streamlined operations.</li>
-                            <li>A secure, robust payment system that includes options for multiple currencies and payment methods.</li>
-                            <li>Enhanced customisability options including theme adjustments and advanced layout designs.</li>
-                            <li>Full access to Shopify's app store for additional plugins and extensions.</li>
-                            <li>Email marketing setup and integration.</li>
-                            <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
-                            <li>Social media integration and marketing tools.</li>
-                            <li>Abandoned cart recovery to boost sales closure rates.</li>
-                        </ul>
+    </section>
+    <section class="py-5 blog-booking">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Enhance Your Brand and Reach</h2>
+            <div class="row gy-4">
+                <!-- Wix Blogging and Booking Service Packages -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Wix Blogging and Booking Service Packages</h5>
+                            <h6>Pain Points:</h6>
+                            <ul>
+                                <li>Struggling to set up an engaging blog that attracts and retains visitors.</li>
+                                <li>Lacking an efficient booking system for scheduling appointments or services.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li><strong>Blog Setup:</strong> £200</li>
+                                <li><strong>Booking System:</strong> £250</li>
+                                <li>Custom blog design and setup, including SEO and training.</li>
+                                <li>Integrated booking system with calendar and reminders.</li>
+                                <li>Monthly Maintenance: £30</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Shopify Blogging and Booking Service Packages -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Shopify Blogging and Booking Service Packages</h5>
+                            <h6>Pain Points:</h6>
+                            <ul>
+                                <li>Need for a professional and interactive blog to engage customers.</li>
+                                <li>Difficulty managing appointments or bookings efficiently.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li><strong>Blog Setup:</strong> £250</li>
+                                <li><strong>Booking System:</strong> £300</li>
+                                <li>Custom blog design and setup, including SEO and training.</li>
+                                <li>Integrated booking system with calendar and reminders.</li>
+                                <li>Monthly Maintenance: £35</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Squarespace Blogging and Booking Service Packages -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Squarespace Blogging and Booking Service Packages</h5>
+                            <h6>Pain Points:</h6>
+                            <ul>
+                                <li>Desire for a visually appealing blog that aligns with brand aesthetics.</li>
+                                <li>Difficulty in managing and scheduling appointments effectively.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li><strong>Blog Setup:</strong> £230</li>
+                                <li><strong>Booking System:</strong> £280</li>
+                                <li>Custom blog design and setup, including SEO and training.</li>
+                                <li>Integrated booking system with calendar and reminders.</li>
+                                <li>Monthly Maintenance: £35</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Wix Business and E-Commerce Solution -->
+        </div>
+    </section>
+    <section class="py-5 bg-custom-light e-commerce">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Unlock Your E-Commerce Potential</h2>
+            <p class="text-center">Our E-commerce packages harness the power of Wix, Squarespace, or Shopify to empower
+                your online venture. Choose the package that suits your needs and budget, and let us take care of the
+                rest.</p>
+            <div class="row gy-4">
+                <!-- Shopify Full-Service Package -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Shopify Full-Service E-Commerce Setup</h5>
+                            <p class="card-text"><strong>Total Price:</strong> £556</p>
+                            <p class="card-text"><strong>Monthly Fee:</strong> £19 (Basic Plan), £49 (Shopify Plan),
+                                maintenance fee varies</p>
+                            <p class="card-text"><strong>Pain Point:</strong> Need for a hassle-free, full-service
+                                e-commerce solution.</p>
+                            <p class="card-text"><strong>How it Fixes It:</strong> Offers comprehensive setup and
+                                ongoing support for Shopify-based online stores.</p>
+                            <h6>Key Features:</h6>
+                            <ul>
+                                <li>Up to 50 products with options to scale as needed.</li>
+                                <li>High-quality imagery tailored for product engagement.</li>
+                                <li>Comprehensive SEO setup for increased visibility.</li>
+                                <li>Integrated client management tools for streamlined operations.</li>
+                                <li>A secure, robust payment system that includes options for multiple currencies and
+                                    payment methods.</li>
+                                <li>Enhanced customisability options including theme adjustments and advanced layout
+                                    designs.</li>
+                                <li>Full access to Shopify's app store for additional plugins and extensions.</li>
+                                <li>Email marketing setup and integration.</li>
+                                <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
+                                <li>Social media integration and marketing tools.</li>
+                                <li>Abandoned cart recovery to boost sales closure rates.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wix Business and E-Commerce Solution -->
                 <div class="col-lg-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Wix Business and E-Commerce Solution</h5>
-                            <p class="card-text"><strong>Cost:</strong> £540 (Setup fee + First month fee + Domain Purchase)</p>
-                            <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £18 (Business Basic) to £38 (Business VIP) per month, converted from the latest pricing information / £10 maintenance per month.</p>
-                            <p class="card-text"><strong>Timeline:</strong> Custom based on client requirements.</p>
+                            <p class="card-text"><strong>Total Price:</strong> £540</p>
+                            <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £18 to £38
+                                per month, maintenance fee included.</p>
+                            <p class="card-text"><strong>Pain Point:</strong> Need for an all-in-one platform for
+                                website and e-commerce.</p>
+                            <p class="card-text"><strong>How it Fixes It:</strong> Provides a user-friendly platform
+                                with integrated e-commerce features.</p>
                             <h6>Key Features:</h6>
                             <ul>
                                 <li>Sell an unlimited number of products with a fully customisable online store.</li>
-                                <li>Access to over 80 payment gateways including Wix's own payment solutions, supporting major debit/credit cards and popular payment methods like PayPal, Stripe, and Square.</li>
+                                <li>Access to over 80 payment gateways including Wix's own payment solutions, supporting
+                                    major debit/credit cards and popular payment methods like PayPal, Stripe, and
+                                    Square.</li>
                                 <li>Advanced SEO tools to enhance online visibility.</li>
-                                <li>Automated email marketing, social media sales channels, and multi-currency support (higher-tier plans).</li>
-                                <li>Advanced shipping solutions, subscription and recurring payment options, and cross-selling on marketplaces (available on higher-tier plans).</li>
+                                <li>Automated email marketing, social media sales channels, and multi-currency support
+                                    (higher-tier plans).</li>
+                                <li>Advanced shipping solutions, subscription and recurring payment options, and
+                                    cross-selling on marketplaces (available on higher-tier plans).</li>
                                 <li>Dedicated mobile app for managing orders, payments, and customer interactions.</li>
-                                <li>Comprehensive analytics tools to track sales, traffic, and customer behaviour, with options for custom report generation.</li>
-                                <li>24/7 customer support with various contact methods, including live chat, phone, and email tickets.</li>
-                                <li>Free SSL certificate, ensuring secure transactions and customer data protection.</li>
+                                <li>Comprehensive analytics tools to track sales, traffic, and customer behaviour, with
+                                    options for custom report generation.</li>
+                                <li>24/7 customer support with various contact methods, including live chat, phone, and
+                                    email tickets.</li>
+                                <li>Free SSL certificate, ensuring secure transactions and customer data protection.
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -171,17 +427,23 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Squarespace E-Commerce Solution</h5>
-                            <p class="card-text"><strong>Cost:</strong> £600 (Setup fee + First month fee + Domain Purchase)</p>
-                            <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £20 (Business) to £30 (Basic Commerce) per month, with a maintenance fee of £10 to £25/month depending on services chosen.</p>
-                            <p class="card-text"><strong>Timeline:</strong> Custom based on client requirements.</p>
+                            <p class="card-text"><strong>Total Price:</strong> £600</p>
+                            <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £20 to £30
+                                per month, maintenance fee included.</p>
+                            <p class="card-text"><strong>Pain Point:</strong> Need for a visually appealing online store
+                                with integrated e-commerce functionality.</p>
+                            <p class="card-text"><strong>How it Fixes It:</strong> Offers an intuitive platform with
+                                stunning templates and powerful e-commerce features.</p>
                             <h6>Key Features:</h6>
                             <ul>
                                 <li>Sell up to 100 products with options to scale as needed.</li>
                                 <li>High-quality imagery and custom product templates for enhanced engagement.</li>
                                 <li>Comprehensive SEO setup for increased visibility.</li>
                                 <li>Integrated client management tools for streamlined operations.</li>
-                                <li>A secure, robust payment system that includes options for multiple currencies and payment methods.</li>
-                                <li>Enhanced customisability options including theme adjustments and advanced layout designs.</li>
+                                <li>A secure, robust payment system that includes options for multiple currencies and
+                                    payment methods.</li>
+                                <li>Enhanced customisability options including theme adjustments and advanced layout
+                                    designs.</li>
                                 <li>Full access to Squarespace's app store for additional plugins and extensions.</li>
                                 <li>Email marketing setup and integration.</li>
                                 <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
@@ -191,73 +453,34 @@
                         </div>
                     </div>
                 </div>
-            
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Wix Blogging and Booking Service Packages</h5>
-                        <h6>Services:</h6>
-                        <ul>
-                            <li><strong>Blog Setup:</strong> £200</li>
-                            <li><strong>Booking System:</strong> £250</li>
-                            <li>Custom blog design and setup, including SEO and training.</li>
-                            <li>Integrated booking system with calendar and reminders.</li>
-                            <li>Monthly Maintenance: £30</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Shopify Blogging and Booking Service Packages</h5>
-                        <h6>Services:</h6>
-                        <ul>
-                            <li><strong>Blog Setup:</strong> £250</li>
-                            <li><strong>Booking System:</strong> £300</li>
-                            <li>Custom blog design and setup, including SEO and training.</li>
-                            <li>Integrated booking system with calendar and reminders.</li>
-                            <li>Monthly Maintenance: £35</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Squarespace Blogging and Booking Service Packages</h5>
-                        <h6>Services:</h6>
-                        <ul>
-                            <li><strong>Blog Setup:</strong> £230</li>
-                            <li><strong>Booking System:</strong> £280</li>
-                            <li>Custom blog design and setup, including SEO and training.</li>
-                            <li>Integrated booking system with calendar and reminders.</li>
-                            <li>Monthly Maintenance: £35</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
     </section>
 
-    <section class="py-5">
+    <section class="py-5 marketing">
         <div class="container">
-            <h2 class="section-title text-center mb-4">Additional Packages</h2>
+            <h2 class="section-title text-center mb-4">Expand Your Marketing Reach</h2>
             <div class="row gy-4">
                 <!-- Signature Branding & Logo Design Package -->
                 <div class="col-lg-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Signature Branding & Logo Design Package</h5>
-                            <h6>Services:</h6>
+                            <h6>Pain Points:</h6>
                             <ul>
-                                <li>Creation of a custom logo and development of a comprehensive brand identity, including colour schemes, typography, and style guides.</li>
-                                <li>Deliverables: Logo files, brand guideline document, business card design, and letterhead design.</li>
+                                <li>Struggling to establish a recognizable brand identity.</li>
+                                <li>Lacking a professional logo that resonates with the target audience.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li>Creation of a custom logo and development of a comprehensive brand identity,
+                                    including colour schemes, typography, and style guides.</li>
+                                <li>Deliverables: Logo files, brand guideline document, business card design, and
+                                    letterhead design.</li>
                                 <li>SEO Integration: Basic SEO setup for brand visibility online.</li>
-                                <li>Revisions: Up to 3 rounds of revisions to ensure perfect alignment with your vision.</li>
-                                <li>Meetings: Initial consultation plus two-four follow-up meetings to refine the branding elements.</li>
+                                <li>Revisions: Up to 3 rounds of revisions to ensure perfect alignment with your vision.
+                                </li>
+                                <li>Meetings: Initial consultation plus two-four follow-up meetings to refine the
+                                    branding elements.</li>
                             </ul>
                         </div>
                     </div>
@@ -267,10 +490,17 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Digital & Print Media Design Package</h5>
-                            <h6>Services:</h6>
+                            <h6>Pain Points:</h6>
                             <ul>
-                                <li>Design digital and print media, including brochures, flyers, posters, and social media graphics.</li>
-                                <li>SEO Integration: Keyword research for digital content to enhance online visibility.</li>
+                                <li>Need for captivating digital and print media materials.</li>
+                                <li>Lack of consistent design elements across various marketing collateral.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li>Design digital and print media, including brochures, flyers, posters, and social
+                                    media graphics.</li>
+                                <li>SEO Integration: Keyword research for digital content to enhance online visibility.
+                                </li>
                                 <li>Deliverables: Digital files and print-ready designs.</li>
                                 <li>Revisions: 2 rounds of revisions for each design.</li>
                                 <li>Meetings: Initial briefing and one revision meeting.</li>
@@ -283,13 +513,20 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Video Content Creation & SEO Enhancement</h5>
-                            <h6>Services:</h6>
+                            <h6>Pain Points:</h6>
+                            <ul>
+                                <li>Difficulty in creating engaging video content that aligns with brand identity.</li>
+                                <li>Struggle with video SEO and visibility on digital platforms.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
                             <ul>
                                 <li>Design and produce promotional video content tailored to brand identity.</li>
-                                <li>SEO Integration: Video SEO, including transcript optimisation and metadata enhancement for better online discoverability.</li>
+                                <li>SEO Integration: Video SEO, including transcript optimisation and metadata
+                                    enhancement for better online discoverability.</li>
                                 <li>Deliverables: High-quality video content suitable for various platforms.</li>
                                 <li>Revisions: 3 rounds of revisions.</li>
-                                <li>Meetings: Planning and review meetings to align video content with marketing strategies.</li>
+                                <li>Meetings: Planning and review meetings to align video content with marketing
+                                    strategies.</li>
                             </ul>
                         </div>
                     </div>
@@ -299,12 +536,19 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">SEO-Driven Content Development & Marketing Materials</h5>
-                            <h6>Services:</h6>
+                            <h6>Pain Points:</h6>
                             <ul>
-                                <li>Creating SEO-optimized content for blogs, articles, and web pages, along with designing accompanying graphics and marketing materials.</li>
+                                <li>Need for SEO-optimised content to improve online visibility.</li>
+                                <li>Lack of engaging marketing materials to attract and retain customers.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li>Creating SEO-optimized content for blogs, articles, and web pages, along with
+                                    designing accompanying graphics and marketing materials.</li>
                                 <li>Deliverables: Written content and graphic designs.</li>
                                 <li>Revisions: Up to 3 revisions for each content piece or design.</li>
-                                <li>Meetings: Monthly strategy meetings to align content with ongoing SEO and marketing goals.</li>
+                                <li>Meetings: Monthly strategy meetings to align content with ongoing SEO and marketing
+                                    goals.</li>
                             </ul>
                         </div>
                     </div>
@@ -314,25 +558,31 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Traditional & Digital Marketing Package</h5>
-                            <h6>Services:</h6>
+                            <h6>Pain Points:</h6>
                             <ul>
-                                <li>A hybrid approach combining traditional marketing material design (e.g local advertising) with digital marketing campaigns.</li>
-                                <li>SEO Integration: Integrating digital campaigns with SEO best practices to maximise reach and impact.</li>
-                                <li>Deliverables: Range of traditional and digital marketing materials.</li>
-                                <li>Revisions: 2 revisions per design or campaign.</li>
-                                <li>Meetings: Bi-monthly progress and alignment meetings during campaign runs.</li>
+                                <li>Lack of a comprehensive marketing strategy that integrates traditional and digital
+                                    approaches.</li>
+                                <li>Struggle with achieving desired results from marketing efforts.</li>
+                            </ul>
+                            <h6>Solutions:</h6>
+                            <ul>
+                                <li>A hybrid approach combining traditional marketing material design (e.g local
+                                    advertising) with digital marketing campaigns.</li>
+                                <li>SEO Integration: Integrating digital campaigns with SEO best practices to maximise
+                                    reach and impact.</li>
+                                <li>Customised marketing strategies tailored to business goals and target audience.</li>
+                                <li>Regular performance tracking and analysis for continuous improvement.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <footer class="py-4 bg-dark text-white text-center">
         <div class="container">
-            <p class="mb-0">© 2024 Clean Design UK. All Rights Reserved.</p>
+            <p class="mb-0">© 2024 CleanDesignUK. All Rights Reserved.</p>
         </div>
     </footer>
-{% endblock %}
+    {% endblock %}
