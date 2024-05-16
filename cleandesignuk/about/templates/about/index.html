@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .hero-section {
+        background: linear-gradient(to right, #cb4611, #ac2209);
+        color: #fff;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .custom-container {
+            padding: 60px 15px;
+        }
+
+        .custom-card {
+            background: #fff;
+            border: none;
+            border-radius: 1rem;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .custom-card h5 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .custom-card p {
+            color: #666;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            color: #777;
+        }
+
+        .btn-outline-custom {
+            border-color: #cb4611;
+            color: #cb4611;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: #cb4611;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .custom-container {
+                padding: 30px 15px;
+            }
+        }
+
+    .contact-link a {
+        color: #ffffff;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    .profile-pic {
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    @keyframes colorShift {
+        0% { background-color: rgba(255, 255, 255, 0.1); }
+        25% { background-color: rgba(203, 70, 17, 0.1); }
+        50% { background-color: rgba(223, 32, 32, 0.1); }
+        75% { background-color: rgba(207, 17, 10, 0.1); }
+        100% { background-color: rgba(255, 255, 255, 0.1); }
+    }
+
+    .custom-card:nth-child(2) {
+        animation-delay: 2s;
+    }
+
+    .custom-card:nth-child(3) {
+        animation-delay: 4s;
+    }
+
+    .custom-card:nth-child(4) {
+        animation-delay: 6s;
+    }
+
+    .custom-card:nth-child(5) {
+        animation-delay: 8s;
+    }
+
+    .custom-container img {
+        max-width: 100%;
+        border-radius: 0.5rem;
+    }
+
+    .lead {
+        color: #333;
+    }
+</style>
+
+
+
+<section class="py-5">
+    <div class="container">
+        <div class="row gx-4 align-items-center justify-content-between">
+            <div class="col-md-5 order-2 order-md-1">
+                <div class="mt-5 mt-md-0">
+                    <span class="text-muted">Our Story</span>
+                    <h2 class="display-5 fw-bold">About Us</h2>
+                    <p class="lead">Welcome to Clean Design UK! I'm Jesse Ross, and I believe in creating more than just websites—I build partnerships that nurture your ongoing digital success. With a background that bridges mathematics, web development, and a passion for creative solutions, I'm here to bring your digital dreams to life with a personal touch.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+            </div>
+            <div class="col-md-6 offset-md-1 order-1 order-md-2">
+                <div class="row gx-2 gx-lg-3">
+                    <div class="col-6">
+                        <div class="mb-2"><img class="img-fluid rounded-3" src="https://freefrontend.dev/assets/square.png" alt="Sample Image 1"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-2"><img class="img-fluid rounded-3" src="https://freefrontend.dev/assets/square.png" alt="Sample Image 2"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-2"><img class="img-fluid rounded-3" src="https://freefrontend.dev/assets/square.png" alt="Sample Image 3"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-2"><img class="img-fluid rounded-3" src="https://freefrontend.dev/assets/square.png" alt="Sample Image 4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Professional Background</h2>
+        <div class="row">
+            <div class="col-md-6 custom-card">
+                <h5>Journey to Empowerment</h5>
+                <p>My path to founding Clean Design UK was driven by a desire to combine independence with a purpose-driven service. This venture is more than a job; it’s a commitment to empowering clients like you through tailored digital solutions that grow with your business.</p>
+            </div>
+            <div class="col-md-6 custom-card">
+                <h5>Expertise Built on Experience</h5>
+                <p>Having mastered the intricacies of full-stack development, I apply my diverse skills—from HTML and CSS to Python—to develop websites that are not only visually compelling but also robust and scalable. Each line of code is crafted with your future in mind.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Philosophy and Approach</h2>
+        <div class="row">
+            <div class="col-md-6 custom-card">
+                <h5>Custom Designs That Reflect Your Unique Brand</h5>
+                <p>Every client is unique, and every project deserves a bespoke approach. At Clean Design UK, I dive deep into understanding your vision and needs, ensuring our design speaks your language. My commitment to your satisfaction is reflected in our flexible design solutions tailored to fit any budget.</p>
+            </div>
+            <div class="col-md-6 custom-card">
+                <h5>Dedicated Aftercare and Support</h5>
+                <p>Your website’s launch is just the beginning of our journey together. I pride myself on offering extensive aftercare and support, ensuring your digital platform remains up-to-date and continues to perform optimally. From regular updates to ongoing tweaks and enhancements, I'm here to ensure your digital presence evolves with your business.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Personal Insights</h2>
+        <div class="row">
+            <div class="col-md-6 custom-card">
+                <h5>Beyond the Keyboard</h5>
+                <p>Away from the world of web development, I find joy and inspiration in chess, music, and spending quality time with my family. These passions not only recharge me but also fuel my creativity, enhancing my work and enriching the services I provide to you.</p>
+            </div>
+            <div class="col-md-6 custom-card">
+                <h5>A Commitment to Community</h5>
+                <p>My business is a reflection of my values—family, flexibility, and community. Clean Design UK is dedicated to supporting local businesses and contributing to our community's growth, ensuring that together, we thrive both online and off.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-4">Connect With Me</h2>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center">
+                    <p class="lead">Ready to start a conversation that could transform your business? I’m here to listen, understand, and deliver beyond your expectations.</p>
+                    <p class="lead">Reach out via:</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="https://www.facebook.com/CleanDesignUK" class="btn btn-outline-primary me-2" target="_blank">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="https://www.youtube.com/@CleanDesignUK" class="btn btn-outline-danger me-2" target="_blank">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </a>
+                        <a href="http://linkedin.com/company/clean-design-uk" class="btn btn-outline-primary me-2" target="_blank">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                        <a href="https://www.instagram.com/cleandesign_uk" class="btn btn-outline-danger me-2" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://maps.app.goo.gl/T6VnJcv8yhLTeay86" class="btn btn-outline-success" target="_blank">
+                            <i class="fab fa-google"></i> Google Business
+                        </a>
+                    </div>
+                    <p class="lead mt-3">Or send an email to: <a href="mailto:cleandesign.uk@gmail.com">cleandesign.uk@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-4">Complimentary Consultation</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="custom-card">
+                    <h5>Discover the Potential of Your Online Presence</h5>
+                    <p class="lead">Let's explore your needs, budget, and how I can help you achieve your goals. Contact me at <a href="mailto:cleandesign.uk@gmail.com">cleandesign.uk@gmail.com</a> or through our social platforms to get started.</p>
+                    <p class="lead">Take the first step towards enhancing your digital presence with a free consultation today!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+        <p class="mb-0">© 2024 Clean Design UK. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5Q/6FVUXwo4b5RfEMG4n5zJ0J5krTtr6g4K" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+{% endblock %}
