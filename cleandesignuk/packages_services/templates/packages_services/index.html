@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <style>
     /* Global Styles */
     body {
@@ -14,6 +15,72 @@
 section {
     display: none;
 }
+
+     /* Off-canvas Sidebar Styles */
+     .offcanvas-body {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+        }
+
+        .offcanvas-body .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            font-size: 1.25rem;
+            text-align: left;
+            color: #fff;
+            background-color: #343a40;
+            border: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .offcanvas-body .btn:hover {
+            background-color: #495057;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .offcanvas-body .btn i {
+            margin-right: 1rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 767px) {
+            .header-bg h1 {
+                font-size: 2rem;
+            }
+
+            .header-bg p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.25rem;
+            }
+
+            .card-text,
+            .card h6 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .header-bg {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-bg button {
+                width: 45%;
+                margin: 0.5rem 2.5%;
+            }
+        }
 
 .btn-bespoke {
     background-color: #fff;
@@ -345,12 +412,23 @@ section {
         <div class="container">
             <h1 class="display-4">Our Packages</h1>
             <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive aftercare to ensure your satisfaction. Explore our packages designed to elevate your online presence with warmth and dedication.</p>
+            <button class="btn btn-secondary " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                Menu
+            </button>
+        </div>
+    </header>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navigation</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
             <button class="btn-bespoke" onclick="showSection('bespoke')">Bespoke Websites</button>
             <button class="btn-blog-booking" onclick="showSection('blog-booking')">Blog & Booking Services</button>
             <button class="btn-e-commerce" onclick="showSection('e-commerce')">E-Commerce Solutions</button>
             <button class="btn-marketing" onclick="showSection('marketing')">Marketing Packages</button>
         </div>
-    </header>
+    </div>
     
     <section class="py-5 bespoke">
         <div class="container">
@@ -759,24 +837,24 @@ section {
     </footer>
 
     <script>
-        function showSection(sectionClass) {
+         function showSection(sectionClass) {
             // Hide all sections
             document.querySelectorAll('section').forEach(section => {
                 section.style.display = 'none';
             });
-    
+
             // Show the selected section
             document.querySelector('.' + sectionClass).style.display = 'block';
         }
-    
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    
+
         // Show the first section by default
         document.addEventListener('DOMContentLoaded', function() {
             showSection('bespoke');
         });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
     {% endblock %}
