@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .gallery-container {
+        padding: 2rem 0;
+    }
+    .gallery-title {
+        text-align: center;
+        color: #cb4611;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .project-info {
+        text-align: center;
+        color: #666;
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+    .card {
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    .card img {
+        width: 100%;
+        height: auto;
+        border-bottom: 5px solid #ac2209;
+    }
+    .card-body {
+        padding: 1rem;
+    }
+    .card-title {
+        color: #ac2209;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .card-text {
+        color: #666;
+    }
+    .btn-primary {
+        background-color: #ac2209;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+        background-color: #cb4611;
+    }
+</style>
+
+<div class="container gallery-container">
+    <h2 class="gallery-title">{{ title }}</h2>
+    <p class="project-info">Explore some of the fantastic projects we've worked on. From bespoke websites to e-commerce solutions, our portfolio showcases our dedication to quality and creativity.</p>
+    <div class="row g-0 d-flex justify-content-center align-items-center">
+        {% for project in projects %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card  p-1 m-1 h-100">
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        {% if project.url %}
+                            <a href="{{ project.url }}" class="btn btn-primary" target="_blank">View Project</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
