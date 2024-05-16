@@ -10,7 +10,117 @@
         margin: 0;
         padding: 0;
     }
+/* Ensure sections are hidden by default */
+section {
+    display: none;
+}
 
+.btn-bespoke {
+    background-color: #fff;
+    color: #e74c3c; /* Red */
+    border: 2px solid #e74c3c;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-blog-booking {
+    background-color: #fff;
+    color: #c0392b; /* Darker Red */
+    border: 2px solid #c0392b;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-e-commerce {
+    background-color: #fff;
+    color: #d35400; /* Orange Red */
+    border: 2px solid #d35400;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-marketing {
+    background-color: #fff;
+    color: #e67e22; /* Light Orange Red */
+    border: 2px solid #e67e22;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-bespoke:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-blog-booking:hover {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.btn-e-commerce:hover {
+    background-color: #d35400;
+    color: #fff;
+}
+
+.btn-marketing:hover {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+/* Ensure sections are hidden by default */
+section {
+    display: none;
+}
+
+/* Card Styles */
+.card-bespoke .card-body {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-top: 5px solid #e74c3c; /* Red */
+}
+
+.card-blog-booking .card-body {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-top: 5px solid #c0392b; /* Darker Red */
+}
+
+.card-e-commerce .card-body {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-top: 5px solid #d35400; /* Orange Red */
+}
+
+.card-marketing .card-body {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-top: 5px solid #e67e22; /* Light Orange Red */
+}
+
+.header-bg button:hover {
+    background-color: #cb4611;
+    color: #fff;
+} 
     /* Header Styles */
     .header-bg {
         background: linear-gradient(135deg, #cb4611, #ac2209);
@@ -175,11 +285,14 @@
     <header class="header-bg text-white text-center py-5">
         <div class="container">
             <h1 class="display-4">Our Packages</h1>
-            <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive
-                aftercare to ensure your satisfaction. Explore our packages designed to elevate your online presence
-                with warmth and dedication.</p>
+            <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive aftercare to ensure your satisfaction. Explore our packages designed to elevate your online presence with warmth and dedication.</p>
+            <button class="btn-bespoke" onclick="showSection('bespoke')">Bespoke Websites</button>
+            <button class="btn-blog-booking" onclick="showSection('blog-booking')">Blog & Booking Services</button>
+            <button class="btn-e-commerce" onclick="showSection('e-commerce')">E-Commerce Solutions</button>
+            <button class="btn-marketing" onclick="showSection('marketing')">Marketing Packages</button>
         </div>
     </header>
+    
     <section class="py-5 bespoke">
         <div class="container">
             <h2 class="section-title text-center mb-4">Bespoke Websites crafted to your needs </h2>
@@ -189,7 +302,7 @@
             <div class="row gy-4">
                 <!-- Basic Portfolio Package -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-bespoke h-100">
                         <div class="card-body">
                             <h5 class="card-title">Basic Portfolio Website Package</h5>
                             <p class="card-text"><strong>Total Price:</strong> £240</p>
@@ -217,7 +330,7 @@
                 </div>
                 <!-- Dynamic Service Business Package -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-bespoke h-100">
                         <div class="card-body">
                             <h5 class="card-title">Dynamic Service Business Website Package</h5>
                             <p class="card-text"><strong>Total Price:</strong> £1,020</p>
@@ -248,7 +361,7 @@
                 </div>
                 <!-- Comprehensive E-Commerce Package -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-bespoke  h-100">
                         <div class="card-body">
                             <h5 class="card-title">Comprehensive E-Commerce Website Package</h5>
                             <p class="card-text"><strong>Total Price:</strong> £1,505</p>
@@ -286,7 +399,7 @@
             <div class="row gy-4">
                 <!-- Wix Blogging and Booking Service Packages -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-blog-booking h-100">
                         <div class="card-body">
                             <h5 class="card-title">Wix Blogging and Booking Service Packages</h5>
                             <h6>Pain Points:</h6>
@@ -307,7 +420,7 @@
                 </div>
                 <!-- Shopify Blogging and Booking Service Packages -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-blog-booking h-100">
                         <div class="card-body">
                             <h5 class="card-title">Shopify Blogging and Booking Service Packages</h5>
                             <h6>Pain Points:</h6>
@@ -328,7 +441,7 @@
                 </div>
                 <!-- Squarespace Blogging and Booking Service Packages -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-blog-booking h-100">
                         <div class="card-body">
                             <h5 class="card-title">Squarespace Blogging and Booking Service Packages</h5>
                             <h6>Pain Points:</h6>
@@ -359,7 +472,7 @@
             <div class="row gy-4">
                 <!-- Shopify Full-Service Package -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-e-commerce h-100">
                         <div class="card-body">
                             <h5 class="card-title">Shopify Full-Service E-Commerce Setup</h5>
                             <p class="card-text"><strong>Total Price:</strong> £556</p>
@@ -390,7 +503,7 @@
                 </div>
                 <!-- Wix Business and E-Commerce Solution -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-e-commerce h-100">
                         <div class="card-body">
                             <h5 class="card-title">Wix Business and E-Commerce Solution</h5>
                             <p class="card-text"><strong>Total Price:</strong> £540</p>
@@ -424,7 +537,7 @@
                 </div>
                 <!-- Squarespace E-Commerce Solution -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-e-commerce h-100">
                         <div class="card-body">
                             <h5 class="card-title">Squarespace E-Commerce Solution</h5>
                             <p class="card-text"><strong>Total Price:</strong> £600</p>
@@ -462,7 +575,7 @@
             <div class="row gy-4">
                 <!-- Signature Branding & Logo Design Package -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-marketing h-100">
                         <div class="card-body">
                             <h5 class="card-title">Signature Branding & Logo Design Package</h5>
                             <h6>Pain Points:</h6>
@@ -487,7 +600,7 @@
                 </div>
                 <!-- Digital & Print Media Design Package -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-marketing h-100">
                         <div class="card-body">
                             <h5 class="card-title">Digital & Print Media Design Package</h5>
                             <h6>Pain Points:</h6>
@@ -510,7 +623,7 @@
                 </div>
                 <!-- Video Content Creation & SEO Enhancement -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <div class="card card-marketing  h-100">
                         <div class="card-body">
                             <h5 class="card-title">Video Content Creation & SEO Enhancement</h5>
                             <h6>Pain Points:</h6>
@@ -533,7 +646,7 @@
                 </div>
                 <!-- SEO-Driven Content Development & Marketing Materials -->
                 <div class="col-lg-6">
-                    <div class="card h-100">
+                    <div class="card card-marketing  h-100">
                         <div class="card-body">
                             <h5 class="card-title">SEO-Driven Content Development & Marketing Materials</h5>
                             <h6>Pain Points:</h6>
@@ -555,7 +668,7 @@
                 </div>
                 <!-- Traditional & Digital Marketing Package -->
                 <div class="col-lg-6">
-                    <div class="card h-100">
+                    <div class="card  card-marketing h-100">
                         <div class="card-body">
                             <h5 class="card-title">Traditional & Digital Marketing Package</h5>
                             <h6>Pain Points:</h6>
@@ -585,4 +698,16 @@
             <p class="mb-0">© 2024 CleanDesignUK. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function showSection(sectionClass) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+    
+            // Show the selected section
+            document.querySelector('.' + sectionClass).style.display = 'block';
+        }
+    </script>
     {% endblock %}
