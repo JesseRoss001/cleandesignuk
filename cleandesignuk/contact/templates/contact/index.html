@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    @keyframes colorShift {
+        0% { background-color: rgba(255, 255, 255, 0.1); }
+        25% { background-color: rgba(203, 70, 17, 0.1); }
+        50% { background-color: rgba(223, 32, 32, 0.1); }
+        75% { background-color: rgba(207, 17, 10, 0.1); }
+        100% { background-color: rgba(255, 255, 255, 0.1); }
+    }
+.contact-page {background-color: #fce6e6 !important;}
+
+
+    .contact-card {
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 1rem;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        backdrop-filter: blur(2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: colorShift 24s infinite;
+    }
+
+    .contact-card:nth-child(2) {
+        animation-delay: 3s;
+    }
+
+    .contact-card:nth-child(3) {
+        animation-delay: 6s;
+    }
+
+    .contact-card:nth-child(4) {
+        animation-delay: 9s;
+    }
+
+    .contact-card:nth-child(5) {
+        animation-delay: 12s;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card h5 {
+        color: #0f0505;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.25rem;
+    }
+
+    .contact-card a {
+        color: #ec1313;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .contact-icon {
+        color: #f31010;
+        font-size: 24px;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    .contact-link a {
+        color: #110202;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    .carousel-item {
+    transition: transform 0.6s ease-in-out;  /* Smooth transition */
+    color: #050202;  /* Ensures text is always white for readability */
+    font-size: 0.9rem;
+}
+
+.carousel-header {font-size: 1.7rem;}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #fcfafa;  /* More visible navigation arrows */
+    border-radius: 50%;  /* Circular background for arrows */
+    color:#ac0d0d;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: #fcfafa;  /* Darker on hover for better interaction */
+}
+
+        /* Small screens */
+        @media (max-width: 768px) {
+            .carousel-header {font-size: 1.3rem;}
+           
+            .carousel-item {
+                height: 200px;
+            }
+
+        }
+
+        /* Large screens */
+        @media (min-width: 769px) {
+            .carousel-header {font-size: 1.5rem;}
+           
+            .carousel-item {
+                height: 200px;
+            }
+        }
+    </style>
+     
+<div id="contactCarousel" class="carousel slide d-none d-md-flex" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background: linear-gradient(to right, #cb4611, #ac2209);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <h2 class="text-white text-center  carousel-header ">
+                    <i class="fas fa-comments p-1"></i> Free website design consultation and quote
+                </h2>
+            </div>
+        </div>
+        <div class="carousel-item" style="background: linear-gradient(to right, #df2020, #79412f);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <h2 class="text-white text-center  carousel-header">
+                    <i class="fas fa-bullhorn p-1 "></i> Free professional advice to improve your online presence
+                </h2>
+            </div>
+        </div>
+        <div class="carousel-item" style="background: linear-gradient(to right, #cf110a, #ac7f2d);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <h2 class="text-white text-center carousel-header ">
+                    <i class="fas fa-chart-line p-1 "></i> Free marketing advertisement quote, logo design
+                </h2>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#contactCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#contactCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<section class="contact-page w-100">
+<div class="container  pt-5">
+
+    <div class="row">
+        <!-- Contact Information Section -->
+        <div class="col-md-6">
+            <div class="contact-card">
+                <h5><i class="fas fa-map-marker-alt contact-icon"></i>Visit Us</h5>
+                <p>Discover where creativity meets precision.</p>
+                <p>4 Ffordd Cerrig Mawr, Caergeiliog LL65 3LU</p>
+            </div>
+            <div class="contact-card">
+                <h5><i class="fas fa-phone contact-icon"></i>Call Us</h5>
+                <p>Let's talk about your next project today.</p>
+                <p>+44 7367 292269</p>
+            </div>
+            <div class="contact-card">
+                <h5><i class="fas fa-envelope contact-icon"></i>Email Us</h5>
+                <p>Drop us a line anytime.</p>
+                <p class="contact-link"><a href="mailto:cleandesign.uk@gmail.com">cleandesign.uk@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+                <h5><i class="fas fa-clock contact-icon"></i>Open Hours</h5>
+                <p>Our doors are open every day for creativity.</p>
+                <p>Mon-Fri: 9:00AM - 5:00PM<br>Sat-Sun: 10:00AM - 4:00PM</p>
+            </div>
+        </div>
+
+        <!-- Social Media Links Section -->
+        <div class="col-md-6">
+            
+            <div class="contact-card">
+                <p><i class="fab fa-facebook contact-icon"></i>Join our Facebook community</p>
+                <p><a href="https://www.facebook.com/CleanDesignUK" target="_blank">Facebook</a></p>
+            </div>
+            <div class="contact-card">
+                <p><i class="fab fa-youtube contact-icon"></i>Watch our latest videos</p>
+                <p><a href="https://www.youtube.com/@CleanDesignUK" target="_blank">YouTube</a></p>
+            </div>
+            <div class="contact-card">
+                <p><i class="fab fa-linkedin contact-icon"></i>Connect professionally</p>
+                <p><a href="http://linkedin.com/company/clean-design-uk" target="_blank">LinkedIn</a></p>
+            </div>
+            <div class="contact-card">
+                <p><i class="fab fa-instagram contact-icon"></i>See our visual stories</p>
+                <p><a href="https://www.instagram.com/cleandesign_uk" target="_blank">Instagram</a></p>
+            </div>
+            <div class="contact-card">
+                <p><i class="fab fa-google contact-icon"></i>Find us on Google</p>
+                <p><a href="https://maps.app.goo.gl/T6VnJcv8yhLTeay86" target="_blank">Google Business</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5Q/6FVUXwo4b5RfEMG4n5zJ0J5krTtr6g4K" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
