@@ -1,65 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-<style>
-    /* Main styles for the page */
-    main { min-height: 100vh; }
-    body { color: black; background-color: #f8f9fa; } /* Setting default body color and background */
-    .nav-link {color:black !important;}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-.active {
-    color: #c41d1d !important; /* White text */
-     /* Bootstrap primary color */
-    font-weight: bold;
-}
-    /* Hero section styles */
+<style>
+    main { min-height: 100vh; }
+    body { color: black; background-color: #f8f9fa !important; }
+    a {text-decoration: none;}
+    .nav-link { color: black !important; }
+    
+    .active {
+        color: #c41d1d !important;
+        font-weight: bold;
+    }
+
+
     .hero-header {
         background-color: #f8f9fa;
         color: black;
         padding-top: 30px;
         padding-bottom: 30px;
     }
-    .service-icon {
-        height: 48px;
-        width: 48px;
-    }
-    .section-title {
-        color: #333;
-        margin-bottom: 5px; /* Tighter heading for neatness */
-    }
-    .section-paragraph {
-        color: #000; /* Black color for readability */
-        font-size: 16px;
-    }
 
     .accent-text {
-        color: rgb(136, 14, 14); /* Bright red for emphasis */
+        color: rgb(136, 14, 14);
     }
-  /* Card styling for the service sections */
- /* Card styling for the service sections */
- .service-card {
-        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-        backdrop-filter: blur(10px); /* Blur effect for the frosted look */
-        border: 1px solid rgb(136, 14, 14); /* Thin red border */
-        border-radius: 8px; /* Rounded corners */
+
+    .service-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #ffe8e8; /* Light red background for engagement */
+        border: 1px solid rgb(136, 14, 14);
+        border-radius: 8px;
         padding: 20px;
-        margin-bottom: 20px; /* Spacing between cards */
+        margin-bottom: 20px;
+        height: 100%; /* make all cards equal height */
     }
+
+    .service-card:hover {
+        transform: translateY(-5px); /* subtle hover effect */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    }
+
     .service-card h4 {
-        color: rgb(136, 14, 14); /* Using red for titles to draw attention */
+        color: rgb(136, 14, 14);
     }
+
     .service-card p {
-        color: #000; /* Black for readability */
+        color: #000;
     }
-    
+
     .btn-danger {
-        background-color: rgb(136, 14, 14); /* Button color adjusted to match the border */
-        border-color: rgb(136, 14, 14); /* Button border color */
+        background-color: rgb(136, 14, 14);
+        border-color: rgb(136, 14, 14);
     }
-    /* Responsive design adjustments */
+
     @media (max-width: 1024px) {
         .navbar {
-            font-size: 1.2rem; /* Smaller text on smaller devices */
+            font-size: 1.2rem;
         }
     }
 </style>
@@ -70,49 +69,37 @@
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <h1 class="display-4 fw-bold">Empowering Your <span class="accent-text">Digital Presence</span> with Expertise and Care</h1>
                 <p class="lead my-4">At Clean Design UK, we tailor digital experiences that resonate with your brand and audience, backed by continuous support and dedication to your growth.</p>
-                <a class="btn btn-lg btn-danger" href="#contact">Connect with us </a>
+                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center">
                 <img alt="Dynamic digital design" class="img-fluid" src="https://via.placeholder.com/500">
             </div>
         </div>
-		<div class="row mt-5 text-center">
-            <div class="col-md-3 col-sm-6">
+        <div class="row mt-5 text-center">
+            <a href="{% url 'blog:blog_list' %}" class="col-md-6 col-lg-3 mb-3">
                 <div class="service-card">
-                    <div class="mb-3">
-                        <img src="https://via.placeholder.com/48" alt="Blog Icon" class="service-icon">
-                    </div>
                     <h4>Our Blog</h4>
                     <p>Gain insights into the latest trends and our innovative approaches to web design.</p>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
+            </a>
+            <a href="{% url 'gallery:index' %}" class="col-md-6 col-lg-3 mb-3 ">
                 <div class="service-card">
-                    <div class="mb-3">
-                        <img src="https://via.placeholder.com/48" alt="Gallery Icon" class="service-icon">
-                    </div>
                     <h4>Design Gallery</h4>
                     <p>Browse through our projects to see how we translate ideas into impactful digital art.</p>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
+            </a>
+            <a href="{% url 'services:index' %}" class="col-md-6 col-lg-3 mb-3 ">
                 <div class="service-card">
-                    <div class="mb-3">
-                        <img src="https://via.placeholder.com/48" alt="Services Icon" class="service-icon">
-                    </div>
-                    <h4>Customized Packages</h4>
+                    <h4>Customised Packages</h4>
                     <p>Discover flexible service packages designed to meet diverse needs and budgets.</p>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
+            </a>
+            <a href="{% url 'contact:index' %}" class="col-md-6 col-lg-3 mb-3 ">
                 <div class="service-card">
-                    <div class="mb-3">
-                        <img src="https://via.placeholder.com/48" alt="Contact Icon" class="service-icon">
-                    </div>
                     <h4>Get in Touch</h4>
                     <p>Let's start a conversation that will take your digital presence to new heights.</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
