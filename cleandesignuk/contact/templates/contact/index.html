@@ -3,6 +3,38 @@
 
 {% block content %}
 <style>
+    @media (max-width: 767px) {
+    .mobile-header {
+       
+        background-color: #f8f9fa;
+        color: #333;
+        text-align: center;
+        padding: 20px 15px;
+        font-size: 1.3rem; /* Responsive font size */
+        font-weight: bold;
+        /* For absolute positioning of the hr */
+    }
+    .mobile-header span {
+        color: #c41d1d; /* Red color for emphasis */
+    }
+
+    .mobile-header hr {
+        border: 0;
+        height: 2px;
+        background-color: #c41d1d; /* Red hr */
+        width: 50%; /* Only spans half the header width */
+        margin: 10px auto; /* Centered horizontally */
+    }
+    .carousel { /* Ensuring the carousel is hidden on mobile */
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-header {
+        display: none;
+    }
+}
     @keyframes colorShift {
         0% { background-color: rgba(255, 255, 255, 0.1); }
         25% { background-color: rgba(203, 70, 17, 0.1); }
@@ -10,7 +42,7 @@
         75% { background-color: rgba(207, 17, 10, 0.1); }
         100% { background-color: rgba(255, 255, 255, 0.1); }
     }
-.contact-page {background-color: #fce6e6 !important;}
+.contact-page {background-color: #f8f9fa !important;}
 
 
     .contact-card {
@@ -106,7 +138,7 @@
         }
 
         /* Large screens */
-        @media (min-width: 769px) {
+        @media (min-width: 768px) {
             .carousel-header {font-size: 1.5rem;}
            
             .carousel-item {
@@ -114,7 +146,7 @@
             }
         }
     </style>
-     
+
 <div id="contactCarousel" class="carousel slide d-none d-md-flex" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" style="background: linear-gradient(to right, #cb4611, #ac2209);">
@@ -149,8 +181,13 @@
     </button>
 </div>
 <section class="contact-page w-100">
-<div class="container  pt-5">
-
+<div class="container  pt-3 pt-lg-5">
+    <div class="mobile-header d-flex-column justify-content-center align-items-center d-md-none pt-2 mt-4  pb-4">
+       <h2 class="text-center"> <span> Contact Us </span> 
+        <hr></h2>
+        <h3>Clean Design UK </h3>
+       
+    </div>
     <div class="row">
         <!-- Contact Information Section -->
         <div class="col-md-6">
