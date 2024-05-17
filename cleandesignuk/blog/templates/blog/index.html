@@ -25,7 +25,6 @@
         background: url('{{ hero_image_url }}') no-repeat center center;
         background-size: cover;
         color: rgb(14, 4, 4);
-        height: 300px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -83,53 +82,50 @@
         color: #666;
     }
 
-    /* Media Queries */
-@media (max-width: 1200px) {
+    @media (max-width: 1200px) {
     .hero h1 {
-        font-size: 2.5rem; /* Smaller font size for large devices */
+        font-size: 2.8rem; /* Smaller font size for large devices */
     }
     .hero p {
-        font-size: 1.3rem;
+        font-size: 1.5rem; /* Appropriately smaller than h1 */
     }
 }
 
 @media (max-width: 992px) {
     .hero h1 {
-        font-size: 2rem; /* Smaller font size for medium devices */
+        font-size: 2.5rem; /* Smaller font size for medium devices */
     }
     .hero p {
-        font-size: 1.2rem;
+        font-size: 1.3rem; /* Maintaining visual hierarchy */
     }
 }
 
 @media (max-width: 768px) {
-    .hero h1,
-    .hero p {
-        font-size: 1.5rem; /* Smaller font size for tablets */
+    .hero h1 {
+        font-size: 2.4rem; /* Smaller font size for tablets */
     }
-    .hero {
-        height: 300px; /* Shorter hero section for smaller devices */
+    .hero p {
+        font-size: 1.2rem; /* Reduced size for better fit */
     }
 }
 
 @media (max-width: 576px) {
-    .hero h1,
-    .hero p {
-        font-size: 1.5rem; /* Even smaller text for mobile devices */
+    .hero h1 {
+        font-size: 1.8rem; /* Even smaller text for mobile devices */
     }
-    .hero {
-        height: 250px; /* Shorter hero section for very small devices */
+    .hero p {
+        font-size: 1.2rem; /* Smaller paragraph text */
     }
 }
 
 </style>
 
-<div class="hero text-center ">
+<div class="hero text-center my-3 my-md-4 my-lg-5 ">
     <div>
         <h1>Our <span>Blog</span></h1>
         <p>Stay updated with the latest trends and insights.</p>
         <form method="GET" action="">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 w-75">
                 <input type="text" name="q" placeholder="Search blog posts..." value="{{ request.GET.q }}" class="form-control">
                 <button class="btn btn-outline-danger" type="submit">Search</button>
             </div>
