@@ -16,11 +16,11 @@ section {
     display: none;
 }
 
-main {background-color: #121212;}
+main {background-color: #cebaba;}
 
      /* Off-canvas Sidebar Styles */
      .offcanvas-body {
-        background-color: #262626;
+        background-color: #2c2b2b;
             padding: 1.5rem;
         }
 
@@ -92,7 +92,7 @@ main {background-color: #121212;}
         }
 
 .btn-bespoke {
-    background-color: #fff;
+    background-color: #fafafa;
     color: #e74c3c; /* Red */
     border: 2px solid #e74c3c;
     padding: 0.75rem 1.5rem;
@@ -103,7 +103,7 @@ main {background-color: #121212;}
 }
 
 .btn-blog-booking {
-    background-color: #fff;
+    background-color: #fafafa;
     color: #c0392b; /* Darker Red */
     border: 2px solid #c0392b;
     padding: 0.75rem 1.5rem;
@@ -114,7 +114,7 @@ main {background-color: #121212;}
 }
 
 .btn-e-commerce {
-    background-color: #fff;
+    background-color: #fafafa;
     color: #d35400; /* Orange Red */
     border: 2px solid #d35400;
     padding: 0.75rem 1.5rem;
@@ -125,7 +125,7 @@ main {background-color: #121212;}
 }
 
 .btn-marketing {
-    background-color: #fff;
+    background-color: #fafafa;
     color: #e67e22; /* Light Orange Red */
     border: 2px solid #e67e22;
     padding: 0.75rem 1.5rem;
@@ -166,7 +166,7 @@ section {
     border-top-right-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #e74c3c; /* Red */
+    border-top: 5px solid #f7f5f5; /* Red */
 }
 
 .card-blog-booking .card-body {
@@ -174,7 +174,7 @@ section {
     border-top-right-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #c0392b; /* Darker Red */
+    border-top: 5px solid #fdfdfd; /* Darker Red */
 }
 
 .card-e-commerce .card-body {
@@ -182,7 +182,7 @@ section {
     border-top-right-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #d35400; /* Orange Red */
+    border-top: 5px solid #f5f1ee; /* Orange Red */
 }
 
 .card-marketing .card-body {
@@ -190,7 +190,7 @@ section {
     border-top-right-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #e67e22; /* Light Orange Red */
+    border-top: 5px solid #fdfaf7; /* Light Orange Red */
 }
 
 
@@ -216,7 +216,7 @@ section {
 } 
     /* Header Styles */
     .header-bg {
-        background: linear-gradient(135deg, #0a0101, #ac2209);
+        background: linear-gradient(135deg, #681919, #ac2209);
         color: #fff;
         padding: 3rem 0;
         text-align: center;
@@ -433,7 +433,7 @@ section {
 }
 
 .header-container {
-    background: rgba(255, 255, 255, 0.05); /* Darker semi-transparent background */
+    background: rgba(3, 2, 2, 0.5); /* Darker semi-transparent background */
     backdrop-filter: blur(12px); /* Increased blur for a deeper glass effect */
     color: #ffffff; /* White text to maintain contrast */
     padding: 4rem 1rem; /* Generous padding for a spacious layout */
@@ -465,7 +465,7 @@ section {
         <div class="container">
             <h1 class="display-4">Our Packages</h1>
             <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive aftercare to ensure your satisfaction. Explore our packages designed to elevate your online presence with warmth and dedication.</p>
-            <button class="btn btn-secondary " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <button class="btn btn-secondary btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 Menu
             </button>
         </div>
@@ -490,6 +490,7 @@ section {
             <p class="text-center px-3 d-none d-md-flex">We understand your unique requirements and tailor our packages to address them
                 effectively. Our commitment to your success extends beyond launch, with regular post-launch meetings and
                 attentive care.</p>
+                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
             </div>
             <div class="row gy-4">
                 <!-- Basic Portfolio Package -->
@@ -588,7 +589,9 @@ section {
     <section class="py-5 blog-booking">
         <div class="container">
             <div class="header-container">
-            <h2 class="section-title text-center mb-4">Enhance Your Brand and Reach</h2></div>
+            <h2 class="section-title text-center mb-4">Enhance Your Brand and Reach</h2>
+        <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a></div>
+            
             <div class="row gy-4">
                 <!-- Wix Blogging and Booking Service Packages -->
                 <div class="col-lg-4">
@@ -663,6 +666,7 @@ section {
             <p class="text-center d-none d-md-flex px-3">Our E-commerce packages harness the power of Wix, Squarespace, or Shopify to empower
                 your online venture. Choose the package that suits your needs and budget, and let us take care of the
                 rest.</p>
+                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
                 </div>
             <div class="row gy-4">
                 <!-- Shopify Full-Service Package -->
@@ -766,8 +770,9 @@ section {
 
     <section class="py-5 marketing">
         <div class="container">
-            <div class="header-container">
+            <div class="header-container ">
             <h2 class="section-title text-center mb-4">Expand Your Marketing Reach</h2>
+            <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
             </div>
             <div class="row gy-4">
                 <!-- Signature Branding & Logo Design Package -->
