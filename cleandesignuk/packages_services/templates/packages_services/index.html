@@ -6,7 +6,7 @@
     /* Global Styles */
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #f5f5f5;
+        background-color: #fafafa;
         color: #333;
         margin: 0;
         padding: 0;
@@ -16,9 +16,11 @@ section {
     display: none;
 }
 
+main {background-color: #121212;}
+
      /* Off-canvas Sidebar Styles */
      .offcanvas-body {
-            background-color: #f8f9fa;
+        background-color: #262626;
             padding: 1.5rem;
         }
 
@@ -235,7 +237,7 @@ section {
     }
 
     .section-title {
-        color:rgb(241, 15, 15);
+        color:rgb(247, 245, 245);
         font-size: 2.5rem;
         margin-bottom: 2rem;
         text-transform: uppercase;
@@ -429,6 +431,32 @@ section {
         margin: 0.5rem 2.5%;
     }
 }
+
+.header-container {
+    background: rgba(255, 255, 255, 0.05); /* Darker semi-transparent background */
+    backdrop-filter: blur(12px); /* Increased blur for a deeper glass effect */
+    color: #ffffff; /* White text to maintain contrast */
+    padding: 4rem 1rem; /* Generous padding for a spacious layout */
+    text-align: center;
+    border-radius: 15px; /* Slightly larger rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow for depth */
+    border: 1px solid white; /* Necessary for gradient border */
+    
+}
+
+
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+}
+
+.card .card-body {
+    padding: 2rem;
+    border-top: 5px solid white; /* Thick white border on top for depth */
+}
 </style>
 </head>
 
@@ -457,10 +485,12 @@ section {
     
     <section class="py-5 bespoke">
         <div class="container">
+            <div class="header-container">
             <h2 class="section-title text-center mb-4">Bespoke Websites crafted to your needs </h2>
-            <p class="text-center">We understand your unique requirements and tailor our packages to address them
+            <p class="text-center px-3 d-none d-md-flex">We understand your unique requirements and tailor our packages to address them
                 effectively. Our commitment to your success extends beyond launch, with regular post-launch meetings and
                 attentive care.</p>
+            </div>
             <div class="row gy-4">
                 <!-- Basic Portfolio Package -->
                 <div class="col-lg-4">
@@ -557,7 +587,8 @@ section {
     </section>
     <section class="py-5 blog-booking">
         <div class="container">
-            <h2 class="section-title text-center mb-4">Enhance Your Brand and Reach</h2>
+            <div class="header-container">
+            <h2 class="section-title text-center mb-4">Enhance Your Brand and Reach</h2></div>
             <div class="row gy-4">
                 <!-- Wix Blogging and Booking Service Packages -->
                 <div class="col-lg-4">
@@ -625,12 +656,14 @@ section {
             </div>
         </div>
     </section>
-    <section class="py-5 bg-custom-light e-commerce">
+    <section class="py-5  e-commerce">
         <div class="container">
+            <div class="header-container">
             <h2 class="section-title text-center mb-4">Unlock Your E-Commerce Potential</h2>
-            <p class="text-center">Our E-commerce packages harness the power of Wix, Squarespace, or Shopify to empower
+            <p class="text-center d-none d-md-flex px-3">Our E-commerce packages harness the power of Wix, Squarespace, or Shopify to empower
                 your online venture. Choose the package that suits your needs and budget, and let us take care of the
                 rest.</p>
+                </div>
             <div class="row gy-4">
                 <!-- Shopify Full-Service Package -->
                 <div class="col-lg-4">
@@ -733,7 +766,9 @@ section {
 
     <section class="py-5 marketing">
         <div class="container">
+            <div class="header-container">
             <h2 class="section-title text-center mb-4">Expand Your Marketing Reach</h2>
+            </div>
             <div class="row gy-4">
                 <!-- Signature Branding & Logo Design Package -->
                 <div class="col-lg-4">
