@@ -16,6 +16,11 @@ section {
     display: none;
 }
 
+.active {
+        color: #c41d1d !important;
+        font-weight: bold;
+    }
+
 main {background-color: #cebaba;}
 
      /* Off-canvas Sidebar Styles */
@@ -456,6 +461,43 @@ section {
 .card .card-body {
     padding: 2rem;
     border-top: 5px solid white; /* Thick white border on top for depth */
+}
+
+/* Media Queries for H2 font size adjustment */
+@media (max-width: 320px) {
+    .header-container h2 {
+        font-size: 1.2rem; /* smaller screens, smaller font */
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    .header-container h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .header-container h2 {
+        font-size: 1.6rem; /* slightly larger as the device width increases */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .header-container h2 {
+        font-size: 1.8rem; /* suitable for small tablets */
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .header-container h2 {
+        font-size: 2rem; /* desktops and larger devices */
+    }
+}
+
+@media (min-width: 1201px) {
+    .header-container h2 {
+        font-size: 2.5rem; /* large desktops */
+    }
 }
 </style>
 </head>
