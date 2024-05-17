@@ -22,6 +22,12 @@ section {
             padding: 1.5rem;
         }
 
+        .offcanvas-body .btn:hover, .offcanvas-body .btn:focus {
+    background: linear-gradient(to right, #c0392b, #8b0000); /* Gradient changes on hover or focus */
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
         .offcanvas-body .btn {
             display: block;
             width: 100%;
@@ -36,10 +42,11 @@ section {
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .offcanvas-body .btn:hover {
-            background-color: #495057;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
+        .offcanvas-body .btn:hover, .offcanvas-body .btn:focus {
+    background: linear-gradient(to right, #c0392b, #8b0000); /* Gradient changes on hover or focus */
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
 
         .offcanvas-body .btn i {
             margin-right: 1rem;
@@ -184,13 +191,30 @@ section {
     border-top: 5px solid #e67e22; /* Light Orange Red */
 }
 
+
+.card-bespoke .card-body {
+    background: linear-gradient(to bottom, #e74c3c, #8b0000); /* Gradient for bespoke cards */
+}
+
+.card-blog-booking .card-body {
+    background: linear-gradient(to bottom, #c0392b, #8b0000); /* Gradient for blog & booking cards */
+}
+
+.card-e-commerce .card-body {
+    background: linear-gradient(to bottom, #d35400, #8b0000); /* Gradient for e-commerce cards */
+}
+
+.card-marketing .card-body {
+    background: linear-gradient(to bottom, #e67e22, #8b0000); /* Gradient for marketing cards */
+}
+
 .header-bg button:hover {
     background-color: #cb4611;
     color: #fff;
 } 
     /* Header Styles */
     .header-bg {
-        background: linear-gradient(135deg, #cb4611, #ac2209);
+        background: linear-gradient(135deg, #0a0101, #ac2209);
         color: #fff;
         padding: 3rem 0;
         text-align: center;
@@ -211,7 +235,7 @@ section {
     }
 
     .section-title {
-        color: #cb4611;
+        color:rgb(241, 15, 15);
         font-size: 2.5rem;
         margin-bottom: 2rem;
         text-transform: uppercase;
@@ -233,6 +257,7 @@ section {
         border-radius: 0.75rem;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color:white;
     }
 
     .card:hover {
@@ -245,13 +270,13 @@ section {
     }
 
     .card-title {
-        color: #ac2209;
+        color:white;
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
 
     .card-text {
-        color: #666;
+        color:white;
         margin-bottom: 1rem;
     }
 
@@ -266,7 +291,7 @@ section {
     .card h6 {
         font-size: 1.25rem;
         margin-bottom: 1rem;
-        color: #333;
+        color:white;
     }
 
     /* Footer Styles */
