@@ -23,79 +23,82 @@
     }
 
     .custom-container {
-            padding: 60px 15px;
+        padding: 60px 15px;
+    }
+
+    .custom-card {
+        background: #fff;
+        border: none;
+        border-radius: 1rem;
+        padding: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-card h5 {
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .custom-card p {
+        color: #666;
+    }
+
+    .profile-pic {
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    .section-title span {
+        color: #dc3545; /* Bootstrap default red */
+    }
+
+    .section-subtitle {
+        color: #777;
+    }
+
+    .btn-outline-custom {
+        border-color: #cb4611;
+        color: #cb4611;
+    }
+
+    .btn-outline-custom:hover {
+        background-color: #cb4611;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2.5rem;
         }
 
-        .custom-card {
-            background: #fff;
-            border: none;
-            border-radius: 1rem;
-            padding: 30px;
-            margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: none; /* Initially hide all sections */
-        }
-
-        .custom-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .custom-card h5 {
-            color: #333;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .custom-card p {
-            color: #666;
-        }
-
-        .profile-pic {
-            border-radius: 50%;
-            margin-bottom: 20px;
+        .hero-section p {
+            font-size: 1.2rem;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: #333;
+            font-size: 1.5rem;
         }
 
-        .section-subtitle {
-            color: #777;
+        .custom-container {
+            padding: 30px 15px;
         }
-
-        .btn-outline-custom {
-            border-color: #cb4611;
-            color: #cb4611;
-        }
-
-        .btn-outline-custom:hover {
-            background-color: #cb4611;
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-section p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .custom-container {
-                padding: 30px 15px;
-            }
-        }
+    }
 
     .contact-link a {
         color: #ffffff;
@@ -110,191 +113,131 @@
         margin-bottom: 20px;
     }
 
-    @keyframes colorShift {
-        0% { background-color: rgba(255, 255, 255, 0.1); }
-        25% { background-color: rgba(203, 70, 17, 0.1); }
-        50% { background-color: rgba(223, 32, 32, 0.1); }
-        75% { background-color: rgba(207, 17, 10, 0.1); }
-        100% { background-color: rgba(255, 255, 255, 0.1); }
-    }
-
-    .custom-card:nth-child(2) {
-        animation-delay: 2s;
-    }
-
-    .custom-card:nth-child(3) {
-        animation-delay: 4s;
-    }
-
-    .custom-card:nth-child(4) {
-        animation-delay: 6s;
-    }
-
-    .custom-card:nth-child(5) {
-        animation-delay: 8s;
-    }
-
     .custom-container img {
         max-width: 100%;
         border-radius: 0.5rem;
+        border: 1px solid red; /* 1px solid red border */
     }
 
     .lead {
         color: #333;
     }
+
+    .image-container {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.75); /* Frosted glass effect */
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem; /* Increased font size for better visibility */
+        font-weight: bold;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .image-container:hover .image-overlay {
+        opacity: 0;
+    }
+
+    .image-container:hover .click-button {
+        display: block;
+    }
+
+    .click-button {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 200%);
+        background: linear-gradient(45deg, #ff6b6b, #ff3c3c); /* Gradient background */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 2;
+    }
 </style>
 
-
-
-
-
-<section class="py-5">
-    <div class="container">
-        <div class="row gx-4 align-items-center justify-content-between">
-            <div class="col-md-5 order-2 order-md-1">
-                <div class="mt-5 mt-md-0">
-                    <span class="text-muted">Our Story</span>
-                    <h2 class="display-5 fw-bold">About Us</h2>
-                    <p class="lead">Welcome to Clean Design UK! I'm Jesse Ross, and I believe in creating more than just websites—I build partnerships that nurture your ongoing digital success. With a background that bridges mathematics, web development, and a passion for creative solutions, I'm here to bring your digital dreams to life with a personal touch.</p>
-                    
-                </div>
-            </div>
-            <div class="col-md-6 offset-md-1 order-1 order-md-2">
-                <div class="row gx-2 gx-lg-3">
-                    <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/flleriz3wisos7kbvhim.png" alt="Professional Background" onclick="toggleSection('professional-background')">
-                    </div>
-                    <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/donkkkuxdtd2qwxe0etx.png" alt="Design Philosophy" onclick="toggleSection('design-philosophy')">
-                    </div>
-                    <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/tdiiqifnnj0vre7mmrvb.png" alt="Connect with Us" onclick="toggleSection('connect-with-us')">
-                    </div>
-                    <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986991/zbvhxq6m10gjgbr5itbv.webp" alt="Complimentary Consultation" onclick="toggleSection('complimentary-consultation')">
+<div id="about-intro" class="about-intro">
+    <section class="py-5">
+        <div class="container">
+            <div class="row gx-4 align-items-center justify-content-between">
+                <div class="col-md-5">
+                    <div class="mt-5">
+                        <span class="text-muted">Our Story</span>
+                        <h2 class="display-5 fw-bold" id="about-title">About <span>Us</span></h2>
+                        <p class="lead" id="about-text">Welcome to Clean Design UK! I'm Jesse Ross, and I believe in creating more than just websites—I build partnerships that nurture your ongoing digital success. With a background that bridges mathematics, web development, and a passion for creative solutions, I'm here to bring your digital dreams to life with a personal touch.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 bg-light custom-card" id="professional-background">
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-4">Professional Background</h2>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Chemical Engineer to Full Stack Developer</h5>
-                    <p>My professional journey spans several dynamic fields, from chemical engineering to mathematics tutoring and entrepreneurship, culminating in my current role as a full stack developer. Each role has endowed me with unique insights and skills, reinforcing my dedication to innovative web solutions that cater to your specific needs.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 custom-card" id="design-philosophy">
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-4">Design Philosophy and Aftercare</h2>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Client-Centric Creativity and Functionality</h5>
-                    <p>At Clean Design UK, our philosophy is to put the client first, embracing creativity to deliver uniquely functional and standout bespoke solutions. We engage in regular consultations and updates throughout the design process and beyond, ensuring that your website not only meets but exceeds your evolving expectations.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="py-5 bg-light custom-card" id="connect-with-us">
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-4">Personal Insights</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Beyond the Keyboard</h5>
-                    <p>Away from the world of web development, I find joy and inspiration in chess, music, and spending quality time with my family. These passions not only recharge me but also fuel my creativity, enhancing my work and enriching the services I provide to you.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>A Commitment to Community</h5>
-                    <p>My business is a reflection of my values—family, flexibility, and community. Clean Design UK is dedicated to supporting local businesses and contributing to our community's growth, ensuring that together, we thrive both online and off.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 custom-card" id="complimentary-consultation">
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-4">Connect With Me</h2>
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="text-center">
-                    <p class="lead">Ready to start a conversation that could transform your business? I’m here to listen, understand, and deliver beyond your expectations.</p>
-                    <p class="lead">Reach out via:</p>
-                    <div class="d-flex justify-content-center">
-                        <a href="https://www.facebook.com/CleanDesignUK" class="btn btn-outline-primary me-2" target="_blank">
-                            <i class="fab fa-facebook-f"></i> Facebook
-                        </a>
-                        <a href="https://www.youtube.com/@CleanDesignUK" class="btn btn-outline-danger me-2" target="_blank">
-                            <i class="fab fa-youtube"></i> YouTube
-                        </a>
-                        <a href="http://linkedin.com/company/clean-design-uk" class="btn btn-outline-primary me-2" target="_blank">
-                            <i class="fab fa-linkedin-in"></i> LinkedIn
-                        </a>
-                        <a href="https://www.instagram.com/cleandesign_uk" class="btn btn-outline-danger me-2" target="_blank">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </a>
-                        <a href="https://maps.app.goo.gl/T6VnJcv8yhLTeay86" class="btn btn-outline-success" target="_blank">
-                            <i class="fab fa-google"></i> Google Business
-                        </a>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6 image-container">
+                            <div class="image-overlay">Professional Background</div>
+                            <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/flleriz3wisos7kbvhim.png" alt="Professional Background">
+                            <button class="click-button" onclick="toggleSection('professional-background')">Click Me</button>
+                        </div>
+                        <div class="col-6 image-container">
+                            <div class="image-overlay">Design Philosophy</div>
+                            <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/donkkkuxdtd2qwxe0etx.png" alt="Design Philosophy">
+                            <button class="click-button" onclick="toggleSection('design-philosophy')">Click Me</button>
+                        </div>
+                        <div class="col-6 image-container">
+                            <div class="image-overlay">Connect with Us</div>
+                            <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/tdiiqifnnj0vre7mmrvb.png" alt="Connect with Us">
+                            <button class="click-button" onclick="toggleSection('connect-with-us')">Click Me</button>
+                        </div>
+                        <div class="col-6 image-container">
+                            <div class="image-overlay">Complimentary Consultation</div>
+                            <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986991/zbvhxq6m10gjgbr5itbv.webp" alt="Complimentary Consultation">
+                            <button class="click-button" onclick="toggleSection('complimentary-consultation')">Click Me</button>
+                        </div>
                     </div>
-                    <p class="lead mt-3">Or send an email to: <a href="mailto:cleandesign.uk@gmail.com">cleandesign.uk@gmail.com</a></p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+</div>
 
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-4">Complimentary Consultation</h2>
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Discover the Potential of Your Online Presence</h5>
-                    <p class="lead">Let us explore your needs, budget, and how Clean Design UK can assist in achieving your objectives. Contact us today to schedule a free consultation, and take the first step towards enhancing your digital presence.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="py-4 bg-dark text-white text-center">
-    <div class="container">
-        <p class="mb-0">© 2024 Clean Design UK. All Rights Reserved.</p>
-    </div>
-</footer>
-
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5Q/6FVUXwo4b5RfEMG4n5zJ0J5krTtr6g4K" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
-    function toggleSection(sectionId) {
-        // Hide all sections
-        var sections = document.querySelectorAll('.custom-card');
-        sections.forEach(function(section) {
-            section.style.display = 'none';
-        });
-        
-        // Show the specific section
-        var selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-            selectedSection.style.display = 'block';
+function toggleSection(sectionId) {
+    var aboutContent = {
+        'professional-background': {
+            title: 'Professional Background',
+            text: 'My professional journey spans several dynamic fields, from chemical engineering to mathematics tutoring and entrepreneurship, culminating in my current role as a full stack developer. Each role has endowed me with unique insights and skills, reinforcing my dedication to innovative web solutions that cater to your specific needs.'
+        },
+        'design-philosophy': {
+            title: 'Design Philosophy and Aftercare',
+            text: 'At Clean Design UK, our philosophy is to put the client first, embracing creativity to deliver uniquely functional and standout bespoke solutions. We engage in regular consultations and updates throughout the design process and beyond, ensuring that your website not only meets but exceeds your evolving expectations.'
+        },
+        'connect-with-us': {
+            title: 'Connect With <span>Us</span>',
+            text: 'Ready to start a conversation that could transform your business? We\'re here to listen, understand, and deliver beyond your expectations. Connect with us through our social media platforms or by email to begin crafting your digital future.'
+        },
+        'complimentary-consultation': {
+            title: 'Complimentary <span>Consultation</span>',
+            text: 'Let us explore your needs, budget, and how Clean Design UK can assist in achieving your objectives. Contact us today to schedule a free consultation, and take the first step towards enhancing your digital presence.'
         }
+    };
+
+    var aboutTitle = document.getElementById('about-title');
+    var aboutText = document.getElementById('about-text');
+
+    if (aboutContent[sectionId]) {
+        aboutTitle.innerHTML = aboutContent[sectionId].title;
+        aboutText.innerHTML = aboutContent[sectionId].text;
     }
+}
 </script>
-</body>
+
 {% endblock %}
