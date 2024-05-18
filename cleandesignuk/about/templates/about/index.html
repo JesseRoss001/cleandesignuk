@@ -35,6 +35,7 @@
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: none; /* Initially hide all sections */
         }
 
         .custom-card:hover {
@@ -145,12 +146,7 @@
 
 
 
-<header class="bg-danger text-white text-center py-5">
-    <div class="container">
-        <h1 class="display-4">Jesse Ross</h1>
-        <p class="lead">Crafting Digital Spaces Where Your Vision Thrives</p>
-    </div>
-</header>
+
 
 <section class="py-5">
     <div class="container">
@@ -166,16 +162,16 @@
             <div class="col-md-6 offset-md-1 order-1 order-md-2">
                 <div class="row gx-2 gx-lg-3">
                     <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/flleriz3wisos7kbvhim.png" alt="Sample Image 1">
+                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/flleriz3wisos7kbvhim.png" alt="Professional Background" onclick="toggleSection('professional-background')">
                     </div>
                     <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/donkkkuxdtd2qwxe0etx.png" alt="Sample Image 2">
+                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/donkkkuxdtd2qwxe0etx.png" alt="Design Philosophy" onclick="toggleSection('design-philosophy')">
                     </div>
                     <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/tdiiqifnnj0vre7mmrvb.png" alt="Sample Image 3">
+                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/tdiiqifnnj0vre7mmrvb.png" alt="Connect with Us" onclick="toggleSection('connect-with-us')">
                     </div>
                     <div class="col-6 mb-2">
-                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986991/zbvhxq6m10gjgbr5itbv.webp" alt="Sample Image 4">
+                        <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986991/zbvhxq6m10gjgbr5itbv.webp" alt="Complimentary Consultation" onclick="toggleSection('complimentary-consultation')">
                     </div>
                 </div>
             </div>
@@ -183,47 +179,36 @@
     </div>
 </section>
 
-<section class="py-5 bg-light">
+<section class="py-5 bg-light custom-card" id="professional-background">
     <div class="container">
         <h2 class="display-5 fw-bold text-center mb-4">Professional Background</h2>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Journey to Empowerment</h5>
-                    <p>My path to founding Clean Design UK was driven by a desire to combine independence with a purpose-driven service. This venture is more than a job; it’s a commitment to empowering clients like you through tailored digital solutions that grow with your business.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Expertise Built on Experience</h5>
-                    <p>Having mastered the intricacies of full-stack development, I apply my diverse skills—from HTML and CSS to Python—to develop websites that are not only visually compelling but also robust and scalable. Each line of code is crafted with your future in mind.</p>
+                    <h5>Chemical Engineer to Full Stack Developer</h5>
+                    <p>My professional journey spans several dynamic fields, from chemical engineering to mathematics tutoring and entrepreneurship, culminating in my current role as a full stack developer. Each role has endowed me with unique insights and skills, reinforcing my dedication to innovative web solutions that cater to your specific needs.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 custom-card" id="design-philosophy">
     <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-4">Philosophy and Approach</h2>
+        <h2 class="display-5 fw-bold text-center mb-4">Design Philosophy and Aftercare</h2>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Custom Designs That Reflect Your Unique Brand</h5>
-                    <p>Every client is unique, and every project deserves a bespoke approach. At Clean Design UK, I dive deep into understanding your vision and needs, ensuring our design speaks your language. My commitment to your satisfaction is reflected in our flexible design solutions tailored to fit any budget.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-4 bg-white rounded shadow-sm">
-                    <h5>Dedicated Aftercare and Support</h5>
-                    <p>Your website’s launch is just the beginning of our journey together. I pride myself on offering extensive aftercare and support, ensuring your digital platform remains up-to-date and continues to perform optimally. From regular updates to ongoing tweaks and enhancements, I'm here to ensure your digital presence evolves with your business.</p>
+                    <h5>Client-Centric Creativity and Functionality</h5>
+                    <p>At Clean Design UK, our philosophy is to put the client first, embracing creativity to deliver uniquely functional and standout bespoke solutions. We engage in regular consultations and updates throughout the design process and beyond, ensuring that your website not only meets but exceeds your evolving expectations.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5 bg-light">
+
+<section class="py-5 bg-light custom-card" id="connect-with-us">
     <div class="container">
         <h2 class="display-5 fw-bold text-center mb-4">Personal Insights</h2>
         <div class="row">
@@ -243,7 +228,7 @@
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 custom-card" id="complimentary-consultation">
     <div class="container">
         <h2 class="display-5 fw-bold text-center mb-4">Connect With Me</h2>
         <div class="row">
@@ -273,17 +258,14 @@
             </div>
         </div>
     </div>
-</section>
 
-<section class="py-5 bg-light">
     <div class="container">
         <h2 class="display-5 fw-bold text-center mb-4">Complimentary Consultation</h2>
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="p-4 bg-white rounded shadow-sm">
                     <h5>Discover the Potential of Your Online Presence</h5>
-                    <p class="lead">Let's explore your needs, budget, and how I can help you achieve your goals. Contact me at <a href="mailto:cleandesign.uk@gmail.com">cleandesign.uk@gmail.com</a> or through our social platforms to get started.</p>
-                    <p class="lead">Take the first step towards enhancing your digital presence with a free consultation today!</p>
+                    <p class="lead">Let us explore your needs, budget, and how Clean Design UK can assist in achieving your objectives. Contact us today to schedule a free consultation, and take the first step towards enhancing your digital presence.</p>
                 </div>
             </div>
         </div>
@@ -299,5 +281,20 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5Q/6FVUXwo4b5RfEMG4n5zJ0J5krTtr6g4K" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    function toggleSection(sectionId) {
+        // Hide all sections
+        var sections = document.querySelectorAll('.custom-card');
+        sections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+        
+        // Show the specific section
+        var selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.style.display = 'block';
+        }
+    }
+</script>
 </body>
 {% endblock %}
