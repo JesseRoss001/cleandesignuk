@@ -438,7 +438,7 @@ section {
 }
 
 .header-container {
-    background: rgba(3, 2, 2, 0.5); /* Darker semi-transparent background */
+     /* Darker semi-transparent background */
     backdrop-filter: blur(12px); /* Increased blur for a deeper glass effect */
     color: #ffffff; /* White text to maintain contrast */
     padding: 4rem 1rem; /* Generous padding for a spacious layout */
@@ -499,10 +499,38 @@ section {
         font-size: 2.5rem; /* large desktops */
     }
 }
+
+.tooltip-icon {
+        position: fixed;
+
+        top: 300px;
+        right: 20px;
+
+        cursor: pointer;
+        font-size: 2rem;
+        color: white;
+        z-index: 1000;
+    }
+
 </style>
 </head>
 
 <body>
+
+
+    <div class="modal fade" id="tooltipModal" tabindex="-1" aria-labelledby="tooltipModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tooltipModalLabel">How to Use This Page</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Use the side menu to navigate through different packages. Click on the "Menu" button to open the sidebar. Each package section will be displayed as you click on the respective buttons. Use the contact me button to get ahold of us regarding any packages .</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header-bg text-white text-center py-5">
         <div class="container">
             <h1 class="display-4">Our Packages</h1>
@@ -512,22 +540,25 @@ section {
             </button>
         </div>
     </header>
+
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
+        <div class="offcanvas-header bg-dark text-white">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navigation</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close text-reset btn-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body bg-dark">
             <button class="btn-bespoke" onclick="showSection('bespoke')">Bespoke Websites</button>
             <button class="btn-blog-booking" onclick="showSection('blog-booking')">Blog & Booking Services</button>
             <button class="btn-e-commerce" onclick="showSection('e-commerce')">E-Commerce Solutions</button>
             <button class="btn-marketing" onclick="showSection('marketing')">Marketing Packages</button>
         </div>
     </div>
-    
+    <div class="tooltip-icon m-2 " data-bs-toggle="modal" data-bs-target="#tooltipModal">
+        <i class="fas fa-info-circle"></i>
+    </div>
     <section class="py-5 bespoke">
         <div class="container">
-            <div class="header-container">
+            <div class="header-container card-bespoke">
             <h2 class="section-title text-center mb-4">Bespoke Websites crafted to your needs </h2>
             <p class="text-center px-3 d-none d-md-flex">We understand your unique requirements and tailor our packages to address them
                 effectively. Our commitment to your success extends beyond launch, with regular post-launch meetings and
@@ -942,6 +973,7 @@ section {
             <p class="mb-0">© 2024 CleanDesignUK. All Rights Reserved.</p>
         </div>
     </footer>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
          function showSection(sectionClass) {
