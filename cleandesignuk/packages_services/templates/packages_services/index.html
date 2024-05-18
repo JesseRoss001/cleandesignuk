@@ -459,7 +459,7 @@ section {
 .header-container {
      /* Darker semi-transparent background */
     backdrop-filter: blur(12px); /* Increased blur for a deeper glass effect */
-    color: #160d0d; /* White text to maintain contrast */
+    color: #333; /* White text to maintain contrast */
     padding: 4rem 1rem; /* Generous padding for a spacious layout */
     text-align: center;
     border-radius: 15px; /* Slightly larger rounded corners */
@@ -576,7 +576,7 @@ background-color: #f1dbdb ;
             <button class="btn-marketing" onclick="showSection('marketing')">Marketing Packages</button>
         </div>
     </div>
-    <div class="tooltip-icon m-2 " data-bs-toggle="modal" data-bs-target="#tooltipModal">
+    <div class="tooltip-icon m-2  bg-white rounded" data-bs-toggle="modal" data-bs-target="#tooltipModal">
         <i class="fas fa-info-circle"></i>
     </div>
     <section class="py-5 bespoke">
@@ -999,24 +999,27 @@ background-color: #f1dbdb ;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
-         function showSection(sectionClass) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
-            });
+function showSection(sectionClass) {
+    // Hide all sections
+    document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+    });
 
-            // Show the selected section
-            document.querySelector('.' + sectionClass).style.display = 'block';
-        }
+    // Show the selected section
+    document.querySelector('.' + sectionClass).style.display = 'block';
 
-        // Show the first section by default
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('bespoke');
-        });
+    // Trigger a click on the close button to close the sidebar
+    document.querySelector('.offcanvas-header .btn-close').click();
+}
 
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+// Show the first section by default
+document.addEventListener('DOMContentLoaded', function() {
+    showSection('bespoke');
+});
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     </script>
     {% endblock %}
