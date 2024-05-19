@@ -12,12 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 import cloudinary
+import dj_database_url
           
-cloudinary.config( 
-  cloud_name = "dz18uvfpa", 
-  api_key = "926846188353119", 
-  api_secret = "K3z1zVsbWDqrHNgZ1S3YoV3Me84" 
-)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!kh^hfe6nm2t69$!!)^e20r6%349ldy%gpgsysv(969bo^1&=w'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['8000-jesseross00-cleandesign-to38evacpje.ws-eu111.gitpod.io','8000-jesseross00-cleandesign-to38evacpje.ws-eu111.gitpod.io','8000-jesseross00-cleandesign-to38evacpje.ws-eu114.gitpod.io','localhost:8000','localhost']
+ALLOWED_HOSTS = ['cleandesignuk.ondigitalocean.app']
 
 
 # Application definition
@@ -60,10 +56,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '926846188353119',
     'API_SECRET': 'K3z1zVsbWDqrHNgZ1S3YoV3Me84',
 }
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-jesseross00-cleandesign-to38evacpje.ws-eu111.gitpod.io',
-    # Add other trusted origins if needed
-]
+CSRF_TRUSTED_ORIGINS = ['cleandesignuk.ondigitalocean.app']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,19 +113,9 @@ MEDIA_URL = '/media/'
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
-if DEVELOPMENT_MODE is True:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    }
+DATABASES = {
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
+}
 
 
 # Password validation
