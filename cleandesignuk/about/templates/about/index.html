@@ -6,6 +6,8 @@
         font-family: Arial, sans-serif;
     }
 
+    
+
     .hero-section {
         background: linear-gradient(to right, #cb4611, #ac2209);
         color: #fff;
@@ -81,7 +83,7 @@
         background-color: #cb4611;
         color: #fff;
     }
-
+    .text-overlay-size {font-size: 1.2rem;}
     @media (max-width: 768px) {
         .hero-section h1 {
             font-size: 2.5rem;
@@ -98,6 +100,9 @@
         .custom-container {
             padding: 30px 15px;
         }
+        .text-overlay-size {font-size: 1.0rem;}
+
+        
     }
 
     .contact-link a {
@@ -126,6 +131,7 @@
     .image-container {
         position: relative;
         cursor: pointer;
+        margin-bottom: 20px;
     }
 
     .image-overlay {
@@ -139,7 +145,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem; /* Increased font size for better visibility */
+        font-size: 1.0rem; /* Adjusted font size for better visibility */
         font-weight: bold;
         transition: opacity 0.3s ease;
         z-index: 1;
@@ -149,29 +155,51 @@
         opacity: 0;
     }
 
-    .image-container:hover .click-button {
-        display: block;
-    }
-
     .click-button {
         display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 200%);
-        background: linear-gradient(45deg, #ff6b6b, #ff3c3c); /* Gradient background */
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 2;
     }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tooltip-icon {
+        position: fixed;
+        top: 100px;
+        left: 20px;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #800b0b;
+        padding: 5px;
+        z-index: 1000;
+    }
+    
 </style>
 
 <div id="about-intro" class="about-intro">
     <section class="py-5">
         <div class="container">
+            <!-- Tooltip Icon -->
+<div class="tooltip-icon" data-bs-toggle="modal" data-bs-target="#tooltipModal">
+    <i class="fas fa-info-circle"></i>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="tooltipModal" tabindex="-1" aria-labelledby="tooltipModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tooltipModalLabel">How to Use This Page</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <p>Click on any image to change the text on the about page.</p>
+            </div>
+        </div>
+    </div>
+</div>
             <div class="row gx-4 align-items-center justify-content-between">
                 <div class="col-md-5">
                     <div class="mt-5">
@@ -182,25 +210,21 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-6 image-container">
-                            <div class="image-overlay">Professional Background</div>
+                        <div class="col-6 col-md-6 image-container" onclick="toggleSection('professional-background')">
+                            <div class="image-overlay"> <p class="text-overlay-size text-center"> Professional <br> Background </p> </div>
                             <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/flleriz3wisos7kbvhim.png" alt="Professional Background">
-                            <button class="click-button" onclick="toggleSection('professional-background')">Click Me</button>
                         </div>
-                        <div class="col-6 image-container">
-                            <div class="image-overlay">Design Philosophy</div>
+                        <div class="col-6 col-md-6 image-container" onclick="toggleSection('design-philosophy')">
+                            <div class="image-overlay" > <p class="text-overlay-size text-center">  Design <br>  Philosophy </p> </div>
                             <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/donkkkuxdtd2qwxe0etx.png" alt="Design Philosophy">
-                            <button class="click-button" onclick="toggleSection('design-philosophy')">Click Me</button>
                         </div>
-                        <div class="col-6 image-container">
-                            <div class="image-overlay">Connect with Us</div>
+                        <div class="col-6 col-md-6 image-container" onclick="toggleSection('connect-with-us')">
+                            <div class="image-overlay"> <p class="text-overlay-size text-center">Connect <br> with Us  </p></div>
                             <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/tdiiqifnnj0vre7mmrvb.png" alt="Connect with Us">
-                            <button class="click-button" onclick="toggleSection('connect-with-us')">Click Me</button>
                         </div>
-                        <div class="col-6 image-container">
-                            <div class="image-overlay">Complimentary Consultation</div>
+                        <div class="col-6 col-md-6 image-container" onclick="toggleSection('complimentary-consultation')">
+                            <div class="image-overlay"> <p class="text-overlay-size text-center">Complimentary <br> Consultation </p> </div>
                             <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986991/zbvhxq6m10gjgbr5itbv.webp" alt="Complimentary Consultation">
-                            <button class="click-button" onclick="toggleSection('complimentary-consultation')">Click Me</button>
                         </div>
                     </div>
                 </div>
@@ -217,7 +241,7 @@ function toggleSection(sectionId) {
             text: 'My professional journey spans several dynamic fields, from chemical engineering to mathematics tutoring and entrepreneurship, culminating in my current role as a full stack developer. Each role has endowed me with unique insights and skills, reinforcing my dedication to innovative web solutions that cater to your specific needs.'
         },
         'design-philosophy': {
-            title: 'Design Philosophy and Aftercare',
+            title: 'Design  and Aftercare',
             text: 'At Clean Design UK, our philosophy is to put the client first, embracing creativity to deliver uniquely functional and standout bespoke solutions. We engage in regular consultations and updates throughout the design process and beyond, ensuring that your website not only meets but exceeds your evolving expectations.'
         },
         'connect-with-us': {
@@ -239,5 +263,6 @@ function toggleSection(sectionId) {
     }
 }
 </script>
+
 
 {% endblock %}
