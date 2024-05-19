@@ -6,8 +6,6 @@
         font-family: Arial, sans-serif;
     }
 
-    
-
     .hero-section {
         background: linear-gradient(to right, #cb4611, #ac2209);
         color: #fff;
@@ -83,7 +81,11 @@
         background-color: #cb4611;
         color: #fff;
     }
-    .text-overlay-size {font-size: 1.2rem;}
+    
+    .text-overlay-size {
+        font-size: 1.2rem;
+    }
+
     @media (max-width: 768px) {
         .hero-section h1 {
             font-size: 2.5rem;
@@ -100,9 +102,10 @@
         .custom-container {
             padding: 30px 15px;
         }
-        .text-overlay-size {font-size: 1.0rem;}
-
         
+        .text-overlay-size {
+            font-size: 1.0rem;
+        }
     }
 
     .contact-link a {
@@ -164,6 +167,7 @@
         justify-content: center;
         align-items: center;
     }
+
     .tooltip-icon {
         position: fixed;
         top: 100px;
@@ -174,32 +178,38 @@
         padding: 5px;
         z-index: 1000;
     }
-    
+
+    .animate__animated {
+        visibility: visible !important;
+    }
 </style>
+
+<!-- Include Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <div id="about-intro" class="about-intro">
     <section class="py-5">
         <div class="container">
             <!-- Tooltip Icon -->
-<div class="tooltip-icon" data-bs-toggle="modal" data-bs-target="#tooltipModal">
-    <i class="fas fa-info-circle"></i>
-</div>
+            <div class="tooltip-icon" data-bs-toggle="modal" data-bs-target="#tooltipModal">
+                <i class="fas fa-info-circle"></i>
+            </div>
 
-<!-- Modal -->
-<div class="modal fade" id="tooltipModal" tabindex="-1" aria-labelledby="tooltipModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tooltipModalLabel">How to Use This Page</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Modal -->
+            <div class="modal fade" id="tooltipModal" tabindex="-1" aria-labelledby="tooltipModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tooltipModalLabel">How to Use This Page</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Click on any image to change the text on the about page.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                
-                <p>Click on any image to change the text on the about page.</p>
-            </div>
-        </div>
-    </div>
-</div>
+
             <div class="row gx-4 align-items-center justify-content-between">
                 <div class="col-md-5">
                     <div class="mt-5">
@@ -215,7 +225,7 @@
                             <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/flleriz3wisos7kbvhim.png" alt="Professional Background">
                         </div>
                         <div class="col-6 col-md-6 image-container" onclick="toggleSection('design-philosophy')">
-                            <div class="image-overlay" > <p class="text-overlay-size text-center">  Design <br>  Philosophy </p> </div>
+                            <div class="image-overlay"> <p class="text-overlay-size text-center">  Design <br>  Philosophy </p> </div>
                             <img class="img-fluid rounded-3" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715986439/donkkkuxdtd2qwxe0etx.png" alt="Design Philosophy">
                         </div>
                         <div class="col-6 col-md-6 image-container" onclick="toggleSection('connect-with-us')">
@@ -241,7 +251,7 @@ function toggleSection(sectionId) {
             text: 'My professional journey spans several dynamic fields, from chemical engineering to mathematics tutoring and entrepreneurship, culminating in my current role as a full stack developer. Each role has endowed me with unique insights and skills, reinforcing my dedication to innovative web solutions that cater to your specific needs.'
         },
         'design-philosophy': {
-            title: 'Design  and Aftercare',
+            title: 'Design Philosophy',
             text: 'At Clean Design UK, our philosophy is to put the client first, embracing creativity to deliver uniquely functional and standout bespoke solutions. We engage in regular consultations and updates throughout the design process and beyond, ensuring that your website not only meets but exceeds your evolving expectations.'
         },
         'connect-with-us': {
@@ -258,11 +268,29 @@ function toggleSection(sectionId) {
     var aboutText = document.getElementById('about-text');
 
     if (aboutContent[sectionId]) {
-        aboutTitle.innerHTML = aboutContent[sectionId].title;
-        aboutText.innerHTML = aboutContent[sectionId].text;
+        aboutTitle.classList.add('animate__animated', 'animate__fadeOutLeft');
+        aboutText.classList.add('animate__animated', 'animate__fadeOutLeft');
+        
+        setTimeout(() => {
+            aboutTitle.innerHTML = aboutContent[sectionId].title;
+            aboutText.innerHTML = aboutContent[sectionId].text;
+            
+            aboutTitle.classList.remove('animate__fadeOutLeft');
+            aboutText.classList.remove('animate__fadeOutLeft');
+
+            aboutTitle.classList.add('animate__fadeInRight');
+            aboutText.classList.add('animate__fadeInRight');
+        }, 500);
+
+        aboutTitle.addEventListener('animationend', () => {
+            aboutTitle.classList.remove('animate__animated', 'animate__fadeInRight');
+        });
+
+        aboutText.addEventListener('animationend', () => {
+            aboutText.classList.remove('animate__animated', 'animate__fadeInRight');
+        });
     }
 }
 </script>
-
 
 {% endblock %}
