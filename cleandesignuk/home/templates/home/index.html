@@ -16,7 +16,7 @@
 
 .hero-image {background-size: auto 110%;}
     .hero-header {
-        
+        background-color: #cecdcd;
         color: black;
         padding-top: 30px;
         padding-bottom: 30px;
@@ -47,6 +47,26 @@
         color: rgb(136, 14, 14);
     }
 
+    .service-card p {  color: rgb(136, 14, 14);}
+
+      /* Gradient backgrounds for each card */
+      .service-card.blog {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+        
+    }
+
+    .service-card.gallery {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
+    .service-card.packages {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
+    .service-card.contact {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
     .service-card p {
         color: #000;
     }
@@ -55,6 +75,8 @@
         background-color: rgb(136, 14, 14);
         border-color: rgb(136, 14, 14);
     }
+
+    h4 {font-weight: bold;}
 
     @media (max-width: 1024px) {
         .navbar {
@@ -77,25 +99,25 @@
         </div>
         <div class="row mt-5 text-center">
             <a href="{% url 'blog:blog_list' %}" class="col-md-6 col-lg-3 mb-3">
-                <div class="service-card">
+                <div class="service-card blog">
                     <h4>Our Blog</h4>
                     <p>Gain insights into the latest trends and our innovative approaches to web design.</p>
                 </div>
             </a>
             <a href="{% url 'gallery:index' %}" class="col-md-6 col-lg-3 mb-3 ">
-                <div class="service-card">
+                <div class="service-card gallery">
                     <h4>Design Gallery</h4>
                     <p>Browse through our projects to see how we translate ideas into impactful digital art.</p>
                 </div>
             </a>
             <a href="{% url 'services:index' %}" class="col-md-6 col-lg-3 mb-3 ">
-                <div class="service-card">
+                <div class="service-card packages ">
                     <h4>Customised Packages</h4>
                     <p>Discover flexible service packages designed to meet diverse needs and budgets.</p>
                 </div>
             </a>
             <a href="{% url 'contact:index' %}" class="col-md-6 col-lg-3 mb-3 ">
-                <div class="service-card">
+                <div class="service-card contact ">
                     <h4>Get in Touch</h4>
                     <p>Let's start a conversation that will take your digital presence to new heights.</p>
                 </div>
