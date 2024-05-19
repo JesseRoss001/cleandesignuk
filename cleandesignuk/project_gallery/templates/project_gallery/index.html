@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 <style>
     /* Overall gallery aesthetics */
     .gallery-container {
         padding: 4rem 1rem;
-         /* Soft background for the gallery */
     }
 
     main { background-color: #ecebeb; }
@@ -18,7 +19,16 @@
         margin-bottom: 2rem;
         font-weight: bold;
     }
-span {color:#c71208;}
+
+    .nav-link { color: black !important; }
+    
+    .active {
+        color: #c41d1d !important;
+        font-weight: bold;
+    }
+
+    span { color: #c71208; }
+
     .project-info {
         text-align: center;
         color: #333;
@@ -39,14 +49,13 @@ span {color:#c71208;}
     }
 
     /* Cards styling with a modern touch */
-   /* Frosted glass card design with red accent borders */
-   .card {
-    background: #fafafa;
-border-radius: 16px;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(2px);
--webkit-backdrop-filter: blur(2px);
-border: 1px solid rgba(148, 11, 11, 0.72);
+    .card {
+        background: #fafafa;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        border: 1px solid rgba(148, 11, 11, 0.72);
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interaction */
         overflow: hidden; /* Hide overflow */
         display: flex;
@@ -54,7 +63,7 @@ border: 1px solid rgba(148, 11, 11, 0.72);
     }
 
     .card:hover {
-         /* Slight scale on hover for interaction feedback */
+        /* Slight scale on hover for interaction feedback */
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
     }
 
@@ -99,11 +108,11 @@ border: 1px solid rgba(148, 11, 11, 0.72);
 </style>
 
 <div class="container gallery-container">
-    <h2 class="gallery-title"> Project <span>Gallery</span></h2>
-    <p class="project-info">Explore some of the fantastic projects we've worked on. From bespoke websites to e-commerce solutions, our portfolio showcases our dedication to quality and creativity.</p>
+    <h2 class="gallery-title animate__animated animate__fadeInDown">Project <span>Gallery</span></h2>
+    <p class="project-info animate__animated animate__fadeIn">Explore some of the fantastic projects we've worked on. From bespoke websites to e-commerce solutions, our portfolio showcases our dedication to quality and creativity.</p>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for project in projects %}
-        <div class="col">
+        <div class="col animate__animated animate__fadeInUp">
             <div class="card h-100 shadow-sm">
                 <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
                 <div class="card-body d-flex flex-column">
