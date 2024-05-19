@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cleandesignuk.ondigitalocean.app']
+ALLOWED_HOSTS = ['cleandesignuk.ondigitalocean.app','8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io','cleandesignuk-zhcz6.ondigitalocean.app']
 
 
 # Application definition
@@ -57,7 +57,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '926846188353119',
     'API_SECRET': 'K3z1zVsbWDqrHNgZ1S3YoV3Me84',
 }
-CSRF_TRUSTED_ORIGINS = ['https://cleandesignuk.ondigitalocean.app']
+CSRF_TRUSTED_ORIGINS = ['https://cleandesignuk.ondigitalocean.app','https://cleandesignuk-zhcz6.ondigitalocean.app/','https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io/']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
