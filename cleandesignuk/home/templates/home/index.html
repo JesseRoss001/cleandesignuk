@@ -2,6 +2,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <style>
     main { min-height: 100vh; }
@@ -14,7 +15,7 @@
         font-weight: bold;
     }
 
-.hero-image {background-size: auto 110%;}
+    .hero-image {background-size: auto 110%;}
     .hero-header {
         background-color: #cecdcd;
         color: black;
@@ -49,10 +50,9 @@
 
     .service-card p {  color: rgb(136, 14, 14);}
 
-      /* Gradient backgrounds for each card */
-      .service-card.blog {
+    /* Gradient backgrounds for each card */
+    .service-card.blog {
         background: linear-gradient(to bottom, #ffffff, #979291);
-        
     }
 
     .service-card.gallery {
@@ -85,39 +85,39 @@
     }
 </style>
 
-<section class="py-3 py-lg-5 hero-header">
+<section class="py-3 py-lg-5 hero-header animate__animated animate__fadeIn">
     <div class="container">
         <div class="row g-0 d-flex justify-content-center align-items-center">
-            <div class="col-lg-6 mt-3 mt-md-0 mb-4 mb-lg-0">
+            <div class="col-lg-6 mt-3 mt-md-0 mb-4 mb-lg-0 animate__animated animate__fadeInLeft">
                 <h1 class="display-4 fw-bold">Empowering Your <span class="accent-text">Digital Presence</span> with Expertise and Care</h1>
                 <p class="lead my-4">At Clean Design UK, we tailor digital experiences that resonate with your brand and audience, backed by continuous support and dedication to your growth.</p>
                 <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
             </div>
-            <div class="col-md-8 col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="col-md-8 col-lg-6 d-flex justify-content-center align-items-center animate__animated animate__fadeInRight">
                 <img alt="Dynamic digital design" class="img-fluid rounded" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1715972068/efznxvtuorxeiwgcgmt1.png">
             </div>
         </div>
         <div class="row mt-5 text-center">
-            <a href="{% url 'blog:blog_list' %}" class="col-md-6 col-lg-3 mb-3">
+            <a href="{% url 'blog:blog_list' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp">
                 <div class="service-card blog">
                     <h4>Our Blog</h4>
                     <p>Gain insights into the latest trends and our innovative approaches to web design.</p>
                 </div>
             </a>
-            <a href="{% url 'gallery:index' %}" class="col-md-6 col-lg-3 mb-3 ">
+            <a href="{% url 'gallery:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-1s">
                 <div class="service-card gallery">
                     <h4>Design Gallery</h4>
                     <p>Browse through our projects to see how we translate ideas into impactful digital art.</p>
                 </div>
             </a>
-            <a href="{% url 'services:index' %}" class="col-md-6 col-lg-3 mb-3 ">
-                <div class="service-card packages ">
+            <a href="{% url 'services:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="service-card packages">
                     <h4>Customised Packages</h4>
                     <p>Discover flexible service packages designed to meet diverse needs and budgets.</p>
                 </div>
             </a>
-            <a href="{% url 'contact:index' %}" class="col-md-6 col-lg-3 mb-3 ">
-                <div class="service-card contact ">
+            <a href="{% url 'contact:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-3s">
+                <div class="service-card contact">
                     <h4>Get in Touch</h4>
                     <p>Let's start a conversation that will take your digital presence to new heights.</p>
                 </div>
