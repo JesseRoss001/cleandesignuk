@@ -12,9 +12,13 @@ body {color:black;}
     font-size: 1.4rem; /* Base font size */
     
 }
-.nav-link {color:black;}
+.nav-link {color:black !important;}
 
-
+.active {
+    color: #c41d1d !important; /* White text */
+     /* Bootstrap primary color */
+    font-weight: bold;
+}
 .text-size-brand {font-size: 1.6rem;
 color:black;}
 .icon-sizing {font-size: 1.4rem;}
@@ -66,13 +70,15 @@ color:black;}
 
 
 /* --------------------------------FOOTER--------------------------------*/ 
-footer {    backdrop-filter: blur(10px); /* Blurs any content behind the footer */
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
-    border-top: 1px solid rgba(255, 255, 255, 0.25); /* Subtle white border at the top */
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth, inverted to cast upwards */
-    color: #000; /* Adjust text color for visibility against light background */
+footer {    backdrop-filter: blur(10px) !important; /* Blurs any content behind the footer */
+    background: rgba(210, 208, 208, 0.6) !important; /* Semi-transparent white */
+    border-top: 1px solid rgba(255, 255, 255, 0.25) !important; /* Subtle white border at the top */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1) !important ; /* Soft shadow for depth, inverted to cast upwards */
+    color: #000 !important ; /* Adjust text color for visibility against light background */
     padding: 20px 0; /* Padding for aesthetic spacing */}
 /* Social icons styling */
+
+
 footer .list-unstyled {
     padding: 0;
     margin: 0;
