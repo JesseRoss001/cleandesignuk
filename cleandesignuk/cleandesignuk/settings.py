@@ -33,7 +33,12 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io']
+ALLOWED_HOSTS = [
+    '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io',
+    '134.209.23.85',  # Add your Droplet's IP address
+    'cleandesignuk.com',  # Replace with your domain if applicable
+    'cleandesignuk.uk'
+]
 
 
 # Application definition
@@ -63,7 +68,12 @@ cloudinary.config(
   	api_secret = "K3z1zVsbWDqrHNgZ1S3YoV3Me84"
 )
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io',
+    'http://134.209.23.85',  # Include http if you're not using SSL
+    'https://cleandesignuk.com', # Replace with your domain if applicable
+    'https://cleandesignuk.uk',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
