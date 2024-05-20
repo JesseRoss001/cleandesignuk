@@ -11,11 +11,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 import sys
+import environ
 from pathlib import Path
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api	
 import dj_database_url
           
-
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +33,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cleandesignuk.ondigitalocean.app','8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io','cleandesignuk-zhcz6.ondigitalocean.app']
+ALLOWED_HOSTS = ['8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io']
 
 
 # Application definition
@@ -52,12 +56,14 @@ INSTALLED_APPS = [
     'packages_services',  # add this
     'contact',  # add this
 ]
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dz18uvfpa',
-    'API_KEY': '926846188353119',
-    'API_SECRET': 'K3z1zVsbWDqrHNgZ1S3YoV3Me84',
-}
-CSRF_TRUSTED_ORIGINS = ['https://cleandesignuk.ondigitalocean.app','https://cleandesignuk-zhcz6.ondigitalocean.app/','https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io/']
+
+cloudinary.config( 
+  	cloud_name = "dz18uvfpa",
+  	api_key = "926846188353119",
+  	api_secret = "K3z1zVsbWDqrHNgZ1S3YoV3Me84"
+)
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -111,23 +117,31 @@ MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# Determine the environment mode
+DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'True') == 'True'
 
-DEVELOPMENT_MODE = True
-
-if DEVELOPMENT_MODE is True:
+# Database configuration
+if DEVELOPMENT_MODE:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
+else:
     DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DATABASE_NAME', 'defaultdb'),
+            'USER': os.getenv('DATABASE_USERNAME', 'doadmin'),
+            'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+            'HOST': os.getenv('DATABASE_HOST'),
+            'PORT': os.getenv('DATABASE_PORT', '25060'),
+            'OPTIONS': {
+                'sslmode': os.getenv('DATABASE_SSLMODE', 'require'),
+            },
+        }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
