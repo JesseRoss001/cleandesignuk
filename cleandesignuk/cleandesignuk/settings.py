@@ -1,26 +1,34 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '167.71.129.123',  # Your Droplet's IP address
+    'cleandesignuk.com',
+    'cleandesignuk.uk',
+    '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://167.71.129.123',
+    'https://cleandesignuk.com',
+    'https://cleandesignuk.uk',
+    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
+    'https://127.0.0.1'
+]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,12 +48,6 @@ INSTALLED_APPS = [
     'contact',  # add this
 ]
 
-cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
-)
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'cleandesignuk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Add this if your base.html is in a global templates directory
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,12 +78,43 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cleandesignuk.wsgi.application'
 
-# Database configuration
+# Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME', 'defaultdb'),
+        'USER': os.getenv('DATABASE_USER', 'doadmin'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'AVNS_B2GpkX922z4qvlPnr95'),
+        'HOST': os.getenv('DATABASE_HOST', 'db-postgresql-lon1-23103-do-user-16160735-0.c.db.ondigitalocean.com'),
+        'PORT': os.getenv('DATABASE_PORT', '25060'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
+}
+
+# Use Cloudinary for media file storage
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Use local storage for static files
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 360,
+        'width': '100%',
+        'extraPlugins': ','.join([
+            'codesnippet',
+            'image2',
+        ]),
+    },
 }
 
 # Password validation
@@ -100,7 +133,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -122,33 +154,12 @@ LOGGING = {
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
+
 TIME_ZONE = 'UTC'
+
 USE_I18N = True
+
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# Media files (uploads)
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-# CKEditor configuration
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 360,
-        'width': '100%',
-        'extraPlugins': ','.join([
-            'codesnippet',
-            'image2',
-        ]),
-    },
-}
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
