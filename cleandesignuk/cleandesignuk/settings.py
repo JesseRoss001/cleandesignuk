@@ -35,7 +35,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io',
-    '134.209.23.85',  # Add your Droplet's IP address
+    '206.189.120.184',  # Add your Droplet's IP address
     'cleandesignuk.com',  # Replace with your domain if applicable
     'cleandesignuk.uk'
 ]
@@ -68,9 +68,15 @@ cloudinary.config(
   	api_secret = "K3z1zVsbWDqrHNgZ1S3YoV3Me84"
 )
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dz18uvfpa',
+    'API_KEY': '926846188353119',
+    'API_SECRET': 'K3z1zVsbWDqrHNgZ1S3YoV3Me84'
+}
+
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu111.gitpod.io',
-    'http://134.209.23.85',  # Include http if you're not using SSL
+    'http://206.189.120.184',  # Include http if you're not using SSL
     'https://cleandesignuk.com', # Replace with your domain if applicable
     'https://cleandesignuk.uk',
 ]
@@ -188,11 +194,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
