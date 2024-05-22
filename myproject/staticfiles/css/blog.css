@@ -9,7 +9,7 @@
     span { color: #c41d1d; }
 
     .hero {
-        background: url('{{ hero_image_url }}') no-repeat center center;
+        
         background-size: cover;
         color: rgb(14, 4, 4);
         display: flex;

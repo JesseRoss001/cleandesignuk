@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'project_gallery',  # add this
     'packages_services',  # add this
     'contact',  # add this
+
 ]
 
 cloudinary.config(
@@ -72,11 +73,21 @@ cloudinary.config(
     api_secret=os.getenv('CLOUDINARY_API_SECRET')
 )
 
+CORS_ALLOWED_ORIGINS = [
+    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
+    'https://gitpod.io',
+    'https://cleandesignuk.uk',
+    'https://cleandesignuk.com',
+    'http://127.0.0.1:8000',
+    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io'
+    ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -110,7 +121,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,25 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
+
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -156,7 +150,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Media files (uploads)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -179,3 +173,9 @@ CKEDITOR_CONFIGS = {
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Simplifies static file handling
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# For caching support
+WHITENOISE_MAX_AGE = 31536000  # One year in seconds

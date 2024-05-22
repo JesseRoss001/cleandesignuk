@@ -1,0 +1,113 @@
+main {min-height:100vh;}
+body {color:black;}
+
+/*                 --------------------NAVBAR ----------------------------          */
+
+/* Custom styles for the navbar */
+.navbar {
+    backdrop-filter: blur(10px); /* This will create the frosted glass effect */
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    font-size: 1.4rem; /* Base font size */
+    
+}
+.nav-link {color:black !important;}
+
+.active {
+    color: #c41d1d !important; /* White text */
+     /* Bootstrap primary color */
+    font-weight: bold;
+}
+.text-size-brand {font-size: 1.6rem;
+color:black;}
+.icon-sizing {font-size: 1.4rem;}
+
+@media (max-width: 1024px) {
+    .navbar {
+        font-size: 1.2rem; /* Smaller text on smaller devices */
+    }
+    .icon-sizing {font-size: 1.2rem;}
+    .text-size-brand {font-size: 1.4rem;}
+}
+
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Ensure the logo fits well in the navbar */
+.navbar-brand img {
+    height: auto;
+    max-height: 60px; /* Adjust based on your preference */
+    width: auto;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 1.2rem; /* Even smaller text on mobile devices */
+    }
+    .icon-sizing {font-size: 1.2rem;}
+
+    .text-size-brand {font-size: 1.3rem;}
+}
+/* -----------------------COOKIE POLICY -------------------------*/
+#cookieConsentModal .modal-content {
+    background-color: #f8f9fa; /* Light background for the modal */
+    color: #333; /* Dark text for readability */
+}
+#cookieConsentModal .modal-header {
+    border-bottom: 1px solid #dee2e6; /* Subtle border for the header */
+}
+#cookieConsentModal .modal-footer {
+    border-top: 1px solid #dee2e6; /* Subtle border for the footer */
+}
+
+
+
+/* --------------------------------FOOTER--------------------------------*/ 
+footer {    backdrop-filter: blur(10px) !important; /* Blurs any content behind the footer */
+    background: rgba(210, 208, 208, 0.6) !important; /* Semi-transparent white */
+    border-top: 1px solid rgba(255, 255, 255, 0.25) !important; /* Subtle white border at the top */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1) !important ; /* Soft shadow for depth, inverted to cast upwards */
+    color: #000 !important ; /* Adjust text color for visibility against light background */
+    padding: 20px 0; /* Padding for aesthetic spacing */}
+/* Social icons styling */
+
+
+footer .list-unstyled {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex; /* Aligns the icons horizontally */
+    justify-content: space-around; /* Spreads the icons evenly */
+}
+
+footer .list-unstyled li a {
+    color: rgb(0, 0, 3); /* Keeps icons white */
+    font-size: 1.1rem !important; /* Sets a larger size for visibility */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none;
+}
+
+footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
+    color: rgb(136, 14, 14); /* Changes color on hover for better interaction feedback */
+    text-decoration: none; /* Removes underline on hover */
+}
+.policy-footer-size {font-size: 1rem !important;}
+/* Ensure responsiveness of the footer icons */
+@media (max-width: 768px) {
+    footer .list-unstyled {
+        justify-content: space-evenly; /* Ensures even spacing on smaller screens */
+    }
+
+    footer .list-unstyled li a {font-size: 1rem !important;}
+}
+
+
+
+
