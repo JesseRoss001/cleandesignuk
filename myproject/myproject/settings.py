@@ -17,7 +17,25 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '188.166.168.22',
+    '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
+    'cleandesignuk.uk',
+    'cleandesignuk.com',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://188.166.168.22',
+    'http://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
+    'http://cleandesignuk.uk',
+    'http://cleandesignuk.com',
+    # You can add HTTPS versions as well if applicable
+    'https://188.166.168.22',
+    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
+    'https://cleandesignuk.uk',
+    'https://cleandesignuk.com',
+]
+
 
 # Application definition
 
