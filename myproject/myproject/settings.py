@@ -22,6 +22,11 @@ ALLOWED_HOSTS = [
     '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'cleandesignuk.uk',
     'cleandesignuk.com',
+    'localhost',
+    '127.0.0.1',
+    'cleandesignuk.uk:8000',
+    '127.0.0.1:8000',
+    
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -29,11 +34,13 @@ CSRF_TRUSTED_ORIGINS = [
     'http://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'http://cleandesignuk.uk',
     'http://cleandesignuk.com',
+    'http://cleandesignuk.uk:8000'
     # You can add HTTPS versions as well if applicable
     'https://188.166.168.22',
     'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'https://cleandesignuk.uk',
     'https://cleandesignuk.com',
+    'https://127.0.0.1:8000'
 ]
 
 
@@ -147,7 +154,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Media files (uploads)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
