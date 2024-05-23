@@ -120,11 +120,11 @@ DATABASES = {
         'NAME': 'defaultdb',
         'USER': 'doadmin',
         'PASSWORD': 'AVNS_B2GpkX922z4qvlPnr95',
-        'HOST': 'db-postgresql-lon1-23103-do-user-16160735-0.c.db.ondigitalocean.com',
-        'PORT': '25060',
+        'HOST': 'db',  # Use service name defined in Docker Compose for internal linking
+        'PORT': '5432',  # Default PostgreSQL port
         'OPTIONS': {
             'sslmode': 'require',
-            'sslrootcert': '/workspaces/cleandesignuk/myproject/myproject/ca-certificate.crt'
+            'sslrootcert': '/cleandesignuk/myproject/myproject/ca-certificate.crt'
         },
     }
 }

@@ -26,7 +26,6 @@ services:
       - POSTGRES_USER=doadmin
       - POSTGRES_PASSWORD=AVNS_B2GpkX922z4qvlPnr95
       - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_PORT=25060
 
 volumes:
   postgres_data:
