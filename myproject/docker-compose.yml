@@ -3,7 +3,9 @@ version: '3.8'
 services:
   web:
     build: .
-    command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
+    command: >
+      bash -c "while !</dev/tcp/db/5432; do sleep 1; done;
+      gunicorn myproject.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/workspace
     ports:
@@ -23,7 +25,7 @@ services:
       - POSTGRES_DB=defaultdb
       - POSTGRES_USER=doadmin
       - POSTGRES_PASSWORD=AVNS_B2GpkX922z4qvlPnr95
-      - POSTGRES_HOST=db-postgresql-lon1-23103-do-user-16160735-0.c.db.ondigitalocean.com
+      - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_PORT=25060
 
 volumes:
