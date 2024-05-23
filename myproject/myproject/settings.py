@@ -73,20 +73,20 @@ cloudinary.config(
     api_secret=os.getenv('CLOUDINARY_API_SECRET')
 )
 
-CORS_ALLOWED_ORIGINS = [
-    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
-    'https://gitpod.io',
-    'https://cleandesignuk.uk',
-    'https://cleandesignuk.com',
-    'http://127.0.0.1:8000',
-    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io'
-    ]
+#CORS_ALLOWED_ORIGINS = [
+#    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
+#    'https://gitpod.io',
+#    'https://cleandesignuk.uk',
+#    'https://cleandesignuk.com',
+#    'http://127.0.0.1:8000',
+#    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io'
+#    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+#   'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -149,13 +149,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Media files (uploads)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # CKEditor configuration
 CKEDITOR_UPLOAD_PATH = "uploads/"
