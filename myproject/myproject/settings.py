@@ -124,6 +124,7 @@ DATABASES = {
         'PORT': '25060',
         'OPTIONS': {
             'sslmode': 'require',
+            'sslrootcert': '/workspaces/cleandesignuk/myproject/ca-certificate.crt'
         },
     }
 }
