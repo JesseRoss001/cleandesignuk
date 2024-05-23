@@ -1,4 +1,3 @@
-# Use the official Python image from the Docker Hub
 FROM python:3.12
 
 # Set the working directory in the container
@@ -9,9 +8,9 @@ COPY requirements.txt /workspace/
 
 # Install any needed packages specified in requirements.txt
 RUN python -m venv venv && \
-    . venv/bin/activate && \
+    /bin/bash -c "source venv/bin/activate && \
     pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt"
 
 # Copy the rest of the working directory contents into the container
 COPY . /workspace/
@@ -20,7 +19,9 @@ COPY . /workspace/
 EXPOSE 8000
 
 # Run the migrations and collect static files
-RUN . venv/bin/activate && python manage.py migrate && python manage.py collectstatic --noinput
+RUN /bin/bash -c "source venv/bin/activate && \
+    python manage.py migrate && \
+    python manage.py collectstatic --noinput"
 
 # Run the application
 CMD ["/workspace/venv/bin/gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
