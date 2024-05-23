@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-
+import dj_database_url
 # Load environment variables from .env file
 load_dotenv()
 
@@ -116,13 +116,9 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOW_CREDENTIALS = True
+
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
