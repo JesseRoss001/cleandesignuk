@@ -1,15 +1,17 @@
-version: '3'
+version: '3.8'
 
 services:
   web:
     build: .
-    command: /bin/bash -c "source /workspace/venv/bin/activate && gunicorn --workers 3 myproject.wsgi:application --bind 0.0.0.0:8000"
+    command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/workspace
     ports:
       - "8000:8000"
     env_file:
       - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=myproject.settings
     depends_on:
       - db
 
@@ -18,10 +20,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: defaultdb
-      POSTGRES_USER: doadmin
-      POSTGRES_PASSWORD: AVNS_B2GpkX922z4qvlPnr95
-      POSTGRES_HOST_AUTH_METHOD: trust
+      - POSTGRES_DB=defaultdb
+      - POSTGRES_USER=doadmin
+      - POSTGRES_PASSWORD=AVNS_B2GpkX922z4qvlPnr95
+      - POSTGRES_HOST=db-postgresql-lon1-23103-do-user-16160735-0.c.db.ondigitalocean.com
+      - POSTGRES_PORT=25060
 
 volumes:
   postgres_data:
