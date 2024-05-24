@@ -3,12 +3,99 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
 {% endblock %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<meta name="title" content="CleanDesignUK - Innovative Web Design in North Wales">
+<meta name="description" content="Discover leading-edge web design solutions with CleanDesignUK. We specialize in creating custom websites that drive growth and improve user engagement in North Wales. Start your digital transformation today.">
+<meta name="keywords" content="web design North Wales, innovative web solutions, custom web design, digital transformation">
+<title>CleanDesignUK - Leading Web Design Innovation</title>
+<link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
+<style>
+    
+    main { min-height: 100vh; }
+    body { color: black; background-color: #f8f9fa !important; }
+    a {text-decoration: none;}
+    .nav-link { color: black !important; }
+    
+    .active {
+        color: #c41d1d !important;
+        font-weight: bold;
+    }
 
+    .hero-image {background-size: auto 110%;}
+    .hero-header {
+        background-color: #cecdcd;
+        color: black;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .accent-text {
+        color: rgb(136, 14, 14);
+    }
+
+    .service-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #fff; /* Light red background for engagement */
+        border: 2px solid rgb(136, 14, 14);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        height: 100%; /* make all cards equal height */
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px); /* subtle hover effect */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    }
+
+    .service-card h4 {
+        color: rgb(136, 14, 14);
+    }
+
+    .service-card p {  color: rgb(136, 14, 14);}
+
+    /* Gradient backgrounds for each card */
+    .service-card.blog {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
+    .service-card.gallery {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
+    .service-card.packages {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
+    .service-card.contact {
+        background: linear-gradient(to bottom, #ffffff, #979291);
+    }
+
+    .service-card p {
+        color: #000;
+    }
+
+    .btn-danger {
+        background-color: rgb(136, 14, 14);
+        border-color: rgb(136, 14, 14);
+    }
+
+    h4 {font-weight: bold;}
+
+    @media (max-width: 1024px) {
+        .navbar {
+            font-size: 1.2rem;
+        }
+    }
+
+</style>
 
 <section class="py-3 py-lg-5 hero-header animate__animated animate__fadeIn">
     <div class="container">

@@ -6,7 +6,118 @@
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<meta name="title" content="Our Projects - CleanDesignUK Portfolio">
+<meta name="description" content="View our portfolio at CleanDesignUK and see the successful projects we've delivered across North Wales. Our gallery showcases our capability in transforming ideas into visually appealing and functional websites.">
+<meta name="keywords" content="CleanDesignUK portfolio, web design projects, North Wales web design, visual gallery">
+<title>Project Gallery - Explore Our Work at CleanDesignUK</title>
+<link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
+<style>
+      /* Overall gallery aesthetics */
+  .gallery-container {
+    padding: 4rem 1rem;
+}
 
+main { background-color: #ecebeb; }
+
+/* Dynamic text sizing and alignment for responsiveness */
+.gallery-title {
+    text-align: center;
+    color: #0c0102; /* Updated to use logo red */
+    font-size: 2rem; /* Default size */
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.nav-link { color: black !important; }
+
+.active {
+    color: #c41d1d !important;
+    font-weight: bold;
+}
+
+span { color: #c71208; }
+
+.project-info {
+    text-align: center;
+    color: #333;
+    font-size: 1rem; /* Default size */
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+/* Responsive Font Sizes */
+@media (min-width: 768px) {
+    .gallery-title {
+        font-size: 3rem; /* Larger on medium screens and up */
+    }
+    .project-info {
+        font-size: 1.2rem; /* Slightly larger on medium screens and up */
+    }
+}
+
+/* Cards styling with a modern touch */
+.card {
+    background: #fafafa;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(148, 11, 11, 0.72);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interaction */
+    overflow: hidden; /* Hide overflow */
+    display: flex;
+    flex-direction: column; /* Organize content vertically */
+}
+
+.card:hover {
+    /* Slight scale on hover for interaction feedback */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card img {
+    width: 100%;
+ 
+    height: 300px;
+    object-fit: cover;
+    display: block;
+
+    transition: opacity 0.3s ease; /* Smooth transition for image interactions */
+}
+
+.card img:hover {
+    opacity: 0.9; /* Slight opacity reduction on hover */
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    text-align: center; /* Centered text inside cards */
+}
+
+.card-title {
+    color: #ee1d24; /* Consistent with logo color */
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    color: #444;
+}
+
+.btn-primary {
+    background-color: #ee1d24;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c71208; /* Brighter red on hover */
+    transform: translateY(-2px);
+}
+</style>
 
 
 <div class="container gallery-container">
