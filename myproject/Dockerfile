@@ -1,27 +1,28 @@
 FROM python:3.12
 
 # Set the working directory in the container
-WORKDIR /workspace/myproject
+WORKDIR /workspace
 
-# Copy the requirements file into the container
-COPY requirements.txt /workspace/myproject
+# Creating a virtual environment in the working directory
+RUN python3 -m venv venv
 
-# Install any needed packages specified in requirements.txt
-RUN python -m venv venv && \
-    /bin/bash -c "source venv/bin/activate && \
-    pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt"
+# Activating the virtual environment and updating pip
+RUN . venv/bin/activate && pip install --upgrade pip
 
-# Copy the rest of the working directory contents into the container
-COPY . /workspace/myproject
+# Copy the requirements and install them
+COPY requirements.txt .
+RUN . venv/bin/activate && pip install -r requirements.txt
 
-# Make port 8000 available to the world outside this container
+# Copying the rest of your application
+COPY . .
+
+# Make the entrypoint script executable
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+# Setting the script as the entrypoint
+ENTRYPOINT ["./entrypoint.sh"]
+
+# Exposing the port and setting the command to start Gunicorn
 EXPOSE 8000
-
-# Use an entrypoint script to perform initial setup tasks
-COPY entrypoint.sh /workspace/myproject
-RUN chmod +x /workspace/myproject/entrypoint.sh
-ENTRYPOINT ["/workspace/entrypoint.sh"]
-
-# Run the application
-CMD ["/workspace/venv/bin/gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
+CMD ["venv/bin/gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]

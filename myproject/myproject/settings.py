@@ -115,14 +115,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myproject',  # The name of the database you just created
-        'USER': 'myprojectuser',  # The username you created
-        'PASSWORD': 'password',  # The password you assigned to the PostgreSQL user
-        'HOST': 'localhost',  # Or use the appropriate host where your PostgreSQL server is running
-        'PORT': '5432',  # Default PostgreSQL port
-    }
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
 
 # Password validation
