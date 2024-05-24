@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '188.166.144.19',
@@ -115,9 +115,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),  # Read database name from environment variables
+        'USER': os.getenv('DB_USER'),  # Read database user from environment variables
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Read database password from environment variables
+        'HOST': os.getenv('DB_HOST'),  # Read database host from environment variables
+        'PORT': os.getenv('DB_PORT'),  # Read database port from environment variables
+        'OPTIONS': {
+            'sslmode': os.getenv('DB_SSLMODE'),  # This is required for Digital Ocean's managed databases
+        },
     }
 }
 
