@@ -117,15 +117,11 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'defaultdb',
-        'USER': 'doadmin',
-        'PASSWORD': 'AVNS_B2GpkX922z4qvlPnr95',
-        'HOST': 'db',  # Use service name defined in Docker Compose for internal linking
+        'NAME': 'myproject',  # The name of the database you just created
+        'USER': 'myprojectuser',  # The username you created
+        'PASSWORD': 'password',  # The password you assigned to the PostgreSQL user
+        'HOST': 'localhost',  # Or use the appropriate host where your PostgreSQL server is running
         'PORT': '5432',  # Default PostgreSQL port
-        'OPTIONS': {
-            'sslmode': 'require',
-            'sslrootcert': '/cleandesignuk/myproject/myproject/ca-certificate.crt'
-        },
     }
 }
 

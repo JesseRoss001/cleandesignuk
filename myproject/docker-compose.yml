@@ -22,10 +22,10 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=defaultdb
-      - POSTGRES_USER=doadmin
-      - POSTGRES_PASSWORD=AVNS_B2GpkX922z4qvlPnr95
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=myproject  # Updated to use the new database name
+      - POSTGRES_USER=myprojectuser  # Updated to use the new user
+      - POSTGRES_PASSWORD=password  # Updated to use the new password
+      - POSTGRES_HOST_AUTH_METHOD=trust  # Trust authentication for local connections
 
 volumes:
   postgres_data:

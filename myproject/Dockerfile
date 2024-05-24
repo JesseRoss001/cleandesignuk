@@ -1,10 +1,10 @@
 FROM python:3.12
 
 # Set the working directory in the container
-WORKDIR /workspace
+WORKDIR /workspace/myproject
 
 # Copy the requirements file into the container
-COPY requirements.txt /workspace/
+COPY requirements.txt /workspace/myproject
 
 # Install any needed packages specified in requirements.txt
 RUN python -m venv venv && \
@@ -13,15 +13,15 @@ RUN python -m venv venv && \
     pip install --no-cache-dir -r requirements.txt"
 
 # Copy the rest of the working directory contents into the container
-COPY . /workspace/
+COPY . /workspace/myproject
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
 
-# Run the migrations and collect static files
-RUN /bin/bash -c "source venv/bin/activate && \
-    python manage.py migrate && \
-    python manage.py collectstatic --noinput"
+# Use an entrypoint script to perform initial setup tasks
+COPY entrypoint.sh /workspace/myproject
+RUN chmod +x /workspace/myproject/entrypoint.sh
+ENTRYPOINT ["/workspace/entrypoint.sh"]
 
 # Run the application
 CMD ["/workspace/venv/bin/gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
