@@ -54,9 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'ckeditor',
+    'django_ckeditor_5',
     'corsheaders',
-    'ckeditor_uploader',
     'cloudinary',
     'cloudinary_storage',
     'home',  # add this
@@ -180,9 +179,19 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 
 
-# CKEditor configuration
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
+CKEDITOR_5_CUSTOM_CSS = {
+    'default': [
+        '/static/django_ckeditor_5/ckeditor/ckeditor5.css',
+    ],
+}
+
+CKEDITOR_5_CUSTOM_JS = {
+    'default': [
+        '/static/django_ckeditor_5/ckeditor/ckeditor5.js',
+    ],
+}
+
+CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': 'full',
         'height': 360,
