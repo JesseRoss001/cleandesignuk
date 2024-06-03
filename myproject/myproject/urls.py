@@ -17,7 +17,6 @@ handler403 = views.handler403
 handler400 = views.handler400
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('', include('home.urls', namespace='home')),
     path('about/', include('about.urls', namespace='about')),

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import dj_database_url
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '167.99.205.178',
@@ -26,7 +26,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'cleandesignuk.uk:8000',
     '127.0.0.1:8000',
-    
+    '8000-jesseross00-cleandesign-r7tgj1ztv7q.ws-eu114.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -34,15 +34,14 @@ CSRF_TRUSTED_ORIGINS = [
     'http://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'http://cleandesignuk.uk',
     'http://cleandesignuk.com',
-    'http://cleandesignuk.uk:8000'
-    # You can add HTTPS versions as well if applicable
+    'http://cleandesignuk.uk:8000',
     'https://188.166.168.22',
     'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'https://cleandesignuk.uk',
     'https://cleandesignuk.com',
-    'https://127.0.0.1:8000'
+    'https://127.0.0.1:8000',
+    'https://8000-jesseross00-cleandesign-r7tgj1ztv7q.ws-eu114.gitpod.io',
 ]
-
 
 # Application definition
 
@@ -54,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'django_ckeditor_5',
     'corsheaders',
     'cloudinary',
     'cloudinary_storage',
@@ -64,12 +62,7 @@ INSTALLED_APPS = [
     'project_gallery',  # add this
     'packages_services',  # add this
     'contact',  # add this
-
 ]
-
-
-
-
 
 cloudinary.config(
     cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
@@ -77,21 +70,11 @@ cloudinary.config(
     api_secret=os.getenv('CLOUDINARY_API_SECRET')
 )
 
-#CORS_ALLOWED_ORIGINS = [
-#    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
-#    'https://gitpod.io',
-#    'https://cleandesignuk.uk',
-#    'https://cleandesignuk.com',
-#    'http://127.0.0.1:8000',
-#    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io'
-#    ]
-
 MIDDLEWARE = [
     'django.middleware.cache.UpdateCacheMiddleware',  # This should be near the top
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
     'django.contrib.sessions.middleware.SessionMiddleware',
-#   'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,15 +105,8 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),  # Read database name from environment variables
-        'USER': os.getenv('DB_USER'),  # Read database user from environment variables
-        'PASSWORD': os.getenv('DB_PASSWORD'),  # Read database password from environment variables
-        'HOST': os.getenv('DB_HOST'),  # Read database host from environment variables
-        'PORT': os.getenv('DB_PORT'),  # Read database port from environment variables
-        'OPTIONS': {
-            'sslmode': os.getenv('DB_SSLMODE'),  # This is required for Digital Ocean's managed databases
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -157,11 +133,9 @@ CACHES = {
     }
 }
 
-
 CACHE_MIDDLEWARE_ALIAS = 'default'  # Uses the default cache defined earlier
 CACHE_MIDDLEWARE_SECONDS = 600      # Cache each page for 600 seconds (10 minutes)
 CACHE_MIDDLEWARE_KEY_PREFIX = ''    # A prefix that should be unique to this site
-
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -178,37 +152,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 
-
-CKEDITOR_5_CUSTOM_CSS = {
-    'default': [
-        '/static/django_ckeditor_5/ckeditor/ckeditor5.css',
-    ],
-}
-
-CKEDITOR_5_CUSTOM_JS = {
-    'default': [
-        '/static/django_ckeditor_5/ckeditor/ckeditor5.js',
-    ],
-}
-
-CKEDITOR_5_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 360,
-        'width': '100%',
-        'extraPlugins': ','.join([
-            'codesnippet',
-            'image2',
-        ]),
-    },
-}
-
-
-
-
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # Simplifies static file handling
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
