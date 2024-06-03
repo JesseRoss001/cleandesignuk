@@ -75,6 +75,19 @@ color:black;}
     box-shadow: none;
 }
 
+
+.booking-banner {
+            background-color: #c41d1d;
+            text-align: center;
+            padding: 10px;
+            margin-top: 70px;
+        }
+        .booking-banner a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
 /* Ensure the logo fits well in the navbar */
 .navbar-brand img {
     height: auto;
@@ -186,6 +199,11 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
         </div>
     </div>
 </nav>
+<div class="booking-banner">
+    <a href="{% url 'bookings:create_booking' %}">
+        Book Your Free Website Consultation
+    </a>
+</div>
 <main class="mt-2 mt-md-4 mt-lg-5  pt-5 pt-3 flex-shrink-0">
     <div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
