@@ -23,6 +23,7 @@ urlpatterns = [
     path('gallery/', include('project_gallery.urls', namespace='gallery')),
     path('services/', include('packages_services.urls', namespace='services')),
     path('contact/', include('contact.urls', namespace='contact')),
+    path('bookings/', include('bookings.urls', namespace='bookings')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] 
 if settings.DEBUG:

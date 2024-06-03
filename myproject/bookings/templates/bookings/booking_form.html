@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Book a Slot</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Book</button>
+</form>
+
+<h3>Availability</h3>
+<div class="row">
+    {% for date, slots in availability.items %}
+        <div class="col-md-4">
+            <h4>{{ date }}</h4>
+            <ul class="list-group">
+                {% for time, available in slots.items %}
+                    <li class="list-group-item {% if not available %}list-group-item-danger{% endif %}">
+                        {{ time }} {% if not available %} - Booked {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

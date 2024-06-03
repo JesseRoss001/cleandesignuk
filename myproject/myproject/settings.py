@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'home',  # add this
     'blog',  # add this
+    'bookings',
     'about',  # add this
     'project_gallery',  # add this
     'packages_services',  # add this
