@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '188.166.144.19',
@@ -68,6 +68,10 @@ INSTALLED_APPS = [
 
 ]
 
+
+
+
+
 cloudinary.config(
     cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
     api_key=os.getenv('CLOUDINARY_API_KEY'),
@@ -84,6 +88,7 @@ cloudinary.config(
 #    ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',  # This should be near the top
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -93,6 +98,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',  # This should be near the bottom
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -145,6 +151,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+
+CACHE_MIDDLEWARE_ALIAS = 'default'  # Uses the default cache defined earlier
+CACHE_MIDDLEWARE_SECONDS = 600      # Cache each page for 600 seconds (10 minutes)
+CACHE_MIDDLEWARE_KEY_PREFIX = ''    # A prefix that should be unique to this site
 
 
 # Internationalization
@@ -176,6 +193,9 @@ CKEDITOR_CONFIGS = {
         ]),
     },
 }
+
+
+
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
