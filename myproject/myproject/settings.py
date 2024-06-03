@@ -18,7 +18,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '188.166.144.19',
+    '167.99.205.178',
     '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'cleandesignuk.uk',
     'cleandesignuk.com',
@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://188.166.144.19',
+    'http://167.99.205.178',
     'http://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
     'http://cleandesignuk.uk',
     'http://cleandesignuk.com',

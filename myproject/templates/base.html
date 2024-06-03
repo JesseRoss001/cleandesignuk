@@ -28,6 +28,9 @@
     
     <!-- Custom CSS -->
     {% load static %}
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script src="{% static 'ckeditor5/ckeditor.js' %}"></script>
+    <script src="{% static 'js/ckeditor_init.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block extra_css %}{% endblock %}
     <style>

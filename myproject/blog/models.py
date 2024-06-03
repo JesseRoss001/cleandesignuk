@@ -1,11 +1,10 @@
 from django.db import models
 from django.urls import reverse
-from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    content = RichTextField()
+    content = models.TextField()  # Use TextField for rich text content
     image = CloudinaryField('image', blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)  # Automatically updates each time the object is saved
