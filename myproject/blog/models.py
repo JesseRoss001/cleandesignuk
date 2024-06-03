@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 
@@ -7,6 +8,11 @@ class Post(models.Model):
     content = RichTextField()
     image = CloudinaryField('image', blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)  # Automatically updates each time the object is saved
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        # Assuming the url name for viewing a post is 'post_detail' and uses the post's ID
+        return reverse('post_detail', args=[str(self.id)])
