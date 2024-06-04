@@ -87,19 +87,32 @@ color:black;}
 
 
 .booking-banner {
-            background-color: #c41d1d;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            
+    background-color: #c41d1d; /* Intense red to grab attention */
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    color: white; /* Ensure text is white for contrast */
+    font-size: 24px; /* Make font size larger for better readability */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    background: linear-gradient(to right, #c41d1d, #a31111); /* Gradient for more depth */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Deeper shadow for 3D effect */
+}
 
-        }
-        .booking-banner a {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            padding-bottom: 15px;
-        }
+.booking-banner a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.booking-banner:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
+}
+
+.booking-banner:hover a {
+    color: #ffe5e5; /* Light red when hovering over link */
+}
 
 /* Ensure the logo fits well in the navbar */
 .navbar-brand img {
