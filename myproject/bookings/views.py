@@ -7,8 +7,6 @@ def booking_view(request):
     form = BookingForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         booking = form.save(commit=False)
-        # The date and time should already be set by the form directly,
-        # assuming the form fields are named correctly.
         booking.save()
         return redirect('booking_success')  # Redirect to a success page
     else:
@@ -18,17 +16,15 @@ def booking_view(request):
             'availability': availability
         })
 
-
 def get_availability_data():
     base_date = datetime.now()
     days = [base_date + timedelta(days=i) for i in range(7)]
     time_slots = [f"{hour}:{minute:02d}" for hour in range(14, 20) for minute in [0, 30] if not (hour == 19 and minute > 0)]
-
     availability = {}
     for day in days:
         date_str = day.strftime("%Y-%m-%d")
-        availability[date_str] = {slot: True for slot in time_slots}  # Assume all slots are available initially
-
+        booked_slots = Booking.objects.filter(date=date_str).values_list('time_slot', flat=True)
+        availability[date_str] = {slot: slot not in booked_slots for slot in time_slots}
     return availability
 
 def submit_booking_view(request):

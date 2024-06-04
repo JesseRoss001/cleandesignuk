@@ -1,6 +1,6 @@
-# bookings/forms.py
 from django import forms
 from .models import Booking
+
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
@@ -12,6 +12,5 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BookingForm, self).__init__(*args, **kwargs)
-        # Example: Adding a CSS class to each field
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'

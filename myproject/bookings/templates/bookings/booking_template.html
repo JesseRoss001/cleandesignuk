@@ -47,6 +47,13 @@
             max-width: 100%;
         }
     }
+
+    .time-slot.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+}
 </style>
 
 <div class="container mt-5">
@@ -65,7 +72,7 @@
                                 {% if available %}
                                 <a href="#" class="time-slot" data-date="{{ date }}" data-time="{{ time }}">{{ time }}</a>
                                 {% else %}
-                                <span class="time-slot disabled">{{ time }} (Not available)</span>
+                                <span class="time-slot disabled" style="text-decoration: line-through;">{{ time }} (Not available)</span>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -101,27 +108,25 @@
     </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const slots = document.querySelectorAll('.time-slot');
-        const submitButton = document.querySelector('#booking-form button');
-        const dateInput = document.querySelector('input[name="date"]');
-        const timeInput = document.querySelector('input[name="time_slot"]');
-        
-        slots.forEach(slot => {
-            slot.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Clear active class from all slots
-                slots.forEach(s => s.classList.remove('active'));
-                // Add active class to clicked slot
-                this.classList.add('active');
-                // Set the date and time inputs on the form
-                dateInput.value = this.dataset.date;
-                timeInput.value = this.dataset.time;
-                // Enable the submit button when a time is selected
-                submitButton.disabled = false;
-            });
+document.addEventListener('DOMContentLoaded', function () {
+    const slots = document.querySelectorAll('.time-slot:not(.disabled)');
+    const submitButton = document.querySelector('#booking-form button');
+    const dateInput = document.querySelector('#id_date');
+    const timeInput = document.querySelector('#id_time_slot');
+
+    slots.forEach(slot => {
+        slot.addEventListener('click', function (e) {
+            e.preventDefault();
+            slots.forEach(s => s.classList.remove('active'));
+            this.classList.add('active');
+            dateInput.value = this.dataset.date;
+            timeInput.value = this.dataset.time;
+            submitButton.disabled = false;
         });
     });
+});
+
+
     </script>
     
     
