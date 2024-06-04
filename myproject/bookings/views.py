@@ -1,3 +1,4 @@
+# bookings/views.py
 from django.shortcuts import render, redirect
 from .forms import BookingForm
 from .models import Booking
