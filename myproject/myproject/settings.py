@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'corsheaders',
+    'crispy_forms',
     'cloudinary',
     'cloudinary_storage',
     'home',  # add this
@@ -110,6 +111,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

@@ -1,28 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
-<div class="container">
+{% load crispy_forms_tags %}
+<div class="container mt-5">
     <h2 class="text-center mb-4">Book a Slot</h2>
     <div class="row">
         <div class="col-md-6">
             <!-- Availability display -->
             <div class="card">
-                <div class="card-header">Select a Date and Time</div>
+                <div class="card-header bg-primary text-white">Select a Date and Time</div>
                 <div class="card-body">
-                    <ul>
+                    <ul class="list-group">
                         {% for date, slots in availability.items %}
-                            <li>{{ date }}:
-                                <ul>
+                            <li class="list-group-item">
+                                <strong>{{ date }}:</strong>
+                                <div>
                                     {% for time, available in slots.items %}
-                                        <li>
-                                            {% if available %}
-                                                <a href="{% url 'book_slot' date time %}">{{ time }}</a>
-                                            {% else %}
-                                                {{ time }} (Not available)
-                                            {% endif %}
-                                        </li>
+                                        {% if available %}
+                                            <a href="#" class="badge badge-success mr-2">{{ time }}</a>
+                                        {% else %}
+                                            <span class="badge badge-secondary mr-2">{{ time }} (Not available)</span>
+                                        {% endif %}
                                     {% endfor %}
-                                </ul>
+                                </div>
                             </li>
                         {% endfor %}
                     </ul>
@@ -32,13 +34,14 @@
         <div class="col-md-6">
             <!-- Form for booking details -->
             <div class="card">
-                <div class="card-header">Booking Details</div>
+                <div class="card-header bg-success text-white">Booking Details</div>
                 <div class="card-body">
-                    <form method="post" action="{% url 'submit_booking' %}">
+                    <form method="post" action="{% url 'bookings:submit_booking' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-primary">Book Now</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
