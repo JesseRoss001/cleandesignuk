@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -8,12 +7,14 @@
 {% block content %}
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <meta name="title" content="Web Design Services Offered by CleanDesignUK">
-<meta name="description" content="Explore our comprehensive range of web design services at CleanDesignUK. From initial design to ongoing maintenance, we provide everything your business needs to succeed online in North Wales.">
+<meta name="description"
+    content="Explore our comprehensive range of web design services at CleanDesignUK. From initial design to ongoing maintenance, we provide everything your business needs to succeed online in North Wales.">
 <meta name="keywords" content="web design services, digital marketing, SEO services, website maintenance">
 <title>Our Services - CleanDesignUK Web Solutions</title>
-<link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
+<link rel="icon" type="image/webp"
+    href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp"
+    alt="CleanDesignUK Logo">
 <style>
-    
     /* Global Styles */
     body {
         font-family: 'Arial', sans-serif;
@@ -22,232 +23,263 @@
         margin: 0;
         padding: 0;
     }
-/* Ensure sections are hidden by default */
-section {
-    display: none;
+
+    /* Ensure sections are hidden by default */
+    section {
+        display: none;
+    }
+    header {
+    z-index: 1050; /* Higher than any other element */
 }
 
-.active {
+
+    .active {
         color: #c41d1d !important;
         font-weight: bold;
     }
 
-main {background-color: #cebaba;}
+    main {
+        background-color: #cebaba;
+    }
 
-     /* Off-canvas Sidebar Styles */
-     .offcanvas-body {
+    /* Off-canvas Sidebar Styles */
+    .offcanvas-body {
         background-color: #2c2b2b;
-            padding: 1.5rem;
+        padding: 1.5rem;
+        z-index:3000;
+    }
+
+    .offcanvas-body .btn:hover,
+    .offcanvas-body .btn:focus {
+        background: linear-gradient(to right, #c0392b, #8b0000);
+        /* Gradient changes on hover or focus */
+        color: #fff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .offcanvas-body .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        font-size: 1.25rem;
+        text-align: left;
+        color: #fff;
+        background-color: #343a40;
+        border: none;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .offcanvas-body .btn:hover,
+    .offcanvas-body .btn:focus {
+        background: linear-gradient(to right, #c0392b, #8b0000);
+        /* Gradient changes on hover or focus */
+        color: #fff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .offcanvas-body .btn i {
+        margin-right: 1rem;
+    }
+
+    /* Media Queries */
+    @media (max-width: 767px) {
+        .header-bg h1 {
+            font-size: 2rem;
         }
 
-        .offcanvas-body .btn:hover, .offcanvas-body .btn:focus {
-    background: linear-gradient(to right, #c0392b, #8b0000); /* Gradient changes on hover or focus */
-    color: #fff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
+        .header-bg p {
+            font-size: 1rem;
+        }
 
-        .offcanvas-body .btn {
-            display: block;
-            width: 100%;
-            margin-bottom: 1rem;
-            padding: 1rem;
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .card-title {
             font-size: 1.25rem;
-            text-align: left;
-            color: #fff;
-            background-color: #343a40;
-            border: none;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .offcanvas-body .btn:hover, .offcanvas-body .btn:focus {
-    background: linear-gradient(to right, #c0392b, #8b0000); /* Gradient changes on hover or focus */
-    color: #fff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
+        .card-text,
+        .card h6 {
+            font-size: 1rem;
+        }
+    }
 
-        .offcanvas-body .btn i {
-            margin-right: 1rem;
+    @media (min-width: 768px) and (max-width: 991px) {
+        .header-bg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Media Queries */
-        @media (max-width: 767px) {
-            .header-bg h1 {
-                font-size: 2rem;
-            }
-
-            .header-bg p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .card-title {
-                font-size: 1.25rem;
-            }
-
-            .card-text,
-            .card h6 {
-                font-size: 1rem;
-            }
+        .header-bg button {
+            width: 45%;
+            margin: 0.5rem 2.5%;
         }
+    }
 
-        @media (min-width: 768px) and (max-width: 991px) {
-            .header-bg {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+    .btn {
+        background-color: #fafafa;
+        color: #333;
+        /* Default Text Color */
+        border-radius: 8px;
+        /* Smooth Corners */
+        border: 2px solid transparent;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        /* Bold Text */
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Subtle Shadow */
+    }
 
-            .header-bg button {
-                width: 45%;
-                margin: 0.5rem 2.5%;
-            }
-        }
-        .btn {
-    background-color: #fafafa;
-    color: #333; /* Default Text Color */
-    border-radius: 8px; /* Smooth Corners */
-    border: 2px solid transparent;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600; /* Bold Text */
-    cursor: pointer;
-    margin: 0.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
-}
-.btn-bespoke {
-    background-color: #fafafa;
-    color: #e74c3c; /* Red */
-    border: 2px solid #e74c3c;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .btn-bespoke {
+        background-color: #fafafa;
+        color: #e74c3c;
+        /* Red */
+        border: 2px solid #e74c3c;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
 
 
-.btn-blog-booking {
-    background-color: #fafafa;
-    color: #c0392b; /* Darker Red */
-    border: 2px solid #c0392b;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .btn-blog-booking {
+        background-color: #fafafa;
+        color: #c0392b;
+        /* Darker Red */
+        border: 2px solid #c0392b;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.btn-e-commerce {
-    background-color: #fafafa;
-    color: #d35400; /* Orange Red */
-    border: 2px solid #d35400;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .btn-e-commerce {
+        background-color: #fafafa;
+        color: #d35400;
+        /* Orange Red */
+        border: 2px solid #d35400;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.btn-marketing {
-    background-color: #fafafa;
-    color: #e67e22; /* Light Orange Red */
-    border: 2px solid #e67e22;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .btn-marketing {
+        background-color: #fafafa;
+        color: #e67e22;
+        /* Light Orange Red */
+        border: 2px solid #e67e22;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.btn-bespoke:hover {
-    background-color: #e74c3c;
-    color: #fff;
-}
+    .btn-bespoke:hover {
+        background-color: #e74c3c;
+        color: #fff;
+    }
 
-.btn-blog-booking:hover {
-    background-color: #c0392b;
-    color: #fff;
-}
+    .btn-blog-booking:hover {
+        background-color: #c0392b;
+        color: #fff;
+    }
 
-.btn-e-commerce:hover {
-    background-color: #d35400;
-    color: #fff;
-}
+    .btn-e-commerce:hover {
+        background-color: #d35400;
+        color: #fff;
+    }
 
-.btn-marketing:hover {
-    background-color: #e67e22;
-    color: #fff;
-}
+    .btn-marketing:hover {
+        background-color: #e67e22;
+        color: #fff;
+    }
 
-/* Ensure sections are hidden by default */
-section {
-    display: none;
-}
+    /* Ensure sections are hidden by default */
+    section {
+        display: none;
+    }
 
-/* Card Styles */
-.card-bespoke .card-body {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #f7f5f5; /* Red */
-}
+    /* Card Styles */
+    .card-bespoke .card-body {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        border-top: 5px solid #f7f5f5;
+        /* Red */
+    }
 
-.card-blog-booking .card-body {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #fdfdfd; /* Darker Red */
-}
+    .card-blog-booking .card-body {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        border-top: 5px solid #fdfdfd;
+        /* Darker Red */
+    }
 
-.card-e-commerce .card-body {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #f5f1ee; /* Orange Red */
-}
+    .card-e-commerce .card-body {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        border-top: 5px solid #f5f1ee;
+        /* Orange Red */
+    }
 
-.card-marketing .card-body {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    border-top: 5px solid #fdfaf7; /* Light Orange Red */
-}
+    .card-marketing .card-body {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        border-top: 5px solid #fdfaf7;
+        /* Light Orange Red */
+    }
 
 
-.card-bespoke .card-body {
-    background: linear-gradient(to bottom, #e74c3c, #8b0000); /* Gradient for bespoke cards */
-}
+    .card-bespoke .card-body {
+        background: linear-gradient(to bottom, #e74c3c, #8b0000);
+        /* Gradient for bespoke cards */
+    }
 
-.card-blog-booking .card-body {
-    background: linear-gradient(to bottom, #c0392b, #8b0000); /* Gradient for blog & booking cards */
-}
+    .card-blog-booking .card-body {
+        background: linear-gradient(to bottom, #c0392b, #8b0000);
+        /* Gradient for blog & booking cards */
+    }
 
-.card-e-commerce .card-body {
-    background: linear-gradient(to bottom, #d35400, #8b0000); /* Gradient for e-commerce cards */
-}
+    .card-e-commerce .card-body {
+        background: linear-gradient(to bottom, #d35400, #8b0000);
+        /* Gradient for e-commerce cards */
+    }
 
-.card-marketing .card-body {
-    background: linear-gradient(to bottom, #e67e22, #8b0000); /* Gradient for marketing cards */
-}
+    .card-marketing .card-body {
+        background: linear-gradient(to bottom, #e67e22, #8b0000);
+        /* Gradient for marketing cards */
+    }
 
-.header-bg button:hover {
-    background-color: #cb4611;
-    color: #fff;
-} 
+    .header-bg button:hover {
+        background-color: #cb4611;
+        color: #fff;
+    }
+
     /* Header Styles */
     .header-bg {
         background: url('https://res.cloudinary.com/dz18uvfpa/image/upload/v1716073358/rwk2etveadr4nqtgpzq9.png') no-repeat center center;
@@ -272,7 +304,7 @@ section {
     }
 
     .section-title {
-        color:rgb(7, 4, 4);
+        color: rgb(7, 4, 4);
         font-size: 2.5rem;
         margin-bottom: 2rem;
         text-transform: uppercase;
@@ -294,7 +326,7 @@ section {
         border-radius: 0.75rem;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color:white;
+        color: white;
     }
 
     .card:hover {
@@ -307,13 +339,13 @@ section {
     }
 
     .card-title {
-        color:white;
+        color: white;
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
 
     .card-text {
-        color:white;
+        color: white;
         margin-bottom: 1rem;
     }
 
@@ -328,7 +360,7 @@ section {
     .card h6 {
         font-size: 1.25rem;
         margin-bottom: 1rem;
-        color:white;
+        color: white;
     }
 
     /* Footer Styles */
@@ -400,140 +432,160 @@ section {
 
     /* Animation */
     @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 
     .fade-in {
         animation: fadeIn 1s ease-in-out;
     }
-    
-/* Back to Top Button */
-#backToTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ac2209;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
 
-#backToTop:hover {
-    background-color: #cb4611;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .header-bg h1 {
-        font-size: 2rem;
+    /* Back to Top Button */
+    #backToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #ac2209;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .header-bg p {
-        font-size: 1rem;
+    #backToTop:hover {
+        background-color: #cb4611;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
 
-    .section-title {
-        font-size: 2rem;
+    /* Media Queries */
+    @media (max-width: 768px) {
+        .header-bg h1 {
+            font-size: 2rem;
+        }
+
+        .header-bg p {
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+        }
+
+        .card-text,
+        .card h6 {
+            font-size: 1rem;
+        }
     }
 
-    .card-title {
-        font-size: 1.25rem;
+    @media (min-width: 768px) and (max-width: 991px) {
+        .header-bg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-bg button {
+            width: 45%;
+            margin: 0.5rem 2.5%;
+        }
     }
 
-    .card-text,
-    .card h6 {
-        font-size: 1rem;
+    .header-container {
+        /* Darker semi-transparent background */
+        backdrop-filter: blur(12px);
+        /* Increased blur for a deeper glass effect */
+        color: #333;
+        /* White text to maintain contrast */
+        padding: 4rem 1rem;
+        /* Generous padding for a spacious layout */
+        text-align: center;
+        border-radius: 15px;
+        /* Slightly larger rounded corners */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        /* More pronounced shadow for depth */
+        border: 1px solid white;
+        /* Necessary for gradient border */
+
     }
-}
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .header-bg {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .bespoke,
+    .blog-booking,
+    .e-commerce,
+    .marketing {
+        background-color: #f1dbdb;
     }
 
-    .header-bg button {
-        width: 45%;
-        margin: 0.5rem 2.5%;
+    .card {
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: white;
     }
-}
 
-.header-container {
-     /* Darker semi-transparent background */
-    backdrop-filter: blur(12px); /* Increased blur for a deeper glass effect */
-    color: #333; /* White text to maintain contrast */
-    padding: 4rem 1rem; /* Generous padding for a spacious layout */
-    text-align: center;
-    border-radius: 15px; /* Slightly larger rounded corners */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow for depth */
-    border: 1px solid white; /* Necessary for gradient border */
-    
-}
-
-.bespoke , .blog-booking ,.e-commerce , .marketing {
-background-color: #f1dbdb ;
-}
-
-.card {
-    border: none;
-    border-radius: 0.75rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white;
-}
-
-.card .card-body {
-    padding: 2rem;
-    border-top: 5px solid white; /* Thick white border on top for depth */
-}
-
-/* Media Queries for H2 font size adjustment */
-@media (max-width: 320px) {
-    .header-container h2 {
-        font-size: 1.2rem; /* smaller screens, smaller font */
+    .card .card-body {
+        padding: 2rem;
+        border-top: 5px solid white;
+        /* Thick white border on top for depth */
     }
-}
 
-@media (min-width: 321px) and (max-width: 480px) {
-    .header-container h2 {
-        font-size: 1.4rem;
+    /* Media Queries for H2 font size adjustment */
+    @media (max-width: 320px) {
+        .header-container h2 {
+            font-size: 1.2rem;
+            /* smaller screens, smaller font */
+        }
     }
-}
 
-@media (min-width: 481px) and (max-width: 768px) {
-    .header-container h2 {
-        font-size: 1.6rem; /* slightly larger as the device width increases */
+    @media (min-width: 321px) and (max-width: 480px) {
+        .header-container h2 {
+            font-size: 1.4rem;
+        }
     }
-}
 
-@media (min-width: 769px) and (max-width: 992px) {
-    .header-container h2 {
-        font-size: 1.8rem; /* suitable for small tablets */
+    @media (min-width: 481px) and (max-width: 768px) {
+        .header-container h2 {
+            font-size: 1.6rem;
+            /* slightly larger as the device width increases */
+        }
     }
-}
 
-@media (min-width: 993px) and (max-width: 1200px) {
-    .header-container h2 {
-        font-size: 2rem; /* desktops and larger devices */
+    @media (min-width: 769px) and (max-width: 992px) {
+        .header-container h2 {
+            font-size: 1.8rem;
+            /* suitable for small tablets */
+        }
     }
-}
 
-@media (min-width: 1201px) {
-    .header-container h2 {
-        font-size: 2.5rem; /* large desktops */
+    @media (min-width: 993px) and (max-width: 1200px) {
+        .header-container h2 {
+            font-size: 2rem;
+            /* desktops and larger devices */
+        }
     }
-}
 
-.tooltip-icon {
+    @media (min-width: 1201px) {
+        .header-container h2 {
+            font-size: 2.5rem;
+            /* large desktops */
+        }
+    }
+
+    .tooltip-icon {
         position: fixed;
 
         top: 300px;
@@ -542,497 +594,503 @@ background-color: #f1dbdb ;
         cursor: pointer;
         font-size: 2rem;
         color: #cb4611;
-        padding:5px;
+        padding: 5px;
         z-index: 1000;
     }
-
 </style>
-</head>
-
-<body>
 
 
-    <div class="modal fade" id="tooltipModal" tabindex="-1" aria-labelledby="tooltipModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tooltipModalLabel">How to Use This Page</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Use the side menu to navigate through different packages. Click on the "Menu" button to open the sidebar. Each package section will be displayed as you click on the respective buttons. Use the contact me button to get ahold of us regarding any packages .</p>
-                </div>
+
+<div class="modal fade" id="tooltipModal" tabindex="-1" aria-labelledby="tooltipModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tooltipModalLabel">How to Use This Page</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Use the side menu to navigate through different packages. Click on the "Menu" button to open the
+                    sidebar. Each package section will be displayed as you click on the respective buttons. Use the
+                    contact me button to get ahold of us regarding any packages .</p>
             </div>
         </div>
     </div>
-    <header class="header-bg text-white text-center py-5">
-        <div class="container">
-            <h1 class="display-4">Our Packages</h1>
-            <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive aftercare to ensure your satisfaction. Explore our packages designed to elevate your online presence with warmth and dedication.</p>
-            <button class="btn btn-secondary btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                Menu
-            </button>
-        </div>
-    </header>
+</div>
+<div class="header-bg text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Our Packages</h1>
+        <p class="lead">At Clean Design UK, we're committed to nurturing your success. We offer comprehensive aftercare
+            to ensure your satisfaction. Explore our packages designed to elevate your online presence with warmth and
+            dedication.</p>
+        <button class="btn btn-secondary btn-lg" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Menu
+        </button>
+    </div>
+</div>
 
-    <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header bg-dark text-white">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navigation</h5>
-            <button type="button" class="btn-close text-reset btn-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body bg-dark">
-            <button class="btn-bespoke" onclick="showSection('bespoke')">Bespoke Websites</button>
-            <button class="btn-blog-booking" onclick="showSection('blog-booking')">Blog & Booking Services</button>
-            <button class="btn-e-commerce" onclick="showSection('e-commerce')">E-Commerce Solutions</button>
-            <button class="btn-marketing" onclick="showSection('marketing')">Marketing Packages</button>
-        </div>
+<div class="offcanvas offcanvas-start pt-5 " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header bg-dark text-white">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navigation</h5>
+        <button type="button" class="btn-close text-reset btn-light" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
     </div>
-    <div class="tooltip-icon m-2  bg-white rounded" data-bs-toggle="modal" data-bs-target="#tooltipModal">
-        <i class="fas fa-info-circle"></i>
+    <div class="offcanvas-body py-5  bg-dark">
+        <button class="btn-bespoke mt-3 " onclick="showSection('bespoke')">Bespoke Websites</button>
+        <button class="btn-blog-booking" onclick="showSection('blog-booking')">Blog & Booking Services</button>
+        <button class="btn-e-commerce" onclick="showSection('e-commerce')">E-Commerce Solutions</button>
+        <button class="btn-marketing" onclick="showSection('marketing')">Marketing Packages</button>
     </div>
-    <section class="py-5 bespoke">
-        <div class="container">
-            <div class="header-container card-bespoke animate__animated animate__fadeInUp">
+</div>
+<div class="tooltip-icon m-2  bg-white rounded" data-bs-toggle="modal" data-bs-target="#tooltipModal">
+    <i class="fas fa-info-circle"></i>
+</div>
+<section class="py-5 bespoke">
+    <div class="container">
+        <div class="header-container card-bespoke animate__animated animate__fadeInUp">
             <h2 class="section-title text-center mb-4">Bespoke Websites crafted to your needs </h2>
-            <p class="text-center px-3 d-none d-md-flex">We understand your unique requirements and tailor our packages to address them
+            <p class="text-center px-3 d-none d-md-flex">We understand your unique requirements and tailor our packages
+                to address them
                 effectively. Our commitment to your success extends beyond launch, with regular post-launch meetings and
                 attentive care.</p>
-                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+            <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+        </div>
+        <div class="row gy-4">
+            <!-- Basic Portfolio Package -->
+            <div class="col-lg-4">
+                <div class="card card-bespoke h-100 ">
+                    <div class="card-body">
+                        <h5 class="card-title">Basic Portfolio Website Package</h5>
+                        <p class="card-text"><strong>Total Price:</strong> £240</p>
+                        <p class="card-text"><strong>Monthly Price:</strong> £25</p>
+                        <p class="card-text"><strong>Pain Point:</strong> Limited budget, need for professional
+                            online presence.</p>
+                        <p class="card-text"><strong>How it Fixes It:</strong> Offers a budget-friendly solution
+                            with a tailored design and essential features.</p>
+                        <p class="card-text"><strong>Number of Pages:</strong> 1</p>
+                        <p class="card-text">Enjoy up to 3 Google Meetings, regular progress updates, and feedback
+                            sessions.</p>
+                        <h6>Key Features:</h6>
+                        <ul>
+                            <li>Tailored custom design emphasising aesthetic appeal and brand identity.</li>
+                            <li>Advanced SEO strategies to boost online visibility.</li>
+                            <li>Responsive design ensuring compatibility across all devices.</li>
+                            <li>High-quality stock photo usage and custom image hosting.</li>
+                            <li>Hosting setup included, along with an SSL certificate for enhanced security.</li>
+                            <li>Three revision rounds to ensure complete satisfaction.</li>
+                        </ul>
+                        <p class="card-text"><strong>Monthly:</strong> £25, including regular maintenance and up to
+                            four free consultations per year.</p>
+                    </div>
+                </div>
             </div>
-            <div class="row gy-4">
-                <!-- Basic Portfolio Package -->
-                <div class="col-lg-4">
-                    <div class="card card-bespoke h-100 ">
-                        <div class="card-body">
-                            <h5 class="card-title">Basic Portfolio Website Package</h5>
-                            <p class="card-text"><strong>Total Price:</strong> £240</p>
-                            <p class="card-text"><strong>Monthly Price:</strong> £25</p>
-                            <p class="card-text"><strong>Pain Point:</strong> Limited budget, need for professional
-                                online presence.</p>
-                            <p class="card-text"><strong>How it Fixes It:</strong> Offers a budget-friendly solution
-                                with a tailored design and essential features.</p>
-                            <p class="card-text"><strong>Number of Pages:</strong> 1</p>
-                            <p class="card-text">Enjoy up to 3 Google Meetings, regular progress updates, and feedback
-                                sessions.</p>
-                            <h6>Key Features:</h6>
-                            <ul>
-                                <li>Tailored custom design emphasising aesthetic appeal and brand identity.</li>
-                                <li>Advanced SEO strategies to boost online visibility.</li>
-                                <li>Responsive design ensuring compatibility across all devices.</li>
-                                <li>High-quality stock photo usage and custom image hosting.</li>
-                                <li>Hosting setup included, along with an SSL certificate for enhanced security.</li>
-                                <li>Three revision rounds to ensure complete satisfaction.</li>
-                            </ul>
-                            <p class="card-text"><strong>Monthly:</strong> £25, including regular maintenance and up to
-                                four free consultations per year.</p>
-                        </div>
+            <!-- Dynamic Service Business Package -->
+            <div class="col-lg-4">
+                <div class="card card-bespoke h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Dynamic Service Business Website Package</h5>
+                        <p class="card-text"><strong>Total Price:</strong> £1,020</p>
+                        <p class="card-text"><strong>Monthly Price:</strong> £40</p>
+                        <p class="card-text"><strong>Pain Point:</strong> Need for a dynamic online presence with
+                            booking capabilities.</p>
+                        <p class="card-text"><strong>How it Fixes It:</strong> Provides a comprehensive solution
+                            tailored for service-based businesses, including dynamic content and booking features.
+                        </p>
+                        <p class="card-text">Benefit from up to 7 Google Meetings, regular progress updates, and
+                            feedback sessions.</p>
+                        <h6>Key Features:</h6>
+                        <ul>
+                            <li>Fully custom design tailored to business needs, enabling a unique customer
+                                experience.</li>
+                            <li>Bespoke booking system and dynamic content capabilities, including a gallery and
+                                blog.</li>
+                            <li>SEO optimised to attract and engage more visitors.</li>
+                            <li>Hosting on a high-performance server with speed optimisation to ensure fast loading
+                                times.</li>
+                            <li>Four revisions included, ensuring the final product meets all expectations.</li>
+                            <li>Comprehensive SSL security to protect site and user data.</li>
+                        </ul>
+                        <p class="card-text"><strong>Monthly:</strong> £40, including ongoing maintenance and up to
+                            four free consultations annually.</p>
                     </div>
                 </div>
-                <!-- Dynamic Service Business Package -->
-                <div class="col-lg-4">
-                    <div class="card card-bespoke h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Dynamic Service Business Website Package</h5>
-                            <p class="card-text"><strong>Total Price:</strong> £1,020</p>
-                            <p class="card-text"><strong>Monthly Price:</strong> £40</p>
-                            <p class="card-text"><strong>Pain Point:</strong> Need for a dynamic online presence with
-                                booking capabilities.</p>
-                            <p class="card-text"><strong>How it Fixes It:</strong> Provides a comprehensive solution
-                                tailored for service-based businesses, including dynamic content and booking features.
-                            </p>
-                            <p class="card-text">Benefit from up to 7 Google Meetings, regular progress updates, and
-                                feedback sessions.</p>
-                            <h6>Key Features:</h6>
-                            <ul>
-                                <li>Fully custom design tailored to business needs, enabling a unique customer
-                                    experience.</li>
-                                <li>Bespoke booking system and dynamic content capabilities, including a gallery and
-                                    blog.</li>
-                                <li>SEO optimised to attract and engage more visitors.</li>
-                                <li>Hosting on a high-performance server with speed optimisation to ensure fast loading
-                                    times.</li>
-                                <li>Four revisions included, ensuring the final product meets all expectations.</li>
-                                <li>Comprehensive SSL security to protect site and user data.</li>
-                            </ul>
-                            <p class="card-text"><strong>Monthly:</strong> £40, including ongoing maintenance and up to
-                                four free consultations annually.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Comprehensive E-Commerce Package -->
-                <div class="col-lg-4">
-                    <div class="card card-bespoke  h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Comprehensive E-Commerce Website Package</h5>
-                            <p class="card-text"><strong>Total Price:</strong> £1,505</p>
-                            <p class="card-text"><strong>Monthly Price:</strong> £50</p>
-                            <p class="card-text"><strong>Pain Point:</strong> Need for a robust e-commerce platform with
-                                scalability.</p>
-                            <p class="card-text"><strong>How it Fixes It:</strong> Delivers a comprehensive e-commerce
-                                solution supporting growth and expansion.</p>
-                            <p class="card-text">Benefit from up to 8 Google Meetings, regular progress updates, and
-                                feedback sessions.</p>
-                            <h6>Key Features:</h6>
-                            <ul>
-                                <li>Robust e-commerce platform supporting up to 50 products, with scalability for
-                                    business growth.</li>
-                                <li>Custom content management system designed for unique business needs.</li>
-                                <li>Advanced SEO implementation to maximise reach and market penetration.</li>
-                                <li>Integration of user login and portfolio creation features to enhance user
-                                    engagement.</li>
-                                <li>Secure payment gateways, opt-in forms, and autoresponder integration for effective
-                                    marketing.</li>
-                                <li>Full setup including custom contact page, six pages of content upload, and 6
-                                    plugins/extensions.</li>
-                            </ul>
-                            <p class="card-text"><strong>Monthly:</strong> £50, including premium maintenance services
-                                and up to four free consultations per year.</p>
-                        </div>
+            </div>
+            <!-- Comprehensive E-Commerce Package -->
+            <div class="col-lg-4">
+                <div class="card card-bespoke  h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Comprehensive E-Commerce Website Package</h5>
+                        <p class="card-text"><strong>Total Price:</strong> £1,505</p>
+                        <p class="card-text"><strong>Monthly Price:</strong> £50</p>
+                        <p class="card-text"><strong>Pain Point:</strong> Need for a robust e-commerce platform with
+                            scalability.</p>
+                        <p class="card-text"><strong>How it Fixes It:</strong> Delivers a comprehensive e-commerce
+                            solution supporting growth and expansion.</p>
+                        <p class="card-text">Benefit from up to 8 Google Meetings, regular progress updates, and
+                            feedback sessions.</p>
+                        <h6>Key Features:</h6>
+                        <ul>
+                            <li>Robust e-commerce platform supporting up to 50 products, with scalability for
+                                business growth.</li>
+                            <li>Custom content management system designed for unique business needs.</li>
+                            <li>Advanced SEO implementation to maximise reach and market penetration.</li>
+                            <li>Integration of user login and portfolio creation features to enhance user
+                                engagement.</li>
+                            <li>Secure payment gateways, opt-in forms, and autoresponder integration for effective
+                                marketing.</li>
+                            <li>Full setup including custom contact page, six pages of content upload, and 6
+                                plugins/extensions.</li>
+                        </ul>
+                        <p class="card-text"><strong>Monthly:</strong> £50, including premium maintenance services
+                            and up to four free consultations per year.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="py-5 blog-booking">
-        <div class="container">
-            <div class="header-container">
+    </div>
+</section>
+<section class="py-5 blog-booking">
+    <div class="container">
+        <div class="header-container">
             <h2 class="section-title text-center mb-4">Enhance Your Brand and Reach</h2>
-        <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a></div>
-            
-            <div class="row gy-4">
-                <!-- Wix Blogging and Booking Service Packages -->
-                <div class="col-lg-4">
-                    <div class="card card-blog-booking h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Wix Blogging and Booking Service Packages</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Struggling to set up an engaging blog that attracts and retains visitors.</li>
-                                <li>Lacking an efficient booking system for scheduling appointments or services.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li><strong>Blog Setup:</strong> £200</li>
-                                <li><strong>Booking System:</strong> £250</li>
-                                <li>Custom blog design and setup, including SEO and training.</li>
-                                <li>Integrated booking system with calendar and reminders.</li>
-                                <li>Monthly Maintenance: £30</li>
-                            </ul>
-                        </div>
+            <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+        </div>
+
+        <div class="row gy-4">
+            <!-- Wix Blogging and Booking Service Packages -->
+            <div class="col-lg-4">
+                <div class="card card-blog-booking h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Wix Blogging and Booking Service Packages</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Struggling to set up an engaging blog that attracts and retains visitors.</li>
+                            <li>Lacking an efficient booking system for scheduling appointments or services.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li><strong>Blog Setup:</strong> £200</li>
+                            <li><strong>Booking System:</strong> £250</li>
+                            <li>Custom blog design and setup, including SEO and training.</li>
+                            <li>Integrated booking system with calendar and reminders.</li>
+                            <li>Monthly Maintenance: £30</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Shopify Blogging and Booking Service Packages -->
-                <div class="col-lg-4">
-                    <div class="card card-blog-booking h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Shopify Blogging and Booking Service Packages</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Need for a professional and interactive blog to engage customers.</li>
-                                <li>Difficulty managing appointments or bookings efficiently.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li><strong>Blog Setup:</strong> £250</li>
-                                <li><strong>Booking System:</strong> £300</li>
-                                <li>Custom blog design and setup, including SEO and training.</li>
-                                <li>Integrated booking system with calendar and reminders.</li>
-                                <li>Monthly Maintenance: £35</li>
-                            </ul>
-                        </div>
+            </div>
+            <!-- Shopify Blogging and Booking Service Packages -->
+            <div class="col-lg-4">
+                <div class="card card-blog-booking h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Shopify Blogging and Booking Service Packages</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Need for a professional and interactive blog to engage customers.</li>
+                            <li>Difficulty managing appointments or bookings efficiently.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li><strong>Blog Setup:</strong> £250</li>
+                            <li><strong>Booking System:</strong> £300</li>
+                            <li>Custom blog design and setup, including SEO and training.</li>
+                            <li>Integrated booking system with calendar and reminders.</li>
+                            <li>Monthly Maintenance: £35</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Squarespace Blogging and Booking Service Packages -->
-                <div class="col-lg-4">
-                    <div class="card card-blog-booking h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Squarespace Blogging and Booking Service Packages</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Desire for a visually appealing blog that aligns with brand aesthetics.</li>
-                                <li>Difficulty in managing and scheduling appointments effectively.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li><strong>Blog Setup:</strong> £230</li>
-                                <li><strong>Booking System:</strong> £280</li>
-                                <li>Custom blog design and setup, including SEO and training.</li>
-                                <li>Integrated booking system with calendar and reminders.</li>
-                                <li>Monthly Maintenance: £35</li>
-                            </ul>
-                        </div>
+            </div>
+            <!-- Squarespace Blogging and Booking Service Packages -->
+            <div class="col-lg-4">
+                <div class="card card-blog-booking h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Squarespace Blogging and Booking Service Packages</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Desire for a visually appealing blog that aligns with brand aesthetics.</li>
+                            <li>Difficulty in managing and scheduling appointments effectively.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li><strong>Blog Setup:</strong> £230</li>
+                            <li><strong>Booking System:</strong> £280</li>
+                            <li>Custom blog design and setup, including SEO and training.</li>
+                            <li>Integrated booking system with calendar and reminders.</li>
+                            <li>Monthly Maintenance: £35</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="py-5  e-commerce">
-        <div class="container">
-            <div class="header-container">
+    </div>
+</section>
+<section class="py-5  e-commerce">
+    <div class="container">
+        <div class="header-container">
             <h2 class="section-title text-center mb-4">Unlock Your E-Commerce Potential</h2>
-            <p class="text-center d-none d-md-flex px-3">Our E-commerce packages harness the power of Wix, Squarespace, or Shopify to empower
+            <p class="text-center d-none d-md-flex px-3">Our E-commerce packages harness the power of Wix, Squarespace,
+                or Shopify to empower
                 your online venture. Choose the package that suits your needs and budget, and let us take care of the
                 rest.</p>
-                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
-                </div>
-            <div class="row gy-4">
-                <!-- Shopify Full-Service Package -->
-                <div class="col-lg-4">
-                    <div class="card card-e-commerce h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Shopify Full-Service E-Commerce Setup</h5>
-                            <p class="card-text"><strong>Total Price:</strong> £556</p>
-                            <p class="card-text"><strong>Monthly Fee:</strong> £19 (Basic Plan), £49 (Shopify Plan),
-                                maintenance fee varies</p>
-                            <p class="card-text"><strong>Pain Point:</strong> Need for a hassle-free, full-service
-                                e-commerce solution.</p>
-                            <p class="card-text"><strong>How it Fixes It:</strong> Offers comprehensive setup and
-                                ongoing support for Shopify-based online stores.</p>
-                            <h6>Key Features:</h6>
-                            <ul>
-                                <li>Up to 50 products with options to scale as needed.</li>
-                                <li>High-quality imagery tailored for product engagement.</li>
-                                <li>Comprehensive SEO setup for increased visibility.</li>
-                                <li>Integrated client management tools for streamlined operations.</li>
-                                <li>A secure, robust payment system that includes options for multiple currencies and
-                                    payment methods.</li>
-                                <li>Enhanced customisability options including theme adjustments and advanced layout
-                                    designs.</li>
-                                <li>Full access to Shopify's app store for additional plugins and extensions.</li>
-                                <li>Email marketing setup and integration.</li>
-                                <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
-                                <li>Social media integration and marketing tools.</li>
-                                <li>Abandoned cart recovery to boost sales closure rates.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Wix Business and E-Commerce Solution -->
-                <div class="col-lg-4">
-                    <div class="card card-e-commerce h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Wix Business and E-Commerce Solution</h5>
-                            <p class="card-text"><strong>Total Price:</strong> £540</p>
-                            <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £18 to £38
-                                per month, maintenance fee included.</p>
-                            <p class="card-text"><strong>Pain Point:</strong> Need for an all-in-one platform for
-                                website and e-commerce.</p>
-                            <p class="card-text"><strong>How it Fixes It:</strong> Provides a user-friendly platform
-                                with integrated e-commerce features.</p>
-                            <h6>Key Features:</h6>
-                            <ul>
-                                <li>Sell an unlimited number of products with a fully customisable online store.</li>
-                                <li>Access to over 80 payment gateways including Wix's own payment solutions, supporting
-                                    major debit/credit cards and popular payment methods like PayPal, Stripe, and
-                                    Square.</li>
-                                <li>Advanced SEO tools to enhance online visibility.</li>
-                                <li>Automated email marketing, social media sales channels, and multi-currency support
-                                    (higher-tier plans).</li>
-                                <li>Advanced shipping solutions, subscription and recurring payment options, and
-                                    cross-selling on marketplaces (available on higher-tier plans).</li>
-                                <li>Dedicated mobile app for managing orders, payments, and customer interactions.</li>
-                                <li>Comprehensive analytics tools to track sales, traffic, and customer behaviour, with
-                                    options for custom report generation.</li>
-                                <li>24/7 customer support with various contact methods, including live chat, phone, and
-                                    email tickets.</li>
-                                <li>Free SSL certificate, ensuring secure transactions and customer data protection.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Squarespace E-Commerce Solution -->
-                <div class="col-lg-4">
-                    <div class="card card-e-commerce h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Squarespace E-Commerce Solution</h5>
-                            <p class="card-text"><strong>Total Price:</strong> £600</p>
-                            <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £20 to £30
-                                per month, maintenance fee included.</p>
-                            <p class="card-text"><strong>Pain Point:</strong> Need for a visually appealing online store
-                                with integrated e-commerce functionality.</p>
-                            <p class="card-text"><strong>How it Fixes It:</strong> Offers an intuitive platform with
-                                stunning templates and powerful e-commerce features.</p>
-                            <h6>Key Features:</h6>
-                            <ul>
-                                <li>Sell up to 100 products with options to scale as needed.</li>
-                                <li>High-quality imagery and custom product templates for enhanced engagement.</li>
-                                <li>Comprehensive SEO setup for increased visibility.</li>
-                                <li>Integrated client management tools for streamlined operations.</li>
-                                <li>A secure, robust payment system that includes options for multiple currencies and
-                                    payment methods.</li>
-                                <li>Enhanced customisability options including theme adjustments and advanced layout
-                                    designs.</li>
-                                <li>Full access to Squarespace's app store for additional plugins and extensions.</li>
-                                <li>Email marketing setup and integration.</li>
-                                <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
-                                <li>Social media integration and marketing tools.</li>
-                                <li>Abandoned cart recovery to boost sales closure rates.</li>
-                            </ul>
-                        </div>
+            <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+        </div>
+        <div class="row gy-4">
+            <!-- Shopify Full-Service Package -->
+            <div class="col-lg-4">
+                <div class="card card-e-commerce h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Shopify Full-Service E-Commerce Setup</h5>
+                        <p class="card-text"><strong>Total Price:</strong> £556</p>
+                        <p class="card-text"><strong>Monthly Fee:</strong> £19 (Basic Plan), £49 (Shopify Plan),
+                            maintenance fee varies</p>
+                        <p class="card-text"><strong>Pain Point:</strong> Need for a hassle-free, full-service
+                            e-commerce solution.</p>
+                        <p class="card-text"><strong>How it Fixes It:</strong> Offers comprehensive setup and
+                            ongoing support for Shopify-based online stores.</p>
+                        <h6>Key Features:</h6>
+                        <ul>
+                            <li>Up to 50 products with options to scale as needed.</li>
+                            <li>High-quality imagery tailored for product engagement.</li>
+                            <li>Comprehensive SEO setup for increased visibility.</li>
+                            <li>Integrated client management tools for streamlined operations.</li>
+                            <li>A secure, robust payment system that includes options for multiple currencies and
+                                payment methods.</li>
+                            <li>Enhanced customisability options including theme adjustments and advanced layout
+                                designs.</li>
+                            <li>Full access to Shopify's app store for additional plugins and extensions.</li>
+                            <li>Email marketing setup and integration.</li>
+                            <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
+                            <li>Social media integration and marketing tools.</li>
+                            <li>Abandoned cart recovery to boost sales closure rates.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-    </section>
+            <!-- Wix Business and E-Commerce Solution -->
+            <div class="col-lg-4">
+                <div class="card card-e-commerce h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Wix Business and E-Commerce Solution</h5>
+                        <p class="card-text"><strong>Total Price:</strong> £540</p>
+                        <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £18 to £38
+                            per month, maintenance fee included.</p>
+                        <p class="card-text"><strong>Pain Point:</strong> Need for an all-in-one platform for
+                            website and e-commerce.</p>
+                        <p class="card-text"><strong>How it Fixes It:</strong> Provides a user-friendly platform
+                            with integrated e-commerce features.</p>
+                        <h6>Key Features:</h6>
+                        <ul>
+                            <li>Sell an unlimited number of products with a fully customisable online store.</li>
+                            <li>Access to over 80 payment gateways including Wix's own payment solutions, supporting
+                                major debit/credit cards and popular payment methods like PayPal, Stripe, and
+                                Square.</li>
+                            <li>Advanced SEO tools to enhance online visibility.</li>
+                            <li>Automated email marketing, social media sales channels, and multi-currency support
+                                (higher-tier plans).</li>
+                            <li>Advanced shipping solutions, subscription and recurring payment options, and
+                                cross-selling on marketplaces (available on higher-tier plans).</li>
+                            <li>Dedicated mobile app for managing orders, payments, and customer interactions.</li>
+                            <li>Comprehensive analytics tools to track sales, traffic, and customer behaviour, with
+                                options for custom report generation.</li>
+                            <li>24/7 customer support with various contact methods, including live chat, phone, and
+                                email tickets.</li>
+                            <li>Free SSL certificate, ensuring secure transactions and customer data protection.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Squarespace E-Commerce Solution -->
+            <div class="col-lg-4">
+                <div class="card card-e-commerce h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Squarespace E-Commerce Solution</h5>
+                        <p class="card-text"><strong>Total Price:</strong> £600</p>
+                        <p class="card-text"><strong>Monthly Fee:</strong> Plans range from approximately £20 to £30
+                            per month, maintenance fee included.</p>
+                        <p class="card-text"><strong>Pain Point:</strong> Need for a visually appealing online store
+                            with integrated e-commerce functionality.</p>
+                        <p class="card-text"><strong>How it Fixes It:</strong> Offers an intuitive platform with
+                            stunning templates and powerful e-commerce features.</p>
+                        <h6>Key Features:</h6>
+                        <ul>
+                            <li>Sell up to 100 products with options to scale as needed.</li>
+                            <li>High-quality imagery and custom product templates for enhanced engagement.</li>
+                            <li>Comprehensive SEO setup for increased visibility.</li>
+                            <li>Integrated client management tools for streamlined operations.</li>
+                            <li>A secure, robust payment system that includes options for multiple currencies and
+                                payment methods.</li>
+                            <li>Enhanced customisability options including theme adjustments and advanced layout
+                                designs.</li>
+                            <li>Full access to Squarespace's app store for additional plugins and extensions.</li>
+                            <li>Email marketing setup and integration.</li>
+                            <li>24/7 customer support and dedicated account manager (depending on the plan).</li>
+                            <li>Social media integration and marketing tools.</li>
+                            <li>Abandoned cart recovery to boost sales closure rates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
-    <section class="py-5 marketing">
-        <div class="container">
-            <div class="header-container ">
+<section class="py-5 marketing">
+    <div class="container">
+        <div class="header-container ">
             <h2 class="section-title text-center mb-4">Expand Your Marketing Reach</h2>
             <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+        </div>
+        <div class="row gy-4">
+            <!-- Signature Branding & Logo Design Package -->
+            <div class="col-lg-4">
+                <div class="card card-marketing h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Signature Branding & Logo Design Package</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Struggling to establish a recognizable brand identity.</li>
+                            <li>Lacking a professional logo that resonates with the target audience.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li>Creation of a custom logo and development of a comprehensive brand identity,
+                                including colour schemes, typography, and style guides.</li>
+                            <li>Deliverables: Logo files, brand guideline document, business card design, and
+                                letterhead design.</li>
+                            <li>SEO Integration: Basic SEO setup for brand visibility online.</li>
+                            <li>Revisions: Up to 3 rounds of revisions to ensure perfect alignment with your vision.
+                            </li>
+                            <li>Meetings: Initial consultation plus two-four follow-up meetings to refine the
+                                branding elements.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="row gy-4">
-                <!-- Signature Branding & Logo Design Package -->
-                <div class="col-lg-4">
-                    <div class="card card-marketing h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Signature Branding & Logo Design Package</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Struggling to establish a recognizable brand identity.</li>
-                                <li>Lacking a professional logo that resonates with the target audience.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li>Creation of a custom logo and development of a comprehensive brand identity,
-                                    including colour schemes, typography, and style guides.</li>
-                                <li>Deliverables: Logo files, brand guideline document, business card design, and
-                                    letterhead design.</li>
-                                <li>SEO Integration: Basic SEO setup for brand visibility online.</li>
-                                <li>Revisions: Up to 3 rounds of revisions to ensure perfect alignment with your vision.
-                                </li>
-                                <li>Meetings: Initial consultation plus two-four follow-up meetings to refine the
-                                    branding elements.</li>
-                            </ul>
-                        </div>
+            <!-- Digital & Print Media Design Package -->
+            <div class="col-lg-4">
+                <div class="card card-marketing h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Digital & Print Media Design Package</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Need for captivating digital and print media materials.</li>
+                            <li>Lack of consistent design elements across various marketing collateral.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li>Design digital and print media, including brochures, flyers, posters, and social
+                                media graphics.</li>
+                            <li>SEO Integration: Keyword research for digital content to enhance online visibility.
+                            </li>
+                            <li>Deliverables: Digital files and print-ready designs.</li>
+                            <li>Revisions: 2 rounds of revisions for each design.</li>
+                            <li>Meetings: Initial briefing and one revision meeting.</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Digital & Print Media Design Package -->
-                <div class="col-lg-4">
-                    <div class="card card-marketing h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Digital & Print Media Design Package</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Need for captivating digital and print media materials.</li>
-                                <li>Lack of consistent design elements across various marketing collateral.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li>Design digital and print media, including brochures, flyers, posters, and social
-                                    media graphics.</li>
-                                <li>SEO Integration: Keyword research for digital content to enhance online visibility.
-                                </li>
-                                <li>Deliverables: Digital files and print-ready designs.</li>
-                                <li>Revisions: 2 rounds of revisions for each design.</li>
-                                <li>Meetings: Initial briefing and one revision meeting.</li>
-                            </ul>
-                        </div>
+            </div>
+            <!-- Video Content Creation & SEO Enhancement -->
+            <div class="col-lg-4">
+                <div class="card card-marketing  h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Video Content Creation & SEO Enhancement</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Difficulty in creating engaging video content that aligns with brand identity.</li>
+                            <li>Struggle with video SEO and visibility on digital platforms.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li>Design and produce promotional video content tailored to brand identity.</li>
+                            <li>SEO Integration: Video SEO, including transcript optimisation and metadata
+                                enhancement for better online discoverability.</li>
+                            <li>Deliverables: High-quality video content suitable for various platforms.</li>
+                            <li>Revisions: 3 rounds of revisions.</li>
+                            <li>Meetings: Planning and review meetings to align video content with marketing
+                                strategies.</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Video Content Creation & SEO Enhancement -->
-                <div class="col-lg-4">
-                    <div class="card card-marketing  h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Video Content Creation & SEO Enhancement</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Difficulty in creating engaging video content that aligns with brand identity.</li>
-                                <li>Struggle with video SEO and visibility on digital platforms.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li>Design and produce promotional video content tailored to brand identity.</li>
-                                <li>SEO Integration: Video SEO, including transcript optimisation and metadata
-                                    enhancement for better online discoverability.</li>
-                                <li>Deliverables: High-quality video content suitable for various platforms.</li>
-                                <li>Revisions: 3 rounds of revisions.</li>
-                                <li>Meetings: Planning and review meetings to align video content with marketing
-                                    strategies.</li>
-                            </ul>
-                        </div>
+            </div>
+            <!-- SEO-Driven Content Development & Marketing Materials -->
+            <div class="col-lg-6">
+                <div class="card card-marketing  h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">SEO-Driven Content Development & Marketing Materials</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Need for SEO-optimised content to improve online visibility.</li>
+                            <li>Lack of engaging marketing materials to attract and retain customers.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li>Creating SEO-optimized content for blogs, articles, and web pages, along with
+                                designing accompanying graphics and marketing materials.</li>
+                            <li>Deliverables: Written content and graphic designs.</li>
+                            <li>Revisions: Up to 3 revisions for each content piece or design.</li>
+                            <li>Meetings: Monthly strategy meetings to align content with ongoing SEO and marketing
+                                goals.</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- SEO-Driven Content Development & Marketing Materials -->
-                <div class="col-lg-6">
-                    <div class="card card-marketing  h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">SEO-Driven Content Development & Marketing Materials</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Need for SEO-optimised content to improve online visibility.</li>
-                                <li>Lack of engaging marketing materials to attract and retain customers.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li>Creating SEO-optimized content for blogs, articles, and web pages, along with
-                                    designing accompanying graphics and marketing materials.</li>
-                                <li>Deliverables: Written content and graphic designs.</li>
-                                <li>Revisions: Up to 3 revisions for each content piece or design.</li>
-                                <li>Meetings: Monthly strategy meetings to align content with ongoing SEO and marketing
-                                    goals.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Traditional & Digital Marketing Package -->
-                <div class="col-lg-6">
-                    <div class="card  card-marketing h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Traditional & Digital Marketing Package</h5>
-                            <h6>Pain Points:</h6>
-                            <ul>
-                                <li>Lack of a comprehensive marketing strategy that integrates traditional and digital
-                                    approaches.</li>
-                                <li>Struggle with achieving desired results from marketing efforts.</li>
-                            </ul>
-                            <h6>Solutions:</h6>
-                            <ul>
-                                <li>A hybrid approach combining traditional marketing material design (e.g local
-                                    advertising) with digital marketing campaigns.</li>
-                                <li>SEO Integration: Integrating digital campaigns with SEO best practices to maximise
-                                    reach and impact.</li>
-                                <li>Customised marketing strategies tailored to business goals and target audience.</li>
-                                <li>Regular performance tracking and analysis for continuous improvement.</li>
-                            </ul>
-                        </div>
+            </div>
+            <!-- Traditional & Digital Marketing Package -->
+            <div class="col-lg-6">
+                <div class="card  card-marketing h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Traditional & Digital Marketing Package</h5>
+                        <h6>Pain Points:</h6>
+                        <ul>
+                            <li>Lack of a comprehensive marketing strategy that integrates traditional and digital
+                                approaches.</li>
+                            <li>Struggle with achieving desired results from marketing efforts.</li>
+                        </ul>
+                        <h6>Solutions:</h6>
+                        <ul>
+                            <li>A hybrid approach combining traditional marketing material design (e.g local
+                                advertising) with digital marketing campaigns.</li>
+                            <li>SEO Integration: Integrating digital campaigns with SEO best practices to maximise
+                                reach and impact.</li>
+                            <li>Customised marketing strategies tailored to business goals and target audience.</li>
+                            <li>Regular performance tracking and analysis for continuous improvement.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <button id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
-    <footer class="py-4 bg-dark text-white text-center">
-        <div class="container">
-            <p class="mb-0">© 2024 CleanDesignUK. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </div>
+</section>
+<button id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+<footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+        <p class="mb-0">© 2024 CleanDesignUK. All Rights Reserved.</p>
+    </div>
+</footer>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-function showSection(sectionClass) {
-    // Hide all sections
-    document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
+<script>
+    function showSection(sectionClass) {
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Show the selected section
+        document.querySelector('.' + sectionClass).style.display = 'block';
+
+        // Trigger a click on the close button to close the sidebar
+        document.querySelector('.offcanvas-header .btn-close').click();
+    }
+
+    // Show the first section by default
+    document.addEventListener('DOMContentLoaded', function () {
+        showSection('bespoke');
     });
 
-    // Show the selected section
-    document.querySelector('.' + sectionClass).style.display = 'block';
-
-    // Trigger a click on the close button to close the sidebar
-    document.querySelector('.offcanvas-header .btn-close').click();
-}
-
-// Show the first section by default
-document.addEventListener('DOMContentLoaded', function() {
-    showSection('bespoke');
-});
 
 
-
-// Scroll to top function
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-    </script>
-    {% endblock %}
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+{% endblock %}

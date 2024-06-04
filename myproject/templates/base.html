@@ -49,7 +49,14 @@ html, body {
     border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     font-size: 1.4rem; /* Base font size */
+    z-index:100;
     
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Ensures it is above all other content */
 }
 .nav-link {color:black !important;}
 
@@ -74,8 +81,8 @@ color:black;}
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 
@@ -169,28 +176,30 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
 
 
 header{
-  position: fixed;
+  position: relative; 
   top: 0;
   width: 100%;
 }
+
+.navbar-toggler:active {border:none !important;}
 
 
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header>
+   
 <nav class="navbar  fixed-top navbar-expand-lg   ">
     <div class="container-fluid ">
         <a class="navbar-brand m-lg-2 d-flex justify-content-evenly align-items-center" href="#">
             <img src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" class="border border-danger rounded" alt="CleanDesignUK Logo" style="height: 50px;">
            <span class="text-size-brand" >CleanDesignUK </span> 
         </a>
-        <button class="navbar-toggler mr-md-2 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">   
+        <button class="navbar-toggler mr-md-2 border-none " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ">   
                 <i class="fas fa-bars icon-sizing" ></i>
             </span>
         </button>
-        <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2" id="navbarNav" style="max-width: 1400px;">
+        <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2 z-100" id="navbarNav" style="max-width: 1400px;">
             <ul class="navbar-nav d-lg-flex justify-content-around align-items-center">
                 <li class="nav-item mx-auto">
                     <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'home:index' or request.path == '/' %}active{% endif %}" href="{% url 'home:index' %}">Home</a>
@@ -214,7 +223,7 @@ header{
         </div>
     </div>
 </nav>
-</header>
+
 <main class=" flex-shrink-0">
 
     <div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
