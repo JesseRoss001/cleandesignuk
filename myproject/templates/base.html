@@ -361,6 +361,24 @@ header{
                 localStorage.setItem('cookieConsent', 'accepted');
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    navbarToggler.addEventListener('click', function () {
+        navbarCollapse.classList.toggle('show');
+    });
+
+    // Optional: Close navbar when a link is clicked (useful for SPA or smooth scrolling)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+            }
+        });
+    });
+});
         </script>
 </body>
 </html>
