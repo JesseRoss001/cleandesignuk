@@ -112,7 +112,9 @@ DATABASES = {
     }
 }
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# settings.py
+
 
 
 # Password validation

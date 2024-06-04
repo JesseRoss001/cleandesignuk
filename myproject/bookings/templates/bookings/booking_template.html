@@ -1,50 +1,128 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
-{% load crispy_forms_tags %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .container {
+        max-width: 1200px;
+    }
+    .card {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+        font-weight: bold;
+        background-color: #dc3545; /* Bootstrap red for headers */
+    }
+    .time-slot {
+        cursor: pointer;
+        margin: 2px;
+        border-radius: 15px; /* Pill shape */
+        border: 1px solid #28a745; /* Green border */
+        padding: 5px 10px;
+        display: inline-block;
+    }
+    .time-slot.active {
+        background-color: #28a745; /* Green background for active slots */
+        color: white;
+    }
+    .time-slot:not(.active):hover {
+        background-color: #218838; /* Darker green on hover */
+        color: white;
+    }
+    #booking-form button {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+    }
+    #booking-form button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    @media (max-width: 768px) {
+        .col-md-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+</style>
+
 <div class="container mt-5">
     <h2 class="text-center mb-4">Book a Slot</h2>
     <div class="row">
         <div class="col-md-6">
-            <!-- Availability display -->
             <div class="card">
-                <div class="card-header bg-primary text-white">Select a Date and Time</div>
+                <div class="card-header text-white">Select a Date and Time</div>
                 <div class="card-body">
                     <ul class="list-group">
                         {% for date, slots in availability.items %}
-                            <li class="list-group-item">
-                                <strong>{{ date }}:</strong>
-                                <div>
-                                    {% for time, available in slots.items %}
-                                        {% if available %}
-                                            <a href="#" class="badge badge-success mr-2">{{ time }}</a>
-                                        {% else %}
-                                            <span class="badge badge-secondary mr-2">{{ time }} (Not available)</span>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </li>
+                        <li class="list-group-item">
+                            <strong>{{ date }}:</strong>
+                            <div>
+                                {% for time, available in slots.items %}
+                                {% if available %}
+                                <a href="#" class="time-slot" data-date="{{ date }}" data-time="{{ time }}">{{ time }}</a>
+                                {% else %}
+                                <span class="time-slot disabled">{{ time }} (Not available)</span>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <!-- Form for booking details -->
             <div class="card">
-                <div class="card-header bg-success text-white">Booking Details</div>
+                <div class="card-header text-white">Booking Details</div>
                 <div class="card-body">
-                    <form method="post" action="{% url 'bookings:submit_booking' %}">
+                    <form method="post" action="{% url 'bookings:submit_booking' %}" id="booking-form">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary">Book Now</button>
+                        {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                            <div class="alert alert-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary" disabled>Book Now</button>
                     </form>
-                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slots = document.querySelectorAll('.time-slot');
+        const submitButton = document.querySelector('#booking-form button');
+        const dateInput = document.querySelector('input[name="date"]');
+        const timeInput = document.querySelector('input[name="time_slot"]');
+        
+        slots.forEach(slot => {
+            slot.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Clear active class from all slots
+                slots.forEach(s => s.classList.remove('active'));
+                // Add active class to clicked slot
+                this.classList.add('active');
+                // Set the date and time inputs on the form
+                dateInput.value = this.dataset.date;
+                timeInput.value = this.dataset.time;
+                // Enable the submit button when a time is selected
+                submitButton.disabled = false;
+            });
+        });
+    });
+    </script>
+    
+    
 {% endblock %}
