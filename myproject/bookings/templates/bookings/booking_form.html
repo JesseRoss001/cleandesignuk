@@ -1,25 +1,170 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>Book a Slot</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Book</button>
-</form>
 
-<h3>Availability</h3>
-<div class="row">
-    {% for date, slots in availability.items %}
-        <div class="col-md-4">
-            <h4>{{ date }}</h4>
-            <ul class="list-group">
+{% block content %}
+<style>
+    body {
+  background-color: #f8f9fa; /* Light gray background */
+  font-family: sans-serif; /* Default font */
+  margin: 0; /* Remove default body margin */
+  padding: 2rem; /* Add some padding for content */
+}
+
+.container {
+  max-width: 960px; /* Limit container width for medium screens */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.row {
+  display: flex; /* Enable flexbox for responsive layout */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  margin-right: -15px; /* Remove default horizontal gutter */
+  margin-left: -15px; /* Remove default horizontal gutter */
+}
+
+.col-md-6 {
+  flex: 0 0 50%; /* Set width to 50% on medium screens */
+  padding: 15px; /* Add some padding for content */
+}
+
+.card {
+  border: none; /* Remove default card border */
+  transition: all 0.3s ease-in-out; /* Add smooth transitions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.card:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Slight hover shadow */
+}
+
+.card-header {
+  border-bottom: none; /* Remove bottom border from card header */
+  background-color: #dc3545; /* Dark red background */
+  color: #fff; /* White text */
+  padding: 1rem 1.5rem; /* Add some padding */
+  display: flex; /* Enable flexbox for alignment */
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+}
+
+.card-header h3 {
+  margin-bottom: 0; /* Remove default margin */
+}
+
+.list-group-item {
+  border-left: none; /* Remove left border from list group items */
+  border-right: none; /* Remove right border from list group items */
+  background-color: #343a40; /* Dark background */
+  color: #fff; /* White text */
+  padding: 1rem 1.5rem; /* Add some padding */
+  display: flex; /* Enable flexbox for alignment */
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+}
+
+.list-group-item:hover {
+  background-color: #495057; /* Lighter gray hover background */
+}
+
+.dropdown-menu {
+  border-radius: 0.5rem; /* Rounded corners for dropdown menu */
+}
+
+.dropdown-item {
+  transition: all 0.3s ease-in-out; /* Add smooth transitions */
+  color: #343a40; /* Dark text */
+}
+
+.dropdown-item:hover {
+  background-color: #e9ecef; /* Light gray hover background */
+  color: #000; /* Black text on hover */
+}
+
+/* Media queries for smaller screens (optional) */
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 100%; /* Set width to 100% on small screens */
+  }
+}
+
+/* Additional styles for the booking form (replace these with your design) */
+
+#booking-form-container {
+  /* Add styles for the booking form container here */
+}
+
+.form-group {
+  margin-bottom: 1rem; /* Add some margin between form groups */
+}
+
+.form-label {
+  display: inline-block;
+  margin-bottom: 0.5rem; /* Adjust for spacing */
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem; /* Adjust for padding */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057; /* Text color */
+}
+</style>
+<div class="container">
+<h2 class="text-center mb-4 text-light">Book a Slot</h2>
+
+<div class="row d-flex justify-content-center align-items-center ">
+  <div class="  col-md-6 mb-3">
+    <div class="card shadow-lg bg-danger text-light rounded-lg border-light">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Availability</h3>
+        <i class="fas fa-calendar-alt text-white fs-3"></i>
+      </div>
+      <ul class="list-group list-group-flush bg-light">
+        {% for date, slots in availability.items %}
+          <li class="list-group-item d-flex justify-content-between align-items-center py-2 bg-dark text-white">
+            <h5 class="mb-0">{{ date }}</h5>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton{{ date }}" data-bs-toggle="dropdown" aria-expanded="false">
+                Select Time
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ date }}">
                 {% for time, available in slots.items %}
-                    <li class="list-group-item {% if not available %}list-group-item-danger{% endif %}">
-                        {{ time }} {% if not available %} - Booked {% endif %}
-                    </li>
+                  <li {% if not available %}class="disabled"{% endif %}>
+                    <a class="dropdown-item text-dark" href="#" data-date="{{ date }}" data-time="{{ time }}">{{ time }}</a>
+                  </li>
                 {% endfor %}
-            </ul>
-        </div>
-    {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3" id="booking-form-container"></div>
 </div>
+
+<script>
+  const slotLinks = document.querySelectorAll('.dropdown-item');
+  slotLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent default link behavior
+
+      const date = link.dataset.date;
+      const time = link.dataset.time;
+
+      // Send an AJAX request to get the booking form data
+      fetch(`/bookings/get_booking_form/?date=${date}&time=${time}`)
+        .then(response => response.json())
+        .then(data => {
+          // Display the booking form in the container
+          const formContainer = document.getElementById('booking-form-container');
+          formContainer.innerHTML = data.form;
+        })
+        .catch(error => console.error(error));
+    });
+  });
+</script>
+
 {% endblock %}
