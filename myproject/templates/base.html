@@ -201,41 +201,45 @@ header{
 </head>
 <body class="d-flex flex-column min-vh-100">
    
-<nav class="navbar  fixed-top navbar-expand-lg   ">
-    <div class="container-fluid ">
-        <a class="navbar-brand m-lg-2 d-flex justify-content-evenly align-items-center" href="#">
-            <img src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" class="border border-danger rounded" alt="CleanDesignUK Logo" style="height: 50px;">
-           <span class="text-size-brand" >CleanDesignUK </span> 
-        </a>
-        <button class="navbar-toggler mr-md-2 border-none " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon ">   
-                <i class="fas fa-bars icon-sizing" ></i>
-            </span>
-        </button>
-        <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2 z-100" id="navbarNav" style="max-width: 1400px;">
-            <ul class="navbar-nav d-lg-flex justify-content-around align-items-center">
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'home:index' or request.path == '/' %}active{% endif %}" href="{% url 'home:index' %}">Home</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'blog_list' %}active{% endif %}" href="{% url 'blog:blog_list' %}">Blog</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about:index' %}">About Us</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery:index' %}">Project Gallery</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services:index' %}">Packages/Services</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact:index' %}">Contact</a>
-                </li>
-            </ul>
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand m-lg-2 d-flex justify-content-evenly align-items-center" href="{% url 'home:index' %}">
+                <img src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" class="border border-danger rounded" alt="CleanDesignUK Logo" style="height: 50px;">
+                <span class="text-size-brand">CleanDesignUK</span> 
+            </a>
+            <button class="navbar-toggler mr-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars icon-sizing"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2" id="navbarNav" style="max-width: 1400px;">
+                <ul class="navbar-nav d-lg-flex justify-content-around align-items-center">
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'home:index' %}active{% endif %}" href="{% url 'home:index' %}">Home</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'blog_list' %}active{% endif %}" href="{% url 'blog:blog_list' %}">Blog</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about:index' %}">About Us</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery:index' %}"> Gallery</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services:index' %}"> Services</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact:index' %}">Contact</a>
+                    </li>
+                    <!-- Added Store Link -->
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 {% if request.resolver_match.url_name == 'store:index' %}active{% endif %}" href="{% url 'developer_store:index' %}">Developer Store </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <main class=" flex-shrink-0">
 

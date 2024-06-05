@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Templates List</h1>
+    <!-- Display list of templates here -->
+    {% for template in templates %}
+        <p>{{ template.name }}</p>  <!-- Example property -->
+    {% endfor %}
+</div>
+{% endblock %}

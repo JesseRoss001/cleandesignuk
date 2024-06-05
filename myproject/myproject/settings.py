@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'project_gallery',  # add this
     'packages_services',  # add this
     'contact',  # add this
+    'developer_store',
 ]
 
 cloudinary.config(
@@ -166,3 +167,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # For caching support
 WHITENOISE_MAX_AGE = 31536000  # One year in seconds
+
+
+STRIPE_SECRET_KEY = 'your_secret_key'
