@@ -1,59 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 <style>
-    body {
-        background-color: #f8f9fa;
-    }
-    .container {
-        max-width: 1200px;
-    }
-    .card {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .card-header {
-        font-weight: bold;
-        background-color: #dc3545; /* Bootstrap red for headers */
-    }
-    .time-slot {
-        cursor: pointer;
-        margin: 2px;
-        border-radius: 15px; /* Pill shape */
-        border: 1px solid #28a745; /* Green border */
-        padding: 5px 10px;
-        display: inline-block;
-    }
-    .time-slot.active {
-        background-color: #28a745; /* Green background for active slots */
-        color: white;
-    }
-    .time-slot:not(.active):hover {
-        background-color: #218838; /* Darker green on hover */
-        color: white;
-    }
-    #booking-form button {
-        width: 100%;
-        padding: 0.75rem 1.5rem;
-    }
-    #booking-form button:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
-    @media (max-width: 768px) {
-        .col-md-6 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-    }
-
-    .time-slot.disabled {
-    color: #ccc;
-    cursor: not-allowed;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-}
+    body { background-color: #f8f9fa; }
+    .container { max-width: 1200px; }
+    .card { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+    .card-header { font-weight: bold; background-color: #dc3545; }
+    .date-item { cursor: pointer; background-color: #eee; margin-bottom: 5px; padding: 10px; border-radius: 4px; }
+    .time-slots { display: none; padding-left: 20px; padding-top: 10px; }
+    .time-slot { cursor: pointer; margin: 2px; border-radius: 50px; border: 2px solid red; padding: 5px 10px; display: inline-block; background-color: white; color: black; box-shadow: 4px 4px 10px #aaa; }
+    .time-slot.active { background-color: red; color: white; }
+    .time-slot:not(.active):hover { background-color: red; color: white; }
+    #booking-form button { width: 100%; padding: 0.75rem 1.5rem; background-color: red; color: white; border: none; }
+    #booking-form button:disabled { background-color: #ccc; color: black; cursor: not-allowed; }
 </style>
 
 <div class="container mt-5">
@@ -61,19 +21,15 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-white">Select a Date and Time</div>
+                <div class="card-header text-white">Select a Date</div>
                 <div class="card-body">
                     <ul class="list-group">
                         {% for date, slots in availability.items %}
-                        <li class="list-group-item">
-                            <strong>{{ date }}:</strong>
-                            <div>
+                        <li class="list-group-item date-item">
+                            <strong>{{ date }}</strong>
+                            <div id="time-slots-{{ date }}" class="time-slots">
                                 {% for time, available in slots.items %}
-                                {% if available %}
-                                <a href="#" class="time-slot" data-date="{{ date }}" data-time="{{ time }}">{{ time }}</a>
-                                {% else %}
-                                <span class="time-slot disabled" style="text-decoration: line-through;">{{ time }} (Not available)</span>
-                                {% endif %}
+                                <a href="#" class="time-slot text-decoration-none" data-date="{{ date }}" data-time="{{ time }}" onclick="selectTimeSlot(event, '{{ date }}', '{{ time }}')">{{ time }}</a>
                                 {% endfor %}
                             </div>
                         </li>
@@ -88,18 +44,20 @@
                 <div class="card-body">
                     <form method="post" action="{% url 'bookings:submit_booking' %}" id="booking-form">
                         {% csrf_token %}
-                        {% for field in form %}
                         <div class="form-group">
-                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                            {{ field }}
-                            {% if field.help_text %}
-                            <small class="form-text text-muted">{{ field.help_text }}</small>
-                            {% endif %}
-                            {% for error in field.errors %}
-                            <div class="alert alert-danger">{{ error }}</div>
-                            {% endfor %}
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" name="full_name" required>
                         </div>
-                        {% endfor %}
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" name="phone_number" required>
+                        </div>
+                        <input type="hidden" name="date" id="selected-date">
+                        <input type="hidden" name="time_slot" id="selected-time">
                         <button type="submit" class="btn btn-primary" disabled>Book Now</button>
                     </form>
                 </div>
@@ -108,26 +66,27 @@
     </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const slots = document.querySelectorAll('.time-slot:not(.disabled)');
-    const submitButton = document.querySelector('#booking-form button');
-    const dateInput = document.querySelector('#id_date');
-    const timeInput = document.querySelector('#id_time_slot');
+    function selectTimeSlot(e, date, time) {
+        e.preventDefault();
+        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('active'));
+        e.target.classList.add('active');
+        document.querySelector('#selected-date').value = date;
+        document.querySelector('#selected-time').value = time;
+        document.querySelector('#booking-form button').disabled = false;
+        document.querySelector('#booking-form button').innerText = 'Book Now';
+        console.log('Date selected:', date, 'Time selected:', time);
+    }
 
-    slots.forEach(slot => {
-        slot.addEventListener('click', function (e) {
-            e.preventDefault();
-            slots.forEach(s => s.classList.remove('active'));
-            this.classList.add('active');
-            dateInput.value = this.dataset.date;
-            timeInput.value = this.dataset.time;
-            submitButton.disabled = false;
+    document.querySelectorAll('.date-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const slotsContainer = this.querySelector('.time-slots');
+            if (slotsContainer.style.display === 'none') {
+                slotsContainer.style.display = 'block';
+            } else {
+                slotsContainer.style.display = 'none';
+            }
         });
     });
-});
+</script>
 
-
-    </script>
-    
-    
 {% endblock %}
