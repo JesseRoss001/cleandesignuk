@@ -1,22 +1,103 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    .search-box {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    .search-box input[type="text"] {
+        width: 70%;
+        margin-right: 10px;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .search-box button {
+        padding: 10px 20px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .search-box button:hover {
+        background-color: #c82333;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .card img {
+        width: 100%;
+        object-fit: cover;
+        height: 200px;
+    }
+    .card-body {
+        padding: 15px;
+    }
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 0.5rem;
+    }
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .modal-body {
+        white-space: pre-wrap; /* Respects whitespace and newlines */
+    }
+</style>
+
 <div class="container mt-5">
-    <h2>Components</h2>
-    <form method="get" action="">
-        <input type="text" name="q" placeholder="Search components..." value="{{ request.GET.q }}">
-        <button type="submit">Search</button>
-    </form>
-    <div class="row">
+    <h2 class="text-center">Components</h2>
+    <div class="search-box">
+        <form method="get" action="">
+            <input type="text" name="q" placeholder="Search components..." value="{{ request.GET.q }}" class="form-control">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+    <div class="grid">
         {% for component in components %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="{{ component.image.url }}" class="card-img-top" alt="{{ component.name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ component.name }}</h5>
-                    <p class="card-text">{{ component.description }}</p>
-                    <button onclick="navigator.clipboard.writeText('{{ component.name }}')">Copy Name</button>
-                    <a href="{% url 'contact:index' %}" class="btn btn-sm btn-outline-secondary">Discuss</a>
-                    <small class="text-muted">${{ component.price }}</small>
+        <div class="card">
+            <img src="{{ component.image.url }}" alt="{{ component.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ component.name }}</h5>
+                <p class="card-text">{{ component.description|truncatewords:50 }}</p>
+                <div class="btn-group">
+                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal{{ component.id }}">Read More</button>
+                    <a href="{% url 'contact:index' %}" class="btn btn-outline-secondary">Discuss</a>
+                </div>
+                <small class="text-muted">£{{ component.price }}</small>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal{{ component.id }}" tabindex="-1" aria-labelledby="modalLabel{{ component.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel{{ component.id }}">{{ component.name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ component.description|safe }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>

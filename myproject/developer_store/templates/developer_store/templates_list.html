@@ -2,28 +2,30 @@
 {% block content %}
 <style>
     .search-box {
+        display: flex;
+        justify-content: center;
         margin-bottom: 20px;
-        text-align: center;
+        align-items: center;
     }
     .search-box input[type="text"] {
+        flex-grow: 1;
+        margin-right: 10px;
         padding: 10px;
-        width: 80%;
-        max-width: 500px;
-        border: 2px solid #ccc;
+        border: 1px solid #ccc;
         border-radius: 5px;
+        font-size: 16px;
     }
     .search-box button {
         padding: 10px 20px;
-        margin-left: 10px;
         background-color: #dc3545;
         color: white;
         border: none;
         border-radius: 5px;
+        cursor: pointer;
     }
     .search-box button:hover {
         background-color: #c82333;
     }
-
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -39,57 +41,63 @@
     }
     .card img {
         width: 100%;
-        height: 200px;
-        object-fit: cover;
+        height: auto;
     }
     .card-body {
         padding: 15px;
-        flex: 1;
     }
     .card-title {
-        margin-bottom: 10px;
         font-size: 18px;
-        color: #333;
-    }
-    .card-text {
-        flex-grow: 1;
+        margin-bottom: 0.5rem;
     }
     .btn-group {
+        display: flex;
+        justify-content: space-between;
         margin-top: 10px;
     }
-    .btn-outline-secondary {
-        background: none;
-        color: #dc3545;
-        border: 1px solid #dc3545;
-        padding: 5px 10px;
-        text-align: center;
-    }
-    .btn-outline-secondary:hover {
-        background: #dc3545;
-        color: white;
+    .modal-body {
+        white-space: pre-wrap; /* Respects whitespace and newlines */
     }
 </style>
 
 <div class="container mt-5">
-    <h2 class="text-center py-3 ">Templates</h2>
-    <div class="search-box py-3 ">
+    <h2 class="text-center">Templates</h2>
+    <div class="search-box">
         <form method="get" action="">
-            <input type="text" name="q" placeholder="Search templates..." value="{{ request.GET.q }}">
-            <button type="submit">Search</button>
+            <input type="text" name="q" placeholder="Search templates..." value="{{ request.GET.q }}" class="form-control">
+            <button type="submit" class="btn btn-primary">Search</button>
         </form>
     </div>
-    <div class="grid py-5">
+    <div class="grid">
         {% for template in templates %}
         <div class="card">
             <img src="{{ template.image.url }}" alt="{{ template.name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ template.name }}</h5>
-                <p class="card-text">{{ template.description }}</p>
+                <p class="card-text">{{ template.intro }}</p>
                 <div class="btn-group">
-                    <button onclick="navigator.clipboard.writeText('{{ template.name }}')">Copy Name</button>
+                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal{{ template.id }}">Read More</button>
                     <a href="{% url 'contact:index' %}" class="btn btn-outline-secondary">Discuss</a>
                 </div>
-                <small class="text-muted">${{ template.price }}</small>
+                <small class="text-muted">£{{ template.price }}</small>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal{{ template.id }}" tabindex="-1" aria-labelledby="modalLabel{{ template.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel{{ template.id }}">{{ template.name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ template.description|safe }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
         {% endfor %}
