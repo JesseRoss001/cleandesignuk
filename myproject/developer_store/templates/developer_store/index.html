@@ -2,85 +2,97 @@
 {% load static %}
 
 {% block content %}
-<head>
-    <style>
-        .hero-section {
-            padding: 5rem 0;
-            background: url('https://yourimageurl.com/hero-background.jpg') no-repeat center center;
-            background-size: cover;
-            color: white;
-            position: relative;
-            text-align: center;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        .hero-text {
-            position: relative;
-            z-index: 1;
-        }
-        .btn-hero {
-            font-size: 1.25rem;
-            padding: 0.75rem 1.5rem;
-            margin-top: 2rem;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-        .btn-red {
-            background-color: #dc3545;
-            color: #fff;
-        }
-        .btn-red:hover {
-            background-color: #c82333;
-        }
-        .info-section {
-            margin-top: 4rem;
-            text-align: center;
-            padding: 2rem;
-        }
-        .info-card {
-            margin-top: 2rem;
-            padding: 2rem;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-        .info-link {
-            font-weight: bold;
-            color: #dc3545;
-            text-decoration: none;
-        }
-        .info-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
+<style>
+    .hero-section {
+        padding: 5rem 0;
+        background: url('https://res.cloudinary.com/dz18uvfpa/image/upload/v1717590975/dfhrpvlfhurt5s3tm525.jpg') no-repeat center top;
+        background-size: cover;
+        color: white;
+        position: relative;
+        text-align: center;
+        min-height: 50vh;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7); /* Increased darkness for better readability */
+    }
+    .hero-text {
+        position: relative;
+        z-index: 1;
+        padding: 2rem;
+    }
+    .btn-hero {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+        margin-top: 2rem;
+        border: 2px solid red; /* Solid border with a vivid color */
+        background-color: white ; /* Transparent background */
+        color: red; /* Text color matches the border */
+        border-radius: 50px; /* Rounded edges */
+        transition: all 0.3s ease; /* Smooth transition for hover effects */
+        text-transform: uppercase; /* Uppercase text for a bolder look */
+        font-weight: bold; /* Bold font weight */
+        letter-spacing: 1px; /* Spacing between letters */
+        cursor: pointer; /* Cursor indicates the element is clickable */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+    .btn-hero:hover {
+        background-color: red; /* Darker red on hover */
+    }
+    .info-section {
+        background-color: #f8f9fa; /* Bootstrap's default grey background */
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+    }
+    .info-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .info-link {
+        font-weight: bold;
+        color: #dc3545;
+        text-decoration: none;
+    }
+    .info-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <div class="hero-section">
     <div class="overlay"></div>
     <div class="container hero-text">
-        <h1 class="display-4">Developer Store</h1>
-        <p class="lead">Your source for top-quality development resources. All components and templates are crafted to meet accessibility and industry standards.</p>
-        <a href="{% url 'contact:index' %}" class="btn btn-hero btn-red"> Any questions </a>
+        <h1 class="display-4">Developer Store V 1.0</h1>
+        
+        <a href="{% url 'contact:index' %}" class="btn btn-hero mt-5"> Get in touch with me</a>
     </div>
 </div>
 
-<div class="container info-section">
-    <h2>Explore Our Products</h2>
-    <div class="row">
-        <div class="col-md-6 info-card">
-            <h3>Components</h3>
-            <p>Explore a wide range of development components that are ready to use and fully customizable.</p>
-            <a href="{% url 'developer_store:components_list' %}" class="btn btn-primary">Browse Components</a>
-        </div>
-        <div class="col-md-6 info-card">
-            <h3>Templates</h3>
-            <p>Discover templates that provide a solid foundation for any project, ensuring a quick and efficient development process.</p>
-            <a href="{% url 'developer_store:templates_list' %}" class="btn btn-primary">Browse Templates</a>
+<div class="container">
+    <div class="info-section text-center">
+        <h2>Explore Our Products</h2>
+        <p class="lead">Your source for top-quality development resources. All components and templates are crafted to meet accessibility and industry standards. To purchase get ahold of me and payment as well as resources can be arranged through the platform of your choice        </p>
+            <br> 
+        <p class="lead"> Expect a response within 24 hours . Upon confirming your needs and payment ; files plus instruction manual will be sent immediately  </p>
+
+        <div class="row">
+            <div class="col-md-6 info-card">
+                <h3>Components</h3>
+                <p>Explore a wide range of development components that are ready to use and fully customizable.</p>
+                <a href="{% url 'developer_store:components_list' %}" class="btn btn-dark">Browse Components</a>
+            </div>
+            <div class="col-md-6 info-card">
+                <h3>Templates</h3>
+                <p>Discover templates that provide a solid foundation for any project, ensuring a quick and efficient development process.</p>
+                <a href="{% url 'developer_store:templates_list' %}" class="btn btn-danger">Browse Templates</a>
+            </div>
         </div>
     </div>
 </div>
