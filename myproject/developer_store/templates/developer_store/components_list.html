@@ -1,30 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
+    .search-container {
+
+        padding: 20px 0;
+    }
     .search-box {
         display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
         align-items: center;
+        background: #f8f9fa;  /* Light grey background */
+        padding: 10px;
+        border-radius: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
     }
     .search-box input[type="text"] {
-        width: 70%;
-        margin-right: 10px;
-        padding: 10px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
+        
+        border: none;
+        padding: 10px 20px;
         font-size: 16px;
+        border-radius: 30px 0 0 30px;  /* Rounded left side */
+        outline: none;
     }
     .search-box button {
         padding: 10px 20px;
-        background-color: #dc3545;
+        background-color: #dc3545;  /* Theme red */
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 0 30px 30px 0;  /* Rounded right side */
         cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
     }
     .search-box button:hover {
-        background-color: #c82333;
+        background-color: #c82333;  /* Darker shade for hover */
     }
     .grid {
         display: grid;
@@ -63,10 +73,13 @@
 
 <div class="container mt-5">
     <h2 class="text-center">Components</h2>
-    <div class="search-box">
-        <form method="get" action="">
-            <input type="text" name="q" placeholder="Search components..." value="{{ request.GET.q }}" class="form-control">
-            <button type="submit" class="btn btn-primary">Search</button>
+    <div class="search-container row  d-flex justify-content-center align-items-center mx-3 ">
+        <form class="search-box w-100">
+            <div class="row  d-flex justify-content-between align-items-center w-100">
+                <div class=" col-7 col-md-9">
+            <input type="text" name="q" placeholder="Search components..." value="{{ request.GET.q }}" class="w-100">
+        </div> <div class="col-5 col-md-3 d-flex justify-content-flex-end align-items-center"><button type="submit">Search</button></div>
+        </div>
         </form>
     </div>
     <div class="grid">
