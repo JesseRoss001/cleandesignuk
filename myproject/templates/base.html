@@ -38,7 +38,10 @@
 body {color:black;}
 
 /*                 --------------------NAVBAR ----------------------------          */
-
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 /* Custom styles for the navbar */
 .navbar {
     backdrop-filter: blur(10px); /* This will create the frosted glass effect */
@@ -46,7 +49,14 @@ body {color:black;}
     border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     font-size: 1.4rem; /* Base font size */
+    z-index:100;
     
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Ensures it is above all other content */
 }
 .nav-link {color:black !important;}
 
@@ -71,24 +81,38 @@ color:black;}
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 
 .booking-banner {
-            background-color: #c41d1d;
-            text-align: center;
-            padding: 20px;
-            
+    background-color: #c41d1d; /* Intense red to grab attention */
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    color: white; /* Ensure text is white for contrast */
+    font-size: 24px; /* Make font size larger for better readability */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    background: linear-gradient(to right, #c41d1d, #a31111); /* Gradient for more depth */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Deeper shadow for 3D effect */
+}
 
-        }
-        .booking-banner a {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            padding-bottom: 15px;
-        }
+.booking-banner a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.booking-banner:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
+}
+
+.booking-banner:hover a {
+    color: #ffe5e5; /* Light red when hovering over link */
+}
 
 /* Ensure the logo fits well in the navbar */
 .navbar-brand img {
@@ -164,45 +188,58 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
 }
 
 
+header{
+  position: relative; 
+  top: 0;
+  width: 100%;
+}
+
+.navbar-toggler:active {border:none !important;}
+
 
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-<nav class="navbar  fixed-top navbar-expand-lg   ">
-    <div class="container-fluid ">
-        <a class="navbar-brand m-lg-2 d-flex justify-content-evenly align-items-center" href="#">
-            <img src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" class="border border-danger rounded" alt="CleanDesignUK Logo" style="height: 50px;">
-           <span class="text-size-brand" >CleanDesignUK </span> 
-        </a>
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">   
-                <i class="fas fa-bars icon-sizing" ></i>
-            </span>
-        </button>
-        <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2" id="navbarNav" style="max-width: 1400px;">
-            <ul class="navbar-nav d-lg-flex justify-content-around align-items-center">
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'home:index' or request.path == '/' %}active{% endif %}" href="{% url 'home:index' %}">Home</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'blog_list' %}active{% endif %}" href="{% url 'blog:blog_list' %}">Blog</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about:index' %}">About Us</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery:index' %}">Project Gallery</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services:index' %}">Packages/Services</a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <a class="nav-link px-lg-3 {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact:index' %}">Contact</a>
-                </li>
-            </ul>
+   
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand m-lg-2 d-flex justify-content-evenly align-items-center" href="{% url 'home:index' %}">
+                <img src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" class="border border-danger rounded" alt="CleanDesignUK Logo" style="height: 50px;">
+                <span class="text-size-brand">CleanDesignUK</span> 
+            </a>
+            <button class="navbar-toggler mr-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars icon-sizing"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse w-100 d-lg-flex justify-content-around align-items-center m-2" id="navbarNav" style="max-width: 1400px;">
+                <ul class="navbar-nav d-lg-flex justify-content-around align-items-center">
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-4 {% if request.resolver_match.url_name == 'home:index' %}active{% endif %}" href="{% url 'home:index' %}">Home</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-4 {% if request.resolver_match.url_name == 'blog_list' %}active{% endif %}" href="{% url 'blog:blog_list' %}">Blog</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-4 {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about:index' %}">About Us</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-4 {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}" href="{% url 'gallery:index' %}"> Gallery</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-4 {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services:index' %}"> Services</a>
+                    </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-4 {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact:index' %}">Contact</a>
+                    </li>
+                    <!-- Added Store Link -->
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link px-lg-3 px-xl-5 {% if request.resolver_match.url_name == 'store:index' %}active{% endif %}" href="{% url 'developer_store:index' %}">Developer Store </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <main class=" flex-shrink-0">
 
@@ -265,10 +302,10 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
         </div>
     </div>
 </div>
-<div class="booking-banner mt-lg-4">
-    <a href="{% url 'bookings:create_booking' %}">
-        Book Your Free Website Consultation
-    </a>
+<div class="booking-banner pt-5 pt-lg-2 pt-xl-3 mt-lg-4 pb-1 mb-1">
+    <a href="{% url 'bookings:book_slot' %}" class="mb-md-2">Book Your Free Website Consultation</a>
+        
+   
 </div>
 {% block content %}
 {% endblock %}
@@ -341,6 +378,24 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
                 localStorage.setItem('cookieConsent', 'accepted');
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    navbarToggler.addEventListener('click', function () {
+        navbarCollapse.classList.toggle('show');
+    });
+
+    // Optional: Close navbar when a link is clicked (useful for SPA or smooth scrolling)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+            }
+        });
+    });
+});
         </script>
 </body>
 </html>

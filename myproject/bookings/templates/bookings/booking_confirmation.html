@@ -1,5 +1,109 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-<h2>Booking Confirmed</h2>
-<p>Congratulations, you have successfully booked your free website consultation. You will receive a Google Meet invite 30 minutes before your planned booking.</p>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        margin: 40px auto;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .alert-success {
+        color: #0f5132;
+        background-color: #d1e7dd;
+        border-color: #badbcc;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-left: 20px;
+    }
+
+    ul li {
+        padding-bottom: 8px;
+        margin-top: 5px;
+        border-bottom: 1px solid #eee;
+    }
+
+    ul li:last-child {
+        border-bottom: none;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        font-weight: 400;
+        color: #fff;
+        background-color: #dc3545;
+        border: 1px solid #dc3545;
+        padding: 12px;
+        font-size: 18px;
+        line-height: 1.5;
+        border-radius: 5px;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    .btn-link {
+        display: block;
+        margin-top: 15px;
+        text-align: center;
+    }
+</style>
+<div class="container my-5 py-5">
+    <h1 class="my-3">Booking Confirmed!</h1>
+    <div class="alert alert-success my-2 py-3">
+        Thank you for booking with us! Your appointment is confirmed. Please see below for how to prepare for our meeting.
+    </div>
+
+    <h2 class="my-4">What to Prepare</h2>
+    <ul>
+        <li><strong>Client Information:</strong> Have your basic business information ready, including any current marketing materials.</li>
+        <li><strong>Project Goals:</strong> Consider what you aim to achieve with this project, such as increasing brand awareness or generating leads.</li>
+        <li><strong>Examples:</strong> Bring examples of websites or designs you admire to guide the design process.</li>
+        <li><strong>Budget and Timeline:</strong> Understand your budget limitations and desired timeline to align our plans accordingly.</li>
+    </ul>
+
+    <h2 class="my-4">Want to Provide More Details?</h2>
+    <p class="mb-3">Fill out a brief survey to help us better understand your needs. Your insights are invaluable and will assist in tailoring our approach to meet your expectations.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe00qnDOQYhryDd6D_0q169i8jKBgUstqTxT8GDqdZirzTqFw/viewform?usp=sf_link" target="_blank" class="btn btn-primary my-2">Fill Out Survey</a>
+
+    <p class="mt-4">If you have any immediate questions or need to adjust your booking details, please contact us through our <a href="{% url 'contact:index' %}" class="btn btn-primary">contact page</a>.</p>
+</div>
 {% endblock %}

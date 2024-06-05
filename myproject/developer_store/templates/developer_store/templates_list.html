@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: #f8f9fa;  /* Light grey background */
+        padding: 10px;
+        border-radius: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+    }
+    .search-box input[type="text"] {
+        flex-grow: 1;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 30px 0 0 30px;  /* Rounded left side */
+        outline: none;
+    }
+    .search-box button {
+        padding: 10px 20px;
+        background-color: #dc3545;  /* Theme red */
+        color: white;
+        border: none;
+        border-radius: 0 30px 30px 0;  /* Rounded right side */
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    .search-box button:hover {
+        background-color: #c82333;  /* Darker shade for hover */
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .card img {
+        width: 100%;
+        object-fit: cover;
+        height: 200px;
+    }
+    .card-body {
+        padding: 15px;
+    }
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 0.5rem;
+    }
+    .card-text {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+    }
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+    }
+    .modal-body {
+        white-space: pre-wrap; /* Respects whitespace and newlines */
+    }
+</style>
+<div class="container my-5">
+    <div class="process-section text-center">
+        <h2 class="mb-4">How to Purchase Our Products</h2>
+        <p class="lead mb-4">Follow these simple steps to acquire our industry-standard components and templates:</p>
+        <div class="d-flex flex-column align-items-center">
+            <ol class="list-group list-group-numbered list-group-flush w-75">
+                <li class="list-group-item bg-light py-2">
+                    <strong>Contact Us:</strong> Reach out through our <a href="{% url 'contact:index' %}">contact page</a> or your preferred communication platform to discuss your project needs and verify product fit.
+                </li>
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Consultation:</strong> We will provide a personalized consultation to ensure our products meet your requirements.
+                </li>
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Payment:</strong> After consultation, we'll arrange for secure payment through your preferred method.
+                </li>
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Delivery:</strong> Upon payment confirmation, we'll send you the component or template files along with a detailed instruction manual.
+                </li>
+            </ol>
+        </div>
+        <p class="lead py-2 mt-4">Expect a response within 24 hours. We are committed to providing quick and efficient service to enhance your development projects.</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center">Templates</h2>
+    <div class="search-container">
+        <form class="search-box">
+            <input type="text" name="q" placeholder="Search templates..." value="{{ request.GET.q }}" class="form-control">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+    <div class="grid">
+        {% for template in templates %}
+        <div class="card">
+            <img src="{{ template.image.url }}" alt="{{ template.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ template.name }}</h5>
+                <p class="card-text">{{ template.intro|truncatewords:50 }}</p>
+                <div class="btn-group">
+                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal{{ template.id }}">Read More</button>
+                    <a href="{% url 'contact:index' %}" class="btn btn-outline-secondary">Discuss</a>
+                </div>
+                <small class="text-muted">£{{ template.price }}</small>
+            </div>
+        </div>
+
+        <!-- Modal for full description -->
+        <div class="modal fade" id="modal{{ template.id }}" tabindex="-1" aria-labelledby="modalLabel{{ template.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel{{ template.id }}">{{ template.name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ template.description|safe }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
