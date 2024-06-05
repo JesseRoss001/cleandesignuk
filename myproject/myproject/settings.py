@@ -15,36 +15,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = [
-    '167.99.205.178',
-    '8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
-    'cleandesignuk.uk',
-    'cleandesignuk.com',
-    'localhost',
-    '127.0.0.1',
-    'cleandesignuk.uk:8000',
-    '127.0.0.1:8000',
-    '8000-jesseross00-cleandesign-r7tgj1ztv7q.ws-eu114.gitpod.io',
-]
+# Allowed hosts
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://167.99.205.178',
-    'http://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
-    'http://cleandesignuk.uk',
-    'http://cleandesignuk.com',
-    'http://cleandesignuk.uk:8000',
-    'https://188.166.168.22',
-    'https://8000-jesseross00-cleandesign-p60uhvpp848.ws-eu114.gitpod.io',
-    'https://cleandesignuk.uk',
-    'https://cleandesignuk.com',
-    'https://127.0.0.1:8000',
-    'https://8000-jesseross00-cleandesign-r7tgj1ztv7q.ws-eu114.gitpod.io',
-]
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,36 +33,27 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'corsheaders',
-    'crispy_forms',
     'cloudinary',
     'cloudinary_storage',
-    'home',  # add this
-    'blog',  # add this
+    'home',
+    'blog',
     'bookings',
-    'about',  # add this
-    'project_gallery',  # add this
-    'packages_services',  # add this
-    'contact',  # add this
+    'about',
+    'project_gallery',
+    'packages_services',
+    'contact',
     'developer_store',
 ]
 
-cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
-)
-
 MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware',  # This should be near the top
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',  # This should be near the bottom
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -91,7 +61,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Add this if your base.html is in a global templates directory
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,6 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -113,10 +84,18 @@ DATABASES = {
     }
 }
 
-
-# settings.py
-
-
+if not DEBUG:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -134,27 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
-    }
-}
-
-CACHE_MIDDLEWARE_ALIAS = 'default'  # Uses the default cache defined earlier
-CACHE_MIDDLEWARE_SECONDS = 600      # Cache each page for 600 seconds (10 minutes)
-CACHE_MIDDLEWARE_KEY_PREFIX = ''    # A prefix that should be unique to this site
-
-# Internationalization
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
-
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files (uploads)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -163,10 +126,20 @@ MEDIA_URL = '/media/'
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Simplifies static file handling
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# For caching support
-WHITENOISE_MAX_AGE = 31536000  # One year in seconds
+# Cloudinary
+cloudinary.config(
+    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.getenv('CLOUDINARY_API_KEY'),
+    api_secret=os.getenv('CLOUDINARY_API_SECRET')
+)
 
-
-
+# Cache settings
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 600
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
