@@ -70,6 +70,29 @@
         white-space: pre-wrap; /* Respects whitespace and newlines */
     }
 </style>
+<div class="container my-5">
+    <div class="process-section text-center">
+        <h2 class="mb-4">How to Purchase Our Products</h2>
+        <p class="lead mb-4">Follow these simple steps to acquire our industry-standard components and templates:</p>
+        <div class="d-flex flex-column align-items-center">
+            <ol class="list-group list-group-numbered list-group-flush w-75">
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Contact Us:</strong> Reach out through our <a href="{% url 'contact:index' %}">contact page</a> or your preferred communication platform to discuss your project needs and verify product fit.
+                </li>
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Consultation:</strong> We will provide a personalized consultation to ensure our products meet your requirements.
+                </li>
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Payment:</strong> After consultation, we'll arrange for secure payment through your preferred method.
+                </li>
+                <li class="list-group-item bg-light py-2 ">
+                    <strong>Delivery:</strong> Upon payment confirmation, we'll send you the component or template files along with a detailed instruction manual.
+                </li>
+            </ol>
+        </div>
+        <p class="lead mt-4">Expect a response within 24 hours. We are committed to providing quick and efficient service to enhance your development projects.</p>
+    </div>
+</div>
 
 <div class="container mt-5">
     <h2 class="text-center">Components</h2>
@@ -88,7 +111,7 @@
             <img src="{{ component.image.url }}" alt="{{ component.name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ component.name }}</h5>
-                <p class="card-text">{{ component.description|truncatewords:50 }}</p>
+                <p class="card-text">{{ component.intro|truncatewords:50 }}</p>
                 <div class="btn-group">
                     <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal{{ component.id }}">Read More</button>
                     <a href="{% url 'contact:index' %}" class="btn btn-outline-secondary">Discuss</a>

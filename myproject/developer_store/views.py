@@ -1,6 +1,5 @@
-# developer_store/views.py
-
 from django.shortcuts import render
+from django.db.models import Q
 from .models import Template, Component
 
 def index(request):
@@ -9,7 +8,9 @@ def index(request):
 def templates_list(request):
     query = request.GET.get('q', '')
     if query:
-        templates = Template.objects.filter(name__icontains=query)
+        templates = Template.objects.filter(
+            Q(name__icontains=query) | Q(intro__icontains=query) | Q(description__icontains=query)
+        )
     else:
         templates = Template.objects.all()
     return render(request, 'developer_store/templates_list.html', {'templates': templates})
@@ -17,7 +18,9 @@ def templates_list(request):
 def components_list(request):
     query = request.GET.get('q', '')
     if query:
-        components = Component.objects.filter(name__icontains=query)
+        components = Component.objects.filter(
+            Q(name__icontains=query) | Q(intro__icontains=query) | Q(description__icontains=query)
+        )
     else:
         components = Component.objects.all()
     return render(request, 'developer_store/components_list.html', {'components': components})
