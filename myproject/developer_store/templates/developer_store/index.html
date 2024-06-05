@@ -1,9 +1,88 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="container">
-    <h1>Welcome to the Developer Store</h1>
-    <p>Find a collection of website templates and components to enhance your projects!</p>
-    <!-- Display products or information about the store here -->
+<head>
+    <style>
+        .hero-section {
+            padding: 5rem 0;
+            background: url('https://yourimageurl.com/hero-background.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            position: relative;
+            text-align: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-hero {
+            font-size: 1.25rem;
+            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-red {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .btn-red:hover {
+            background-color: #c82333;
+        }
+        .info-section {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2rem;
+        }
+        .info-card {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .info-link {
+            font-weight: bold;
+            color: #dc3545;
+            text-decoration: none;
+        }
+        .info-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<div class="hero-section">
+    <div class="overlay"></div>
+    <div class="container hero-text">
+        <h1 class="display-4">Developer Store</h1>
+        <p class="lead">Your source for top-quality development resources. All components and templates are crafted to meet accessibility and industry standards.</p>
+        <a href="{% url 'contact:index' %}" class="btn btn-hero btn-red"> Any questions </a>
+    </div>
 </div>
+
+<div class="container info-section">
+    <h2>Explore Our Products</h2>
+    <div class="row">
+        <div class="col-md-6 info-card">
+            <h3>Components</h3>
+            <p>Explore a wide range of development components that are ready to use and fully customizable.</p>
+            <a href="{% url 'developer_store:components_list' %}" class="btn btn-primary">Browse Components</a>
+        </div>
+        <div class="col-md-6 info-card">
+            <h3>Templates</h3>
+            <p>Discover templates that provide a solid foundation for any project, ensuring a quick and efficient development process.</p>
+            <a href="{% url 'developer_store:templates_list' %}" class="btn btn-primary">Browse Templates</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

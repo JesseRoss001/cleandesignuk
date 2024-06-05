@@ -1,3 +1,5 @@
+# developer_store/models.py
+
 from django.db import models
 from cloudinary.models import CloudinaryField
 

@@ -1,22 +1,15 @@
+# developer_store/views.py
+
 from django.shortcuts import render
+from .models import Template, Component
 
 def index(request):
-    # Add your logic here, e.g., fetching products or data to display in the store
-    return render(request, 'developer_store/index.html', {})
-
-
-
+    return render(request, 'developer_store/index.html')
 
 def templates_list(request):
-    # Logic to fetch and display templates
-    return render(request, 'developer_store/templates_list.html', {
-        'templates': []  # Assume you might have some data to pass
-    })
-
+    templates = Template.objects.all()
+    return render(request, 'developer_store/templates_list.html', {'templates': templates})
 
 def components_list(request):
-    # Logic to fetch and display templates
-    return render(request, 'developer_store/components_list.html', {
-        'components_list': []  # Assume you might have some data to pass
-    })
-
+    components = Component.objects.all()
+    return render(request, 'developer_store/components_list.html', {'components': components})
