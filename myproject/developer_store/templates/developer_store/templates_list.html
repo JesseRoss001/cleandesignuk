@@ -1,23 +1,95 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    .search-box {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .search-box input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        max-width: 500px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+    .search-box button {
+        padding: 10px 20px;
+        margin-left: 10px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    .search-box button:hover {
+        background-color: #c82333;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .card-body {
+        padding: 15px;
+        flex: 1;
+    }
+    .card-title {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+    .card-text {
+        flex-grow: 1;
+    }
+    .btn-group {
+        margin-top: 10px;
+    }
+    .btn-outline-secondary {
+        background: none;
+        color: #dc3545;
+        border: 1px solid #dc3545;
+        padding: 5px 10px;
+        text-align: center;
+    }
+    .btn-outline-secondary:hover {
+        background: #dc3545;
+        color: white;
+    }
+</style>
+
 <div class="container mt-5">
-    <h2>Templates</h2>
-    <div class="row">
+    <h2 class="text-center py-3 ">Templates</h2>
+    <div class="search-box py-3 ">
+        <form method="get" action="">
+            <input type="text" name="q" placeholder="Search templates..." value="{{ request.GET.q }}">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="grid py-5">
         {% for template in templates %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="{{ template.image.url }}" class="card-img-top" alt="{{ template.name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ template.name }}</h5>
-                    <p class="card-text">{{ template.description }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Buy</a>
-                        </div>
-                        <small class="text-muted">${{ template.price }}</small>
-                    </div>
+        <div class="card">
+            <img src="{{ template.image.url }}" alt="{{ template.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ template.name }}</h5>
+                <p class="card-text">{{ template.description }}</p>
+                <div class="btn-group">
+                    <button onclick="navigator.clipboard.writeText('{{ template.name }}')">Copy Name</button>
+                    <a href="{% url 'contact:index' %}" class="btn btn-outline-secondary">Discuss</a>
                 </div>
+                <small class="text-muted">${{ template.price }}</small>
             </div>
         </div>
         {% endfor %}

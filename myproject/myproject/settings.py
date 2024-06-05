@@ -169,4 +169,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_MAX_AGE = 31536000  # One year in seconds
 
 
-STRIPE_SECRET_KEY = 'your_secret_key'
+
