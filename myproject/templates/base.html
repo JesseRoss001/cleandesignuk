@@ -26,13 +26,7 @@
   gtag('config', 'AW-16513767694');
 </script>
     
-    <!-- Custom CSS -->
-    {% load static %}
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-    <script src="{% static 'ckeditor5/ckeditor.js' %}"></script>
-    <script src="{% static 'js/ckeditor_init.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% block extra_css %}{% endblock %}
+    
     <style>
         main {min-height:100vh;}
 body {color:black;}
@@ -86,33 +80,7 @@ color:black;}
 }
 
 
-.booking-banner {
-    background-color: #c41d1d; /* Intense red to grab attention */
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    color: white; /* Ensure text is white for contrast */
-    font-size: 24px; /* Make font size larger for better readability */
-    border-radius: 8px; /* Rounded corners for a softer look */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-    background: linear-gradient(to right, #c41d1d, #a31111); /* Gradient for more depth */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Deeper shadow for 3D effect */
-}
 
-.booking-banner a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-.booking-banner:hover {
-    transform: scale(1.05); /* Slightly increase size on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
-}
-
-.booking-banner:hover a {
-    color: #ffe5e5; /* Light red when hovering over link */
-}
 
 /* Ensure the logo fits well in the navbar */
 .navbar-brand img {
@@ -183,9 +151,7 @@ footer .list-unstyled li a:hover, footer .list-unstyled li a:focus {
     footer .list-unstyled li a {font-size: 1rem !important;}
 }
 
-@media (min-width:992px){
-    .booking-banner {margin-top: 90px !important;}
-}
+
 
 
 header{
@@ -195,6 +161,34 @@ header{
 }
 
 .navbar-toggler:active {border:none !important;}
+
+.booking-icon {
+    position: fixed; /* Fixed positioning to make it stay in view */
+    top: 70px; /* Adjust this value based on your navbar's height */
+    right: 20px; /* Margin from the right side of the screen */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    background-color: #ffffff; /* Background color for visibility */
+    border-radius: 50%; /* Makes the background rounded */
+    width: 50px; /* Width of the icon container */
+    height: 50px; /* Height of the icon container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.booking-icon a {
+    color: #c41d1d; /* Red color for the icon */
+}
+
+.booking-icon:hover {
+    background-color: #c41d1d; /* Change background on hover */
+}
+
+.booking-icon a:hover {
+    color: #ffffff; /* Change icon color on hover */
+}
 
 
     </style>
@@ -302,10 +296,10 @@ header{
         </div>
     </div>
 </div>
-<div class="booking-banner pt-5 pt-lg-2 pt-xl-3 mt-lg-4 pb-1 mb-1">
-    <a href="{% url 'bookings:book_slot' %}" class="mb-md-2">Book Your Free Website Consultation</a>
-        
-   
+<div class="booking-icon p-1">
+    <a href="{% url 'bookings:book_slot' %}" title="Book Your Free Website Consultation">
+        <i class="fas fa-calendar-check "></i> <!-- Font Awesome calendar-check icon -->
+    </a>
 </div>
 {% block content %}
 {% endblock %}
@@ -360,10 +354,7 @@ header{
 <!-- Bootstrap JS and dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="{% static 'js/script.js' %}"></script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function(){

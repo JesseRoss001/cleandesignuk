@@ -1,103 +1,50 @@
-
 {% extends "base.html" %}
 {% load static %}
 
 {% block extra_css %}
-
+<link rel="preload" href="{% static 'css/home.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{% static 'css/home.css' %}"></noscript>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></noscript>
 {% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<meta name="title" content="CleanDesignUK - Innovative Web Design in North Wales">
-<meta name="description" content="Discover leading-edge web design solutions with CleanDesignUK. We specialize in creating custom websites that drive growth and improve user engagement in North Wales. Start your digital transformation today.">
-<meta name="keywords" content="web design North Wales, innovative web solutions, custom web design, digital transformation">
+<!-- SEO Meta Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="title" content="CleanDesignUK - Expert Web Design Services in North Wales">
+<meta name="description" content="Leading web design and digital marketing services in Bangor and Holyhead tailored to grow your business with custom solutions and dedicated support.">
+<meta name="keywords" content="web design Bangor, SEO services Holyhead, custom websites North Wales, digital marketing Bangor, web development Holyhead">
+<meta property="og:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
+<meta property="og:description" content="Discover professional web design and digital marketing services in Bangor and Holyhead to elevate your business online.">
+<meta property="og:image" content="{% static 'images/social-share-image.webp' %}">
+<meta property="og:url" content="https://www.cleandesignuk.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
+<meta name="twitter:description" content="Professional web design and digital marketing services in Bangor and Holyhead designed to help your business succeed online.">
+<meta name="twitter:image" content="{% static 'images/twitter-share-image.webp' %}">
 <title>CleanDesignUK - Leading Web Design Innovation</title>
-<link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
+<link rel="icon" href="{% static 'images/favicon.webp' %}" type="image/webp">
+
 <style>
-    
+    /* Inline critical CSS for faster loading */
     main { min-height: 100vh; }
     body { color: black; background-color: #f8f9fa !important; }
     a {text-decoration: none;}
     .nav-link { color: black !important; }
-    
-    .active {
-        color: #c41d1d !important;
-        font-weight: bold;
-    }
-
+    .active { color: #c41d1d !important; font-weight: bold; }
     .hero-image {background-size: auto 110%;}
-    .hero-header {
-        background-color: #cecdcd;
-        color: black;
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-
-    .accent-text {
-        color: rgb(136, 14, 14);
-    }
-
-    .service-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background: #fff; /* Light red background for engagement */
-        border: 2px solid rgb(136, 14, 14);
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-        height: 100%; /* make all cards equal height */
-    }
-
-    .service-card:hover {
-        transform: translateY(-5px); /* subtle hover effect */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-    }
-
-    .service-card h4 {
-        color: rgb(136, 14, 14);
-    }
-
-    .service-card p {  color: rgb(136, 14, 14);}
-
-    /* Gradient backgrounds for each card */
-    .service-card.blog {
-        background: linear-gradient(to bottom, #ffffff, #979291);
-    }
-
-    .service-card.gallery {
-        background: linear-gradient(to bottom, #ffffff, #979291);
-    }
-
-    .service-card.packages {
-        background: linear-gradient(to bottom, #ffffff, #979291);
-    }
-
-    .service-card.contact {
-        background: linear-gradient(to bottom, #ffffff, #979291);
-    }
-
-    .service-card p {
-        color: #000;
-    }
-
-    .btn-danger {
-        background-color: rgb(136, 14, 14);
-        border-color: rgb(136, 14, 14);
-    }
-
-    h4 {font-weight: bold;}
-
-    @media (max-width: 1024px) {
-        .navbar {
-            font-size: 1.2rem;
-        }
-    }
-
+    .hero-header { background-color: #cecdcd; color: black; padding-top: 30px; padding-bottom: 30px; }
+    .accent-text { color: rgb(136, 14, 14); }
+    .service-card { display: flex; flex-direction: column; justify-content: space-between; background: #fff; border: 2px solid rgb(136, 14, 14); border-radius: 8px; padding: 20px; margin-bottom: 20px; height: 100%; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 4px 8px rgba(0,0,0,0.6); }
+    .service-card h4, .service-card p { color: rgb(136, 14, 14); }
+    .btn-danger { background-color: rgb(136, 14, 14); border-color: rgb(136, 14, 14); }
+    @media (max-width: 1024px) { .navbar { font-size: 1.2rem; } }
 </style>
 
-<section class="  hero-header animate__animated animate__fadeIn">
+<section class="hero-header animate__animated animate__fadeIn">
     <div class="container py-5">
         <div class="row g-0 d-flex justify-content-center align-items-center">
             <div class="col-lg-6 mt-3 mt-md-0 mb-4 mb-lg-0 animate__animated animate__fadeInLeft">
