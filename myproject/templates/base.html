@@ -18,7 +18,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
    
     <link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
-    <link  href="{% static 'css/style.css' %}" >
+    <link  href="{% static 'css/style.css' %}" rel="stylesheet" >
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16513767694"></script>
 <script>
@@ -196,40 +196,7 @@
 </footer>
 <!-- Bootstrap JS and dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="https://kit.fontawesome.com/11665d5c0d.js" crossorigin="anonymous"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            const cookieConsent = localStorage.getItem('cookieConsent');
-        
-            if (!cookieConsent) {
-                var cookieModal = new bootstrap.Modal(document.getElementById('cookieConsentModal'));
-                cookieModal.show();
-            }
-        
-            document.querySelector('#cookieConsentModal .btn-primary').addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-
-    navbarToggler.addEventListener('click', function () {
-        navbarCollapse.classList.toggle('show');
-    });
-
-    // Optional: Close navbar when a link is clicked (useful for SPA or smooth scrolling)
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function () {
-            if (navbarCollapse.classList.contains('show')) {
-                navbarCollapse.classList.remove('show');
-            }
-        });
-    });
-});
-        </script>
+<script src="{% static 'js/base.js' %}"></script> <!-- Load the external JavaScript file -->
 </body>
 </html>
