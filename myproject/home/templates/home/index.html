@@ -2,14 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="preload" href="{% static 'css/home.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></noscript>
+<link  href="{% static 'css/home.css' %}" rel='stylesheet'>
+
 {% endblock %}
 
 {% block content %}
+<head>
 <!-- SEO Meta Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="title" content="CleanDesignUK - Expert Web Design Services in North Wales">
@@ -24,47 +22,47 @@
 <meta name="twitter:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
 <meta name="twitter:description" content="Professional web design and digital marketing services in Bangor and Holyhead designed to help your business succeed online.">
 <meta name="twitter:image" content="{% static 'images/twitter-share-image.webp' %}">
-<title>CleanDesignUK - Leading Web Design Innovation</title>
+<title>CleanDesignUK - Leading Web Design North Wales</title>
 <link rel="icon" href="{% static 'images/favicon.webp' %}" type="image/webp">
-
+</head>
 
 
 <section class="hero-header animate__animated animate__fadeIn">
     <div class="container py-5">
         <div class="row g-0 d-flex justify-content-center align-items-center">
             <div class="col-lg-6 mt-3 mt-md-0 mb-4 mb-lg-0 animate__animated animate__fadeInLeft">
-                <h1 class="display-4 pt-3 fw-bold">Empowering Your
-                    Digital Presence</span> with Expertise and Care</h1>
+                <h1 class="display-4 pt-3 fw-bold">Empowering the UK's
+                   <span class="highlight-text" > Digital Presence</span> with Expertise and Care</h1>
                     <p class="lead my-4">At Clean Design UK, we tailor digital experiences that resonate with your brand and audience, backed by continuous support and dedication to your growth.</p>
                     <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
                     </div>
                     <div class="d-none d-md-flex col-md-8 col-lg-6 d-flex justify-content-center align-items-center animate__animated animate__fadeInRight">
-                    <img alt="Dynamic digital design" class="img-fluid rounded" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1718828769/tc761x0fkoskglidjv5t.jpg">
+                    <img alt="Dynamic digital design" class="img-fluid border rounded  my-5 " src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1718828769/tc761x0fkoskglidjv5t.jpg">
                     </div>
                     </div>
                     <div class="row mt-5 text-center">
                     <a href="{% url 'blog:blog_list' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp">
                     <div class="service-card blog">
                     <h4>Our Blog</h4>
-                    <p>Gain insights into the latest trends and our innovative approaches to web design.</p>
+                    <p>Gain insights into the latest trends and our innovative approaches to web design within North Wales.</p>
                     </div>
                     </a>
                     <a href="{% url 'gallery:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="service-card gallery">
                     <h4>Design Gallery</h4>
-                    <p>Browse through our projects to see how we translate ideas into impactful digital art.</p>
+                    <p>Browse through our projects to see how we translate ideas into impactful digital art for businesses in Holyhead and Bangor .</p>
                     </div>
                     </a>
                     <a href="{% url 'services:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="service-card packages">
                     <h4>Customised Packages</h4>
-                    <p>Discover flexible service packages designed to meet diverse needs and budgets.</p>
+                    <p>Discover flexible website development packages using Wordpress , Wix , Square Space or fully bespoke.</p>
                     </div>
                     </a>
                     <a href="{% url 'contact:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-3s">
                     <div class="service-card contact">
                     <h4>Get in Touch</h4>
-                    <p>Let's start a conversation that will take your digital presence to new heights.</p>
+                    <p>Let's start a conversation and connect to discuss your UK business website.</p>
                     </div>
                     </a>
                     </div>
