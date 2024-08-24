@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -8,15 +7,12 @@
 
 {% block content %}
 <meta name="title" content="CleanDesignUK Blog - Insights and Updates">
-<meta name="description" content="Stay updated with the latest trends in web design North Wales through the CleanDesignUK blog. Our posts provide valuable insights into effective web strategies and news in the digital landscape of North Wales.">
-<meta name="keywords" content="web design blog, digital trends, web strategies, CleanDesignUK updates">
+<meta name="description" content="Stay updated with the latest trends in web design North Wales through the CleanDesignUK blog. Our posts provide valuable insights into effective website design strategies for SMEs and news in the digital landscape of North Wales.">
+<meta name="keywords" content="web design blog, digital trends, digital marketing north wales, how to get found on google, SME, CleanDesignUK updates">
 <title>Blog - CleanDesignUK Insights</title>
 <link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
 
-
-
-
-<div class="hero text-center  animate__animated animate__fadeIn" >
+<div class="hero text-center animate__animated animate__fadeIn">
     <div class="py-5">
         <h1>Our <span>Blog</span></h1>
         <p>Stay updated with the latest trends and insights.</p>
@@ -31,7 +27,7 @@
 
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center">
-        {% for post in posts %}
+        {% for post in page_obj %}
         <div class="col-10 col-md-5 col-lg-4 col-xl-3 p-2 animate__animated animate__fadeInUp">
             <div class="blog-card">
                 {% if post.image %}
@@ -41,7 +37,7 @@
                 {% endif %}
                 <div class="card-content">
                     <h5 class="card-title">{{ post.title }}</h5>
-                    <p class="card-date text-muted">{{ post.date_published }}</p> <!-- Assuming date_published is available -->
+                    <p class="card-date text-muted">{{ post.timestamp|date:"F d, Y" }}</p>
                     <p class="card-text text-center">{{ post.content|truncatewords:20|safe }}</p>
                     <a href="{% url 'blog:blog_detail' post.pk %}" class="btn btn-danger">Read More</a>
                 </div>
@@ -49,6 +45,48 @@
         </div>
         {% endfor %}
     </div>
-</div>
 
+    <!-- Pagination controls -->
+    <div class="row mt-4">
+        <div class="col d-flex justify-content-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="First">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="page-item"><a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Last">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
 {% endblock %}

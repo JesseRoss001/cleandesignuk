@@ -5,5 +5,5 @@ app_name = 'blog'  # Ensure app_name is set
 
 urlpatterns = [
     path('', index, name='blog_list'),
-    path('<int:pk>/', blog_detail, name='blog_detail'),
+    path('<slug:slug>/', blog_detail, name='blog_detail'),
 ]
