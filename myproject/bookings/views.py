@@ -1,20 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Booking
 from .forms import BookingForm
 from datetime import datetime, timedelta
 
 def booking_view(request):
-    form = BookingForm(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        booking = form.save(commit=False)
-        booking.save()
-        return redirect('booking_success')  # Redirect to a success page
-    else:
-        availability = get_availability_data()
-        return render(request, 'bookings/booking_template.html', {
-            'form': form,
-            'availability': availability
-        })
+    availability = get_availability_data()
+    return render(request, 'bookings/booking_template.html', {
+        'availability': availability
+    })
 
 def get_availability_data():
     base_date = datetime.now()
@@ -23,17 +16,25 @@ def get_availability_data():
     availability = {}
     for day in days:
         date_str = day.strftime("%Y-%m-%d")
-        booked_slots = Booking.objects.filter(date=date_str).values_list('time_slot', flat=True)
+        # Assuming some external logic or data source to mark certain time slots as unavailable
+        booked_slots = []  # This should be an empty list since we're not pulling from a database
         availability[date_str] = {slot: slot not in booked_slots for slot in time_slots}
     return availability
 
-def submit_booking_view(request):
-    form = BookingForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('bookings:booking_success')
-    return render(request, 'bookings/booking_template.html', {'form': form})
+def submit_to_web3forms(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    data = {
+        'access_key': '632b6ca1-33c7-4cfd-9cf8-a2d7e8a6d414',
+        'subject': 'New Booking Request',
+        'name': booking.full_name,
+        'email': booking.email,
+        'phone_number': booking.phone_number,
+        'date': booking.date.strftime('%Y-%m-%d'),
+        'time_slot': booking.time_slot,
+        'redirect': request.build_absolute_uri(redirect('bookings:booking_success')),
+    }
 
+    return render(request, 'bookings/submit_to_web3forms.html', {'data': data})
 
 def booking_success_view(request):
     return render(request, 'bookings/booking_confirmation.html')

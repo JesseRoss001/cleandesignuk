@@ -1,0 +1,15 @@
+<form id="web3forms" action="https://api.web3forms.com/submit" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="access_key" value="{{ data.access_key }}">
+    <input type="hidden" name="subject" value="{{ data.subject }}">
+    <input type="hidden" name="name" value="{{ data.name }}">
+    <input type="hidden" name="email" value="{{ data.email }}">
+    <input type="hidden" name="phone_number" value="{{ data.phone_number }}">
+    <input type="hidden" name="date" value="{{ data.date }}">
+    <input type="hidden" name="time_slot" value="{{ data.time_slot }}">
+    <input type="hidden" name="redirect" value="{{ data.redirect }}">
+</form>
+
+<script>
+    document.getElementById('web3forms').submit();
+</script>

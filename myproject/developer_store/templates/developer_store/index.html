@@ -3,6 +3,21 @@
 
 {% block content %}
 <style>
+    .coming-soon-banner {
+        background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black background */
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        position: fixed;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
     .hero-section {
         padding: 5rem 0;
         background: url('https://res.cloudinary.com/dz18uvfpa/image/upload/v1717590975/dfhrpvlfhurt5s3tm525.jpg') no-repeat center top;
@@ -73,6 +88,10 @@
         
         <a href="{% url 'contact:index' %}" class="btn btn-hero mt-5"> Get in touch with me</a>
     </div>
+</div>
+
+<div class="coming-soon-banner">
+    <p>Project for Django Developers Coming 2025</p>
 </div>
 
 <div class="container">

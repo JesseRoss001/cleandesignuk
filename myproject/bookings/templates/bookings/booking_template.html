@@ -42,29 +42,38 @@
             <div class="card">
                 <div class="card-header text-white">Booking Details</div>
                 <div class="card-body">
-                    <form method="post" action="{% url 'bookings:submit_booking' %}" id="booking-form">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" class="form-control" name="full_name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="text" class="form-control" name="phone_number" required>
-                        </div>
-                        <input type="hidden" name="date" id="selected-date">
-                        <input type="hidden" name="time_slot" id="selected-time">
-                        <button type="submit" class="btn btn-primary" disabled>Book Now</button>
-                    </form>
+<form method="post" action="https://api.web3forms.com/submit" id="booking-form">
+    {% csrf_token %}
+    <input type="hidden" name="access_key" value="632b6ca1-33c7-4cfd-9cf8-a2d7e8a6d414">
+    <input type="hidden" name="subject" value="New Booking Request">
+    <input type="hidden" name="redirect" value="https://cleandesignuk.com/bookings/success/">
+    <input type="hidden" name="date" id="selected-date">
+    <input type="hidden" name="time_slot" id="selected-time">
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" required>
+    </div>
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" name="phone_number" required>
+    </div>
+    <div class="form-group">
+        <label>Any Questions or Website Request Details</label>
+        <textarea class="form-control" name="questions" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" disabled>Book Now</button>
+</form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     function selectTimeSlot(e, date, time) {
         e.preventDefault();
@@ -73,8 +82,6 @@
         document.querySelector('#selected-date').value = date;
         document.querySelector('#selected-time').value = time;
         document.querySelector('#booking-form button').disabled = false;
-        document.querySelector('#booking-form button').innerText = 'Book Now';
-        console.log('Date selected:', date, 'Time selected:', time);
     }
 
     document.querySelectorAll('.date-item').forEach(item => {
