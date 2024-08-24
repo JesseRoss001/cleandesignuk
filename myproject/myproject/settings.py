@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'packages_services',
     'contact',
     'developer_store',
+    'compressor',  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',  # Add this line
+]
+
 # Media files (uploads)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
@@ -127,6 +135,9 @@ cloudinary.config(
     api_key=os.getenv('CLOUDINARY_API_KEY'),
     api_secret=os.getenv('CLOUDINARY_API_SECRET')
 )
+
+# Compressor cache backend
+COMPRESS_CACHE_BACKEND = 'default'
 
 # Cache settings
 CACHES = {
