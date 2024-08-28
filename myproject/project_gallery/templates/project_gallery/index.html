@@ -6,128 +6,144 @@
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<meta name="title" content="Our Projects - CleanDesignUK Portfolio">
-<meta name="description" content="View our portfolio at CleanDesignUK and see the successful projects we've delivered across North Wales. Our gallery showcases our capability in transforming ideas into visually appealing and functional websites.">
-<meta name="keywords" content="CleanDesignUK portfolio, web design projects, North Wales web design, visual gallery">
-<title>Project Gallery - Explore Our Work at CleanDesignUK</title>
+<meta name="title" content="Website Design North Wales - CleanDesignUK Project Gallery">
+<meta name="description" content="Discover our portfolio of website design projects in North Wales. At CleanDesignUK, we specialise in web design for businesses across North Wales, delivering high-quality and customised solutions.">
+<meta name="keywords" content="Website Design North Wales, Web Design North Wales, North Wales web design, CleanDesignUK portfolio, bespoke website design, North Wales business websites">
+<title>Website Design North Wales - CleanDesignUK Project Gallery</title>
 <link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
+
 <style>
-      /* Overall gallery aesthetics */
-  .gallery-container {
-    padding: 4rem 1rem;
-}
+    /* Overall gallery aesthetics */
+    .gallery-container {
+        padding: 4rem 1rem;
+        background-color: #ecebeb;
+    }
 
-main { background-color: #ecebeb; }
-
-/* Dynamic text sizing and alignment for responsiveness */
-.gallery-title {
-    text-align: center;
-    color: #0c0102; /* Updated to use logo red */
-    font-size: 2rem; /* Default size */
-    margin-bottom: 2rem;
-    font-weight: bold;
-}
-
-.nav-link { color: black !important; }
-
-.active {
-    color: #c41d1d !important;
-    font-weight: bold;
-}
-
-span { color: #c71208; }
-
-.project-info {
-    text-align: center;
-    color: #333;
-    font-size: 1rem; /* Default size */
-    max-width: 800px;
-    margin: auto;
-    margin-bottom: 3rem;
-}
-
-/* Responsive Font Sizes */
-@media (min-width: 768px) {
     .gallery-title {
-        font-size: 3rem; /* Larger on medium screens and up */
+        text-align: center;
+        color: #0c0102;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: bold;
     }
+
     .project-info {
-        font-size: 1.2rem; /* Slightly larger on medium screens and up */
+        text-align: center;
+        color: #333;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: auto;
+        margin-bottom: 3rem;
     }
-}
 
-/* Cards styling with a modern touch */
-.card {
-    background: #fafafa;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border: 1px solid rgba(148, 11, 11, 0.72);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interaction */
-    overflow: hidden; /* Hide overflow */
-    display: flex;
-    flex-direction: column; /* Organize content vertically */
-}
+    /* Cards styling */
+    .card {
+        background: #fafafa;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(148, 11, 11, 0.72);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
 
-.card:hover {
-    /* Slight scale on hover for interaction feedback */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 
-.card img {
-    width: 100%;
- 
-    height: 300px;
-    object-fit: cover;
-    display: block;
+    .card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
 
-    transition: opacity 0.3s ease; /* Smooth transition for image interactions */
-}
+    .card img:hover {
+        opacity: 0.9;
+    }
 
-.card img:hover {
-    opacity: 0.9; /* Slight opacity reduction on hover */
-}
+    .card-body {
+        padding: 1.5rem;
+        flex-grow: 1;
+        text-align: center;
+    }
 
-.card-body {
-    padding: 1.5rem;
-    flex-grow: 1;
-    text-align: center; /* Centered text inside cards */
-}
+    .card-title {
+        color: #ee1d24;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
 
-.card-title {
-    color: #ee1d24; /* Consistent with logo color */
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-}
+    .card-text {
+        color: #444;
+    }
 
-.card-text {
-    color: #444;
-}
+    .btn-primary {
+        background-color: #ee1d24;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-.btn-primary {
-    background-color: #ee1d24;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary:hover {
-    background-color: #c71208; /* Brighter red on hover */
-    transform: translateY(-2px);
-}
+    .btn-primary:hover {
+        background-color: #c71208;
+        transform: translateY(-2px);
+    }
 </style>
 
-
 <div class="container gallery-container">
-    <h2 class="gallery-title animate__animated animate__fadeInDown">Project <span>Gallery</span></h2>
-    <p class="project-info animate__animated animate__fadeIn">Explore some of the fantastic projects we've worked on. From bespoke websites to e-commerce solutions, our portfolio showcases our dedication to quality and creativity.</p>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <h2 class="gallery-title animate__animated animate__fadeInDown">Website Design <span>North Wales</span> Project Gallery</h2>
+    <p class="project-info animate__animated animate__fadeIn">At CleanDesignUK, we pride ourselves on delivering top-tier web design services across North Wales. Explore our project gallery to see how we transform business ideas into beautiful, functional websites tailored to our clients' needs.</p>
+
+    <div class="accordion" id="projectAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Our Approach to Website Design in North Wales
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    Our web design process is centred around understanding the unique requirements of each client. We specialise in creating websites that not only look great but also perform optimally across all devices. Whether you're looking to attract local customers or expand your reach beyond North Wales, our team is equipped to deliver bespoke solutions that meet your specific needs.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Why Choose CleanDesignUK for Your Web Design in North Wales?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    Choosing CleanDesignUK means partnering with a team dedicated to delivering high-quality web design solutions. We focus on SEO-friendly designs that help your business rank higher in search engines, ensuring that your website not only attracts visitors but converts them into customers. Our experience in the North Wales market allows us to tailor our services to the specific needs of local businesses, making us the ideal choice for companies looking to enhance their online presence.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Success Stories: Web Design Projects in North Wales
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    We have a proven track record of delivering successful web design projects across various industries in North Wales. Our clients include local businesses, e-commerce platforms, and service providers who have seen tangible results from their new websites. Explore our gallery to see how we've helped businesses like yours achieve their digital goals through customised web design solutions.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
         {% for project in projects %}
         <div class="col animate__animated animate__fadeInUp">
             <div class="card h-100 shadow-sm">
-                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }} - Website Design North Wales">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <p class="card-text">{{ project.description }}</p>
