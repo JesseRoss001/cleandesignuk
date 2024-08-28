@@ -4,187 +4,249 @@
 {% block content %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="CleanDesignUK - Expert Web Design Services in North Wales">
-    <meta name="description" content="Leading web design and digital marketing services in Bangor and Holyhead tailored to grow your business with custom solutions and dedicated support.">
-    <meta name="keywords" content="web design Bangor, SEO services Holyhead, custom websites North Wales, digital marketing Bangor, web development Holyhead">
-    <meta property="og:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
-    <meta property="og:description" content="Discover professional web design and digital marketing services in Bangor and Holyhead to elevate your business online.">
+    <meta name="title" content="Affordable Website Design Packages | Clean Design UK">
+    <meta name="description" content="Explore affordable website design packages by Clean Design UK. Tailored solutions for small businesses, professional website designers, and comprehensive SEO services.">
+    <meta name="keywords" content="affordable website, affordable website design packages, best website builders, professional website designer, seo packages for small businesses, web design north wales">
+    <meta property="og:title" content="Affordable Website Design Packages | Clean Design UK">
+    <meta property="og:description" content="Clean Design UK specializes in affordable website design packages tailored to small businesses. Discover our SEO services and professional website builders.">
     <meta property="og:image" content="{% static 'images/social-share-image.webp' %}">
     <meta property="og:url" content="https://www.cleandesignuk.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
-    <meta name="twitter:description" content="Professional web design and digital marketing services in Bangor and Holyhead designed to help your business succeed online.">
+    <meta name="twitter:title" content="Affordable Website Design Packages | Clean Design UK">
+    <meta name="twitter:description" content="Affordable website design and SEO services for small businesses. Clean Design UK offers customized packages and professional website builders.">
     <meta name="twitter:image" content="{% static 'images/twitter-share-image.webp' %}">
-    <title>CleanDesignUK - Leading Web Design North Wales</title>
+    <title>Affordable Website Design Packages | Clean Design UK</title>
     <link rel="icon" href="{% static 'images/favicon.webp' %}" type="image/webp">
     <style>
-        /* General Styling */
-        main { 
-            min-height: 100vh; 
-            background-color: #f8f9fa !important; 
-max-width: 1400px !important;
-margin-left: auto !important;
-margin-right: auto !important;
-        }
+/* General Styling */
+main {
+    min-height: 100vh;
+    background-color: #f4f4f4 !important;
+}
 
-        body { 
-            color: #333 !important; 
-        }
+body {
+    color: #2c2c2c !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    line-height: 1.7 !important;
+}
 
-        a { 
-            text-decoration: none !important; 
-        }
+a {
+    text-decoration: none !important;
+    color: #2c2c2c !important;
+}
 
-        .nav-link { 
-            color: #333 !important; 
-            font-weight: bold !important;
-        }
+.nav-link {
+    color: #2c2c2c !important;
+    font-weight: 600 !important;
+}
 
-        .active {
-            color: #c41d1d !important;
-            font-weight: bold !important;
-        }
+.active {
+    color: #e60000 !important;
+    font-weight: bold !important;
+}
 
-        /* Hero Section */
-        .hero-header {
-            background-color: #1a1a1a !important;
-            color: white !important;
-            padding: 50px 20px !important;
-            border-radius: 20px !important;
-            text-align: center !important;
-            margin-top: 30px !important;
-            margin-bottom: 30px !important;
-        }
+/* Hero Section */
+.hero-header {
+    background-color: #0d0d0d !important;
+    color: #fff !important;
+    padding: 60px 30px !important;
+    border-radius: 15px !important;
+    text-align: center !important;
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
+}
 
-        .hero-header h1 {
-            font-size: 2.5rem !important;
-            font-weight: bold !important;
-            margin-bottom: 20px !important;
-        }
+.hero-header h1 {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 25px !important;
+    line-height: 1.2 !important;
+}
 
-        .hero-header p {
-            font-size: 1.2rem !important;
-            margin-bottom: 30px !important;
-        }
+.hero-header p {
+    font-size: 1.3rem !important;
+    margin-bottom: 35px !important;
+    color: #e0e0e0 !important;
+}
 
-        .hero-header .btn-danger {
-            font-size: 1.2rem !important;
-            padding: 15px 40px !important;
-            border-radius: 25px !important;
-            background-color: #c41d1d !important;
-            border: none !important;
-            transition: background-color 0.3s ease, transform 0.3s ease !important;
-        }
+.hero-header .btn-danger {
+    font-size: 1.3rem !important;
+    padding: 18px 50px !important;
+    border-radius: 30px !important;
+    background-color: #e60000 !important;
+    border: none !important;
+color: #fff !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
 
-        .hero-header .btn-danger:hover {
-            background-color: #a01010 !important;
-            transform: scale(1.05) !important;
-        }
+.hero-header .btn-danger:hover {
+    background-color: #cc0000 !important;
+    transform: scale(1.07) !important;
+}
 
-        .highlight-text {
-            color: #c41d1d !important;
-            font-weight: bold !important;
-        }
+.highlight-text {
+    color: #e60000 !important;
+    font-weight: bold !important;
+}
 
-        .hero-image {
-            width: 100% !important;
-            max-width: 450px !important;
-            margin: 0 auto !important;
-            border-radius: 20px !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-        }
+.hero-image {
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+    border-radius: 25px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
 
-  /* Service Cards Styling with Amorphous Effect */
+/* Service Cards Section */
 .service-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 30px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    margin-top: 40px !important;
 }
 
 .service-card {
-    background-color: #ececec; /* Base light color */
-    border-radius: 15px; /* Smooth rounded corners */
-    padding: 20px;
-    width: 100%;
-    max-width: 300px;
-    height: 200px; /* Fixed height to ensure all cards are the same size */
-    text-align: center;
-    margin-bottom: 20px;
+    background-color: #ffffff !important;
+    border-radius: 15px !important;
+    padding: 25px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 320px !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Clip amorphous effect within card */
 }
 
-.service-card:before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 0, 0, 0.3); /* Semi-transparent red amorphous blob */
-    border-radius: 50%;
-    filter: blur(100px); /* Blur to create amorphous effect */
-    z-index: 0;
-    transition: transform 0.5s ease-in-out;
-}
-
-.service-card:hover:before {
-    transform: scale(1.5) translate(30%, 30%); /* Hover effect to animate the blob */
+.service-card:hover {
+    transform: translateY(-7px) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
 }
 
 .service-card h4 {
-    color: #c41d1d; /* Dark red text */
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    position: relative;
+    color: #e60000 !important;
+    font-size: 1.6rem !important;
+    margin-bottom: 15px !important;
     z-index: 1;
+    position: relative;
 }
 
 .service-card p {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.5;
-    position: relative;
+    color: #4d4d4d !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
     z-index: 1;
+    position: relative;
 }
 
-/* Ensure all service cards have the same size */
-.service-card.blog,
-.service-card.gallery,
-.service-card.packages {
-    height: 200px; /* Fixed height to match all cards */
-    max-width: 300px; /* Fixed width to match all cards */
+/* Testimonials Section */
+.testimonials {
+    background-color: #f0f0f0 !important;
+    padding: 50px 25px !important;
+    border-radius: 20px !important;
+    margin-top: 50px !important;
 }
 
-/* Hover effect */
-.service-card:hover {
-    transform: translateY(-10px); /* Lift card slightly on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+.testimonial {
+    background-color: white !important;
+    border-radius: 20px !important;
+    padding: 25px !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 25px !important;
 }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-header h1 {
-                font-size: 2rem !important;
-            }
+.testimonial p {
+    margin-bottom: 8px !important;
+    font-size: 1.1rem !important;
+}
 
-            .hero-header p {
-                font-size: 1rem !important;
-            }
+.testimonial p.font-weight-bold {
+    color: #e60000 !important;
+    font-weight: bold !important;
+}
 
-            .service-card-container {
-                flex-direction: column !important;
-                align-items: center !important;
-            }
+#more-testimonials {
+    display: none;
+}
 
-            .service-card {
-                max-width: 300px !important;
-            }
-        }
+#more-testimonials.show {
+    display: block;
+}
+
+.btn-primary {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    border-radius: 20px !important;
+    font-size: 1rem !important;
+    padding: 10px 30px !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    transform: scale(1.05) !important;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-top: 50px !important;
+    background-color: #ffffff !important;
+    padding: 40px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.accordion-item {
+    border-radius: 12px !important;
+    margin-bottom: 15px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.accordion-button {
+    background-color: #f9f9f9 !important;
+    color: #2c2c2c !important;
+    font-weight: bold !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e6e6e6 !important;
+    color: #e60000 !important;
+}
+
+.accordion-body {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-header h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-header p {
+        font-size: 1.2rem !important;
+    }
+
+    .service-card-container {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .service-card {
+        max-width: 320px !important;
+    }
+}
+
     </style>
 </head>
 
@@ -192,42 +254,276 @@ margin-right: auto !important;
     <div class="container">
         <div class="row g-0 d-flex justify-content-center align-items-center">
             <div class="col-lg-6 mt-3 mt-md-0 mb-4 mb-lg-0 animate__animated animate__fadeInLeft">
-                <h1 class="display-4 pt-3 fw-bold">Empowering the UK's
-                   <span class="highlight-text">Digital Presence</span> with Expertise and Care</h1>
-                <p class="lead my-4">At Clean Design UK, we tailor digital experiences that resonate with your brand and audience, backed by continuous support and dedication to your growth.</p>
-                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+                <h1 class="display-4 pt-3 fw-bold">Affordable Website Design Packages for Small Businesses</h1>
+                <p class="lead my-4">At Clean Design UK, we offer affordable website design packages tailored for small businesses. Our professional website designers and SEO experts are committed to enhancing your online presence with customized solutions.</p>
+                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}" title="Contact Clean Design UK for Affordable Website Design">Get Started with Your Website Design</a>
             </div>
             <div class="d-none d-md-flex col-md-8 col-lg-6 d-flex justify-content-center align-items-center animate__animated animate__fadeInRight">
-                <img alt="Dynamic digital design" class="img-fluid hero-image my-5" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1718828769/tc761x0fkoskglidjv5t.jpg">
+                <img alt="Affordable website design by Clean Design UK" class="img-fluid hero-image my-5" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1718828769/tc761x0fkoskglidjv5t.jpg" title="Affordable website design by Clean Design UK">
             </div>
         </div>
     </div>
 </section>
 
 <section class="service-card-container animate__animated animate__fadeInUp">
-    <a href="{% url 'blog:blog_list' %}" class="animate__animated animate__fadeInUp">
+    <a href="{% url 'blog:blog_list' %}"  title="Read our blog for insights on website design and SEO strategies" alt="Blog section link">
         <div class="service-card blog">
             <h4>Our Blog</h4>
-            <p>Gain insights into the latest trends and our innovative approaches to web design within North Wales.</p>
+            <p>Explore insights on affordable website design, SEO strategies, and best practices in digital marketing to help your small business succeed online.</p>
         </div>
     </a>
-    <a href="{% url 'gallery:index' %}" class="animate__animated animate__fadeInUp animate__delay-1s">
+    <a href="{% url 'gallery:index' %}" title="View our design gallery showcasing our website projects" alt="Design gallery section link">
         <div class="service-card gallery">
             <h4>Design Gallery</h4>
-            <p>Browse through our projects to see how we translate ideas into impactful digital art for businesses in Holyhead and Bangor.</p>
+            <p>Browse our portfolio of affordable website designs and see how we’ve helped businesses in North Wales and beyond establish their digital presence.</p>
         </div>
     </a>
-    <a href="{% url 'services:index' %}" class="animate__animated animate__fadeInUp animate__delay-2s">
+    <a href="{% url 'services:index' %}" title="Discover our customized website design and SEO packages" alt="Custom packages section link">
         <div class="service-card packages">
             <h4>Customised Packages</h4>
-            <p>Discover flexible website development packages using WordPress, Wix, Squarespace or fully bespoke solutions.</p>
+            <p>Discover our flexible website design packages, including SEO services and website builders, tailored for small businesses and startups.</p>
         </div>
     </a>
-    <a href="{% url 'contact:index' %}" class="animate__animated animate__fadeInUp animate__delay-3s">
+    <a href="{% url 'contact:index' %}" title="Get in touch with Clean Design UK for website and SEO services" alt="Contact section link">
         <div class="service-card contact">
             <h4>Get in Touch</h4>
-            <p>Let's start a conversation and connect to discuss your UK business website.</p>
+            <p>Contact us today to discuss your needs for an affordable, professional website design or SEO services tailored to your business.</p>
         </div>
     </a>
 </section>
+
+<section class="testimonials my-5">
+    <div class="container">
+        <h2 class="text-center">What Our Clients Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Jesse was fantastic. He was so knowledgeable and helped me create a beautiful website for my new business. He was very easy going, flexible and eager to let my style/vision shine through. Very grateful!"</p>
+                    <p class="font-weight-bold">— Avalon Eckert-Zymin</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Jessie was very helpful in listening to what I needed on my website and getting everything working correctly. Thank you for your help in building me a fantastic website."</p>
+                    <p class="font-weight-bold">— Zoe Blundell</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Five stars! In a world where IT confuses me, Clean Design was fantastic to deal with. Jesse was patient, and understood exactly what I was looking for. His advice was invaluable."</p>
+                    <p class="font-weight-bold">— Kerry Massey</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-danger" onclick="toggleTestimonials()">Expand for More</button>
+        </div>
+        <div id="more-testimonials" class="collapse mt-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Jesse was amazing, he knew exactly what the requirements of my website were. His devotion to you is amazing."</p>
+                        <p class="font-weight-bold">— Arron Tregenza</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"I really don’t know where I’d be without Jesse. He helped me so much with the tech side and was incredibly supportive."</p>
+                        <p class="font-weight-bold">— Sian Jones</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Having worked with Jesse of Clean Design UK for the last 6 months, I have been blown away by the level of ability and professionalism."</p>
+                        <p class="font-weight-bold">— Katherine Lewis</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"It was an amazing experience working with Jesse and his team. My website can tell it all. For your website design handled by a patient and dedicated team, choose Clean Design UK."</p>
+                        <p class="font-weight-bold">— Marie-Pascale</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Clean Design UK provided an affordable website design package that exceeded our expectations. Our online presence has grown significantly!"</p>
+                        <p class="font-weight-bold">— Sarah, Small Business Owner</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"The best website builder experience we've ever had. Our new site is professional, easy to navigate, and optimized for SEO."</p>
+                        <p class="font-weight-bold">— John, Local Entrepreneur</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Clean Design UK's customized SEO packages have significantly improved our search rankings. Highly recommend their services!"</p>
+                        <p class="font-weight-bold">— Emma, E-commerce Business Owner</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Thanks to Clean Design UK, our business website now ranks on the first page of Google. Their affordable SEO packages are unbeatable!"</p>
+                        <p class="font-weight-bold">— Mark, Small Business Owner</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"We needed a professional website designer, and Clean Design UK delivered beyond our expectations. Their attention to detail is incredible."</p>
+                        <p class="font-weight-bold">— Lisa, Freelance Consultant</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"The best investment we made was choosing Clean Design UK for our web application development. Their expertise in SEO has driven significant traffic to our site."</p>
+                        <p class="font-weight-bold">— Daniel, Tech Startup Founder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section my-5">
+    <div class="container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                        What is the best website design for small businesses?
+                    </button>
+                </h2>
+                <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The best website design for small businesses combines affordability, user-friendliness, and SEO optimization. At Clean Design UK, we offer website design packages tailored specifically for small businesses, ensuring your site is not only visually appealing but also optimized for search engines to drive traffic and sales.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                        How can I build an affordable website for my business?
+                    </button>
+                </h2>
+                <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Building an affordable website for your business involves selecting the right website builder, optimizing your content for SEO, and choosing a design package that fits your budget. Clean Design UK offers flexible website design packages and expert SEO services to help you create a professional, affordable website.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                        What is included in your SEO packages?
+                    </button>
+                </h2>
+                <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our SEO packages include comprehensive on-page SEO, keyword research, content optimization, link building, and ongoing performance monitoring. We tailor each package to meet the specific needs of your business, whether you're looking to improve local SEO, increase your online visibility, or drive more traffic to your site.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                        How long does it take to design and launch a website?
+                    </button>
+                </h2>
+                <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The timeline for designing and launching a website varies based on the complexity of the project. On average, a standard small business website can take 4-6 weeks from initial consultation to launch. At Clean Design UK, we work efficiently to meet your deadlines while ensuring the highest quality.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                        What website platforms do you work with?
+                    </button>
+                </h2>
+                <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We work with a variety of website platforms including WordPress, Wix, Squarespace, and fully bespoke solutions. Our team at Clean Design UK is skilled in designing and developing websites that meet your specific needs, whether you require an e-commerce site, a portfolio, or a corporate website.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix">
+                        How does Clean Design UK ensure my website is SEO-friendly?
+                    </button>
+                </h2>
+                <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqHeadingSix" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We follow best practices in on-page SEO, including keyword optimization, meta tags, image alt texts, and internal linking. Additionally, we ensure that your website is mobile-friendly, fast-loading, and designed to enhance user experience, all of which contribute to better search engine rankings.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSeven" aria-expanded="false" aria-controls="faqCollapseSeven">
+                        Can you help with content creation for my website?
+                    </button>
+                </h2>
+                <div id="faqCollapseSeven" class="accordion-collapse collapse" aria-labelledby="faqHeadingSeven" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, Clean Design UK offers content creation services as part of our website design packages. We can assist with copywriting, blog posts, and SEO-driven content to ensure your website effectively communicates your brand message and attracts your target audience.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseEight" aria-expanded="false" aria-controls="faqCollapseEight">
+                        Do you offer ongoing support after my website is launched?
+                    </button>
+                </h2>
+                <div id="faqCollapseEight" class="accordion-collapse collapse" aria-labelledby="faqHeadingEight" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Absolutely! We offer ongoing support and maintenance packages to ensure your website remains up-to-date, secure, and performing well. Our team is available to assist with any updates, troubleshooting, or additional services you may need post-launch.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingNine">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseNine" aria-expanded="false" aria-controls="faqCollapseNine">
+                        What are the costs involved in getting a website designed?
+                    </button>
+                </h2>
+                <div id="faqCollapseNine" class="accordion-collapse collapse" aria-labelledby="faqHeadingNine" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The cost of a website design depends on the scope of the project, the complexity of the features, and the platform used. Clean Design UK offers affordable website design packages with transparent pricing, tailored to fit your budget. We provide a detailed quote after our initial consultation to ensure there are no surprises.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingTen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTen" aria-expanded="false" aria-controls="faqCollapseTen">
+                        How can I get started with Clean Design UK?
+                    </button>
+                </h2>
+                <div id="faqCollapseTen" class="accordion-collapse collapse" aria-labelledby="faqHeadingTen" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Getting started is easy! Simply contact us through our website, and we’ll set up an initial consultation to discuss your needs, goals, and budget. From there, we’ll provide a tailored proposal and timeline to get your website project underway.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleTestimonials() {
+        const testimonials = document.getElementById('more-testimonials');
+        testimonials.classList.toggle('show');
+    }
+</script>
+
 {% endblock %}
