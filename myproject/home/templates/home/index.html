@@ -1,71 +1,233 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link  href="{% static 'css/home.css' %}" rel='stylesheet'>
-
-{% endblock %}
-
 {% block content %}
 <head>
-<!-- SEO Meta Tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="title" content="CleanDesignUK - Expert Web Design Services in North Wales">
-<meta name="description" content="Leading web design and digital marketing services in Bangor and Holyhead tailored to grow your business with custom solutions and dedicated support.">
-<meta name="keywords" content="web design Bangor, SEO services Holyhead, custom websites North Wales, digital marketing Bangor, web development Holyhead">
-<meta property="og:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
-<meta property="og:description" content="Discover professional web design and digital marketing services in Bangor and Holyhead to elevate your business online.">
-<meta property="og:image" content="{% static 'images/social-share-image.webp' %}">
-<meta property="og:url" content="https://www.cleandesignuk.com">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
-<meta name="twitter:description" content="Professional web design and digital marketing services in Bangor and Holyhead designed to help your business succeed online.">
-<meta name="twitter:image" content="{% static 'images/twitter-share-image.webp' %}">
-<title>CleanDesignUK - Leading Web Design North Wales</title>
-<link rel="icon" href="{% static 'images/favicon.webp' %}" type="image/webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="CleanDesignUK - Expert Web Design Services in North Wales">
+    <meta name="description" content="Leading web design and digital marketing services in Bangor and Holyhead tailored to grow your business with custom solutions and dedicated support.">
+    <meta name="keywords" content="web design Bangor, SEO services Holyhead, custom websites North Wales, digital marketing Bangor, web development Holyhead">
+    <meta property="og:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
+    <meta property="og:description" content="Discover professional web design and digital marketing services in Bangor and Holyhead to elevate your business online.">
+    <meta property="og:image" content="{% static 'images/social-share-image.webp' %}">
+    <meta property="og:url" content="https://www.cleandesignuk.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CleanDesignUK - Expert Web Design Services in North Wales">
+    <meta name="twitter:description" content="Professional web design and digital marketing services in Bangor and Holyhead designed to help your business succeed online.">
+    <meta name="twitter:image" content="{% static 'images/twitter-share-image.webp' %}">
+    <title>CleanDesignUK - Leading Web Design North Wales</title>
+    <link rel="icon" href="{% static 'images/favicon.webp' %}" type="image/webp">
+    <style>
+        /* General Styling */
+        main { 
+            min-height: 100vh; 
+            background-color: #f8f9fa !important; 
+max-width: 1400px !important;
+margin-left: auto !important;
+margin-right: auto !important;
+        }
+
+        body { 
+            color: #333 !important; 
+        }
+
+        a { 
+            text-decoration: none !important; 
+        }
+
+        .nav-link { 
+            color: #333 !important; 
+            font-weight: bold !important;
+        }
+
+        .active {
+            color: #c41d1d !important;
+            font-weight: bold !important;
+        }
+
+        /* Hero Section */
+        .hero-header {
+            background-color: #1a1a1a !important;
+            color: white !important;
+            padding: 50px 20px !important;
+            border-radius: 20px !important;
+            text-align: center !important;
+            margin-top: 30px !important;
+            margin-bottom: 30px !important;
+        }
+
+        .hero-header h1 {
+            font-size: 2.5rem !important;
+            font-weight: bold !important;
+            margin-bottom: 20px !important;
+        }
+
+        .hero-header p {
+            font-size: 1.2rem !important;
+            margin-bottom: 30px !important;
+        }
+
+        .hero-header .btn-danger {
+            font-size: 1.2rem !important;
+            padding: 15px 40px !important;
+            border-radius: 25px !important;
+            background-color: #c41d1d !important;
+            border: none !important;
+            transition: background-color 0.3s ease, transform 0.3s ease !important;
+        }
+
+        .hero-header .btn-danger:hover {
+            background-color: #a01010 !important;
+            transform: scale(1.05) !important;
+        }
+
+        .highlight-text {
+            color: #c41d1d !important;
+            font-weight: bold !important;
+        }
+
+        .hero-image {
+            width: 100% !important;
+            max-width: 450px !important;
+            margin: 0 auto !important;
+            border-radius: 20px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+
+  /* Service Cards Styling with Amorphous Effect */
+.service-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.service-card {
+    background-color: #ececec; /* Base light color */
+    border-radius: 15px; /* Smooth rounded corners */
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    height: 200px; /* Fixed height to ensure all cards are the same size */
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Clip amorphous effect within card */
+}
+
+.service-card:before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 0, 0, 0.3); /* Semi-transparent red amorphous blob */
+    border-radius: 50%;
+    filter: blur(100px); /* Blur to create amorphous effect */
+    z-index: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+.service-card:hover:before {
+    transform: scale(1.5) translate(30%, 30%); /* Hover effect to animate the blob */
+}
+
+.service-card h4 {
+    color: #c41d1d; /* Dark red text */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure all service cards have the same size */
+.service-card.blog,
+.service-card.gallery,
+.service-card.packages {
+    height: 200px; /* Fixed height to match all cards */
+    max-width: 300px; /* Fixed width to match all cards */
+}
+
+/* Hover effect */
+.service-card:hover {
+    transform: translateY(-10px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-header h1 {
+                font-size: 2rem !important;
+            }
+
+            .hero-header p {
+                font-size: 1rem !important;
+            }
+
+            .service-card-container {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .service-card {
+                max-width: 300px !important;
+            }
+        }
+    </style>
 </head>
 
-
-<section class="hero-header animate__animated animate__fadeIn">
-    <div class="container py-5">
+<section class="hero-header animate__animated animate__fadeIn m-md-1">
+    <div class="container">
         <div class="row g-0 d-flex justify-content-center align-items-center">
             <div class="col-lg-6 mt-3 mt-md-0 mb-4 mb-lg-0 animate__animated animate__fadeInLeft">
                 <h1 class="display-4 pt-3 fw-bold">Empowering the UK's
-                   <span class="highlight-text" > Digital Presence</span> with Expertise and Care</h1>
-                    <p class="lead my-4">At Clean Design UK, we tailor digital experiences that resonate with your brand and audience, backed by continuous support and dedication to your growth.</p>
-                    <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
-                    </div>
-                    <div class="d-none d-md-flex col-md-8 col-lg-6 d-flex justify-content-center align-items-center animate__animated animate__fadeInRight">
-                    <img alt="Dynamic digital design" class="img-fluid border rounded  my-5 " src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1718828769/tc761x0fkoskglidjv5t.jpg">
-                    </div>
-                    </div>
-                    <div class="row mt-5 text-center">
-                    <a href="{% url 'blog:blog_list' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp">
-                    <div class="service-card blog">
-                    <h4>Our Blog</h4>
-                    <p>Gain insights into the latest trends and our innovative approaches to web design within North Wales.</p>
-                    </div>
-                    </a>
-                    <a href="{% url 'gallery:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="service-card gallery">
-                    <h4>Design Gallery</h4>
-                    <p>Browse through our projects to see how we translate ideas into impactful digital art for businesses in Holyhead and Bangor .</p>
-                    </div>
-                    </a>
-                    <a href="{% url 'services:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-2s">
-                    <div class="service-card packages">
-                    <h4>Customised Packages</h4>
-                    <p>Discover flexible website development packages using Wordpress , Wix , Square Space or fully bespoke.</p>
-                    </div>
-                    </a>
-                    <a href="{% url 'contact:index' %}" class="col-md-6 col-lg-3 mb-3 animate__animated animate__fadeInUp animate__delay-3s">
-                    <div class="service-card contact">
-                    <h4>Get in Touch</h4>
-                    <p>Let's start a conversation and connect to discuss your UK business website.</p>
-                    </div>
-                    </a>
-                    </div>
-                    </div>
-                    </section>
-                    {% endblock %}
+                   <span class="highlight-text">Digital Presence</span> with Expertise and Care</h1>
+                <p class="lead my-4">At Clean Design UK, we tailor digital experiences that resonate with your brand and audience, backed by continuous support and dedication to your growth.</p>
+                <a class="btn btn-lg btn-danger" href="{% url 'contact:index' %}">Connect with us</a>
+            </div>
+            <div class="d-none d-md-flex col-md-8 col-lg-6 d-flex justify-content-center align-items-center animate__animated animate__fadeInRight">
+                <img alt="Dynamic digital design" class="img-fluid hero-image my-5" src="https://res.cloudinary.com/dz18uvfpa/image/upload/v1718828769/tc761x0fkoskglidjv5t.jpg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-card-container animate__animated animate__fadeInUp">
+    <a href="{% url 'blog:blog_list' %}" class="animate__animated animate__fadeInUp">
+        <div class="service-card blog">
+            <h4>Our Blog</h4>
+            <p>Gain insights into the latest trends and our innovative approaches to web design within North Wales.</p>
+        </div>
+    </a>
+    <a href="{% url 'gallery:index' %}" class="animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="service-card gallery">
+            <h4>Design Gallery</h4>
+            <p>Browse through our projects to see how we translate ideas into impactful digital art for businesses in Holyhead and Bangor.</p>
+        </div>
+    </a>
+    <a href="{% url 'services:index' %}" class="animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="service-card packages">
+            <h4>Customised Packages</h4>
+            <p>Discover flexible website development packages using WordPress, Wix, Squarespace or fully bespoke solutions.</p>
+        </div>
+    </a>
+    <a href="{% url 'contact:index' %}" class="animate__animated animate__fadeInUp animate__delay-3s">
+        <div class="service-card contact">
+            <h4>Get in Touch</h4>
+            <p>Let's start a conversation and connect to discuss your UK business website.</p>
+        </div>
+    </a>
+</section>
+{% endblock %}
