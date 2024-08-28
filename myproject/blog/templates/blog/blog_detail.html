@@ -177,7 +177,7 @@
             <h1 class="text-center">{{ post.title }}</h1>
             <p class="text-muted text-center ">{{ post.timestamp|date:"F d, Y" }}</p>
             {% if post.image %}
-            <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}" style="width:100%; height:auto;">
+            <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}"  title="{{ post.title }}" style="width:100%; height:auto;">
             {% endif %}
             <div class="content">
                 {{ post.content|safe }}

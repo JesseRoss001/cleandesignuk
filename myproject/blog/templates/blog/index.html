@@ -6,24 +6,25 @@
 {% endblock %}
 
 {% block content %}
-<meta name="title" content="CleanDesignUK Blog - Insights and Updates">
-<meta name="description" content="Stay updated with the latest trends in web design North Wales through the CleanDesignUK blog. Our posts provide valuable insights into effective website design strategies for SMEs and news in the digital landscape of North Wales.">
-<meta name="keywords" content="web design blog, digital trends, digital marketing north wales, how to get found on google, SME, CleanDesignUK updates">
-<title>Blog - CleanDesignUK Insights</title>
+<meta name="title" content="Web Master Tips and SEO Strategies | CleanDesignUK Blog">
+<meta name="description" content="Discover expert tips for web masters on SEO, website management, and the latest digital trends. CleanDesignUK provides in-depth insights to optimise your online presence.">
+<meta name="keywords" content="web master tips, SEO strategies, website management, digital marketing, online presence, web design trends">
+<title>Web Master Tips and SEO Strategies | CleanDesignUK Blog</title>
 <link rel="icon" type="image/webp" href="https://res.cloudinary.com/dz18uvfpa/image/upload/v1716203082/tge3nz3lwlahqfg163md.webp" alt="CleanDesignUK Logo">
 
-<div class="hero text-center animate__animated animate__fadeIn">
+<div class="hero text-centre animate__animated animate__fadeIn">
     <div class="py-5">
-        <h1>Our <span>Blog</span></h1>
-        <p>Stay updated with the latest trends and insights.</p>
+        <h1 class="text-center">Web Master <span>Insights</span></h1>
+        <p class="text-center" >Advanced tips and strategies to enhance your website’s performance and SEO.</p>
         <form method="GET" action="">
-            <div class="input-group mb-3 w-75">
+            <div class="input-group mb-3 w-75 mx-auto">
                 <input type="text" name="q" placeholder="Search blog posts..." value="{{ request.GET.q }}" class="form-control">
                 <button class="btn btn-outline-danger" type="submit">Search</button>
             </div>
         </form>
     </div>
 </div>
+
 
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center">
@@ -32,7 +33,7 @@
             <div class="blog-card">
                 {% if post.image %}
                 <div class="card-image">
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}"  title="{{ post.title }}">
                 </div>
                 {% endif %}
                 <div class="card-content">
@@ -89,4 +90,57 @@
         </div>
     </div>
 </div>
+
+<section class="content-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Mastering SEO and Website Management</h2>
+        <p class="lead text-center mb-5">As a web master, your role is crucial in optimising your website for search engines and ensuring seamless website management. At CleanDesignUK, we provide in-depth resources to help you navigate the complexities of SEO, from keyword research to technical optimisation. Our blog is designed to offer practical insights that web masters can implement to boost their site’s visibility, user engagement, and overall performance.</p>
+
+        <div class="accordion" id="seoAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Why SEO is Essential for Web Masters
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#seoAccordion">
+                    <div class="accordion-body">
+                        SEO (Search Engine Optimisation) is the backbone of online visibility. Without proper SEO strategies, even the most beautifully designed websites can fail to attract traffic. As a web master, understanding the intricacies of SEO—from on-page optimisation to link building—is essential to driving organic traffic and achieving top rankings on search engines like Google.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Key Strategies for Effective Website Management
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#seoAccordion">
+                    <div class="accordion-body">
+                        Website management is more than just maintaining your site’s functionality. It involves regular updates, security checks, content optimisation, and performance monitoring. By mastering these elements, web masters can ensure that their websites not only function smoothly but also rank well in search results.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Essential SEO Practices for Web Masters
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#seoAccordion">
+                    <div class="accordion-body">
+                        Our blog covers a range of topics tailored for web masters, including:
+                        <ul>
+                            <li><strong>SEO Best Practices:</strong> Learn how to optimise your website’s content, structure, and backlinks for better search engine rankings.</li>
+                            <li><strong>Technical SEO:</strong> Explore advanced techniques such as site speed optimisation, mobile-first indexing, and structured data implementation.</li>
+                            <li><strong>Content Strategy:</strong> Discover how to create compelling content that engages users and supports your SEO goals.</li>
+                            <li><strong>Website Analytics:</strong> Understand how to use tools like Google Analytics to track your website’s performance and make data-driven decisions.</li>
+                            <li><strong>Security and Maintenance:</strong> Stay ahead of potential threats by implementing the latest security measures and performing regular site audits.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
