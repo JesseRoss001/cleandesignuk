@@ -99,6 +99,7 @@ color: #fff !important;
 }
 
 /* Service Cards Section */
+/* Service Cards Section */
 .service-card-container {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -107,7 +108,7 @@ color: #fff !important;
 }
 
 .service-card {
-    background-color: #ffffff !important;
+    
     border-radius: 15px !important;
     padding: 25px !important;
     width: 100% !important;
@@ -115,14 +116,17 @@ color: #fff !important;
     height: 320px !important;
     text-align: center !important;
     margin-bottom: 30px !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), /* Inner shadow for depth */
+                inset 0 4px 4px rgba(255, 255, 255, 0.5); /* White glow inside */
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for definition */
 }
 
 .service-card:hover {
     transform: translateY(-7px) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), /* Enhanced shadow on hover */
+                inset 0 4px 4px rgba(255, 255, 255, 0.6); /* Enhanced white glow on hover */
 }
 
 .service-card h4 {
@@ -265,7 +269,7 @@ color: #fff !important;
     </div>
 </section>
 
-<section class="service-card-container animate__animated animate__fadeInUp">
+<section class="service-card-container animate__animated animate__fadeInUp mx-md-2 mx-lg-3">
     <a href="{% url 'blog:blog_list' %}"  title="Read our blog for insights on website design and SEO strategies" alt="Blog section link">
         <div class="service-card blog">
             <h4>Our Blog</h4>
